@@ -1,0 +1,280 @@
+hostname: DC1-SP1
+is_deployed: true
+router_bgp:
+  as: '65000.0'
+  router_id: 192.168.100.249
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  bgp_defaults:
+  - timers bgp 5 15
+  - neighbor default send-community
+  bgp:
+    default:
+      ipv4_unicast: false
+  maximum_paths:
+    paths: 128
+    ecmp: 128
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  peer_groups:
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    update_source: Loopback0
+    bfd: true
+    password: $1c$U41I+zV057R0l38LbPqKww==
+    send_community: all
+    maximum_routes: 0
+    ebgp_multihop: 3
+    next_hop_unchanged: true
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  address_family_ipv4:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+  address_family_rtc:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+      default_route_target:
+        only: true
+  neighbors:
+  - ip_address: 192.168.100.1
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: DC1-CL1
+    description: DC1-CL1
+    remote_as: '65000.1'
+  - ip_address: 192.168.100.2
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: DC1-CL2
+    description: DC1-CL2
+    remote_as: '65000.1'
+  - ip_address: 192.168.100.3
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: DC1-CL3
+    description: DC1-CL3
+    remote_as: '65000.3'
+  - ip_address: 192.168.100.4
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: DC1-CL4
+    description: DC1-CL4
+    remote_as: '65000.3'
+  as_notation: asdot
+service_routing_protocols_model: multi-agent
+ip_routing: true
+daemon_terminattr:
+  cvaddrs:
+  - 192.168.0.5:9910
+  cvauth:
+    method: token
+    token_file: /tmp/token
+  cvvrf: MGMT
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+  ingestexclude: /Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+  disable_aaa: false
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 3500
+    ending: 4000
+spanning_tree:
+  mode: none
+local_users:
+- name: admin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+- name: cvpadmin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+clock:
+  timezone: US/Central
+vrfs:
+- name: MGMT
+  ip_routing: false
+management_interfaces:
+- name: Management1
+  description: oob_management
+  shutdown: false
+  vrf: MGMT
+  ip_address: 192.168.0.100/24
+  gateway: null
+  type: oob
+mac_address_table:
+  aging_time: 1800
+management_api_http:
+  enable_vrfs:
+  - name: MGMT
+    access_group: CVP-ACL
+  enable_https: true
+  enable_http: false
+ntp:
+  servers:
+  - name: 0.pool.ntp.org
+    vrf: default
+    preferred: true
+ethernet_interfaces:
+- name: Ethernet1
+  peer: DC1-CL1
+  peer_interface: Ethernet1
+  peer_type: l3leaf
+  description: P2P_LINK_TO_DC1-CL1_Ethernet1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.1.0/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+- name: Ethernet2
+  peer: DC1-CL2
+  peer_interface: Ethernet1
+  peer_type: l3leaf
+  description: P2P_LINK_TO_DC1-CL2_Ethernet1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.1.4/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+- name: Ethernet3
+  peer: DC1-CL3
+  peer_interface: Ethernet1
+  peer_type: l3leaf
+  description: P2P_LINK_TO_DC1-CL3_Ethernet1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.1.8/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+- name: Ethernet4
+  peer: DC1-CL4
+  peer_interface: Ethernet1
+  peer_type: l3leaf
+  description: P2P_LINK_TO_DC1-CL4_Ethernet1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.1.12/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+loopback_interfaces:
+- name: Loopback0
+  description: EVPN_Overlay_Peering
+  shutdown: false
+  ip_address: 192.168.100.249/32
+  ospf_area: 0.0.0.0
+router_ospf:
+  process_ids:
+  - id: 100
+    passive_interface_default: true
+    router_id: 192.168.100.249
+    max_lsa: 12000
+    no_passive_interfaces:
+    - Ethernet1
+    - Ethernet2
+    - Ethernet3
+    - Ethernet4
+    bfd_enable: false
+router_bfd:
+  multihop:
+    interval: 3000
+    min_rx: 3000
+    multiplier: 3
+metadata:
+  platform: vEOS
+enable_password:
+  hash_algorithm: sha512
+  key: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+interface_defaults:
+  mtu: 1500
+  ethernet:
+    shutdown: true
+arp:
+  aging:
+    timeout_default: 1500
+switchport_default:
+  mode: routed
+management_console:
+  idle_timeout: 100
+errdisable:
+  recovery:
+    interval: 30
+load_interval:
+  default: 5
+terminal:
+  length: 60
+ip_icmp_redirect: false
+ip_name_servers:
+- ip_address: 10.255.0.2
+management_ssh:
+  access_groups:
+  - name: SNMP-ACL
+    vrf: MGMT
+  idle_timeout: 5
+  enable: true
+  vrfs:
+  - name: MGMT
+    enable: true
+ip_tacacs_source_interfaces:
+- name: Management1
+  vrf: MGMT
+aaa_authentication:
+  login:
+    default: local
+    console: local
+  policies:
+    on_failure_log: true
+    on_success_log: true
+aaa_authorization:
+  exec:
+    default: local
+  config_commands: true
+  serial_console: true
+  commands:
+    all_default: local
+standard_access_lists:
+- name: SNMP-ACL
+  sequence_numbers:
+  - sequence: 10
+    action: permit 0.0.0.0/0
+- name: CVP-ACL
+  sequence_numbers:
+  - sequence: 10
+    action: permit 0.0.0.0/0
+management_security:
+  password:
+    encryption_key_common: true
+banners:
+  login: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    !!                                                                        !!
+
+    !! IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!
+
+    !! WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!
+
+    !!                                                                        !!
+
+    !! UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!
+
+    !!                                                                        !!
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+    EOF
+
+    '
+event_monitor:
+  enabled: true

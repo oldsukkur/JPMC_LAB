@@ -1,0 +1,219 @@
+router_bgp:
+  as: '65330.4'
+  router_id: 10.0.0.8
+  bgp_defaults:
+  - maximum-paths 128 ecmp 128
+  peer_groups:
+    MLAG-IPv4-UNDERLAY-PEER:
+      type: ipv4
+      remote_as: '65330.4'
+      next_hop_self: true
+      description: DC1-BL1
+      password: vnEaG8gMeQf3d3cN6PktXQ==
+      maximum_routes: 12000
+      send_community: all
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      password: AQQvKeimxJu+uGQ/yYvv9w==
+      maximum_routes: 12000
+      send_community: all
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: '3'
+      password: q+VNViP5i4rVjW1cxFv2wA==
+      send_community: all
+      maximum_routes: 0
+  address_family_ipv4:
+    peer_groups:
+      MLAG-IPv4-UNDERLAY-PEER:
+        activate: true
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      EVPN-OVERLAY-PEERS:
+        activate: false
+  neighbors:
+    10.0.5.12:
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+      description: DC1-BL1
+    192.168.0.28:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65330.0'
+      description: DC1-SP1_Ethernet8
+    192.168.0.30:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65330.0'
+      description: DC1-SP2_Ethernet8
+    10.0.0.249:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC1-SP1
+      remote_as: '65330.0'
+    10.0.0.250:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC1-SP2
+      remote_as: '65330.0'
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+static_routes:
+- vrf: MGMT
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 10.81.121.1
+service_routing_protocols_model: multi-agent
+ip_routing: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+  - 10.81.120.60
+spanning_tree:
+  mode: mstp
+  mst_instances:
+    '0':
+      priority: 4096
+  no_spanning_tree_vlan: 4093-4094
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+vrfs:
+  MGMT:
+    ip_routing: false
+management_interfaces:
+  Management1:
+    description: oob_management
+    shutdown: false
+    vrf: MGMT
+    ip_address: 10.81.121.52/24
+    gateway: 10.81.121.1
+    type: oob
+management_api_http:
+  enable_vrfs:
+    MGMT:
+      access_group: CVP-ACL
+  enable_https: true
+  enable_http: false
+vlans:
+  4093:
+    tenant: system
+    name: LEAF_PEER_L3
+    trunk_groups:
+    - LEAF_PEER_L3
+  4094:
+    tenant: system
+    name: MLAG_PEER
+    trunk_groups:
+    - MLAG
+vlan_interfaces:
+  Vlan4093:
+    description: MLAG_PEER_L3_PEERING
+    shutdown: false
+    ip_address: 10.0.5.13/31
+    mtu: 1500
+  Vlan4094:
+    description: MLAG_PEER
+    shutdown: false
+    ip_address: 10.0.4.13/31
+    no_autostate: true
+    mtu: 1500
+port_channel_interfaces:
+  Port-Channel3:
+    description: MLAG_PEER_DC1-BL1_Po3
+    type: switched
+    shutdown: false
+    vlans: 2-4094
+    mode: trunk
+    trunk_groups:
+    - LEAF_PEER_L3
+    - MLAG
+ethernet_interfaces:
+  Ethernet3:
+    peer: DC1-BL1
+    peer_interface: Ethernet3
+    peer_type: mlag_peer
+    description: MLAG_PEER_DC1-BL1_Ethernet3
+    type: switched
+    shutdown: false
+    channel_group:
+      id: 3
+      mode: active
+    speed: 100g
+  Ethernet1:
+    peer: DC1-SP1
+    peer_interface: Ethernet8
+    peer_type: spine
+    description: P2P_LINK_TO_DC1-SP1_Ethernet8
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.0.29/31
+  Ethernet2:
+    peer: DC1-SP2
+    peer_interface: Ethernet8
+    peer_type: spine
+    description: P2P_LINK_TO_DC1-SP2_Ethernet8
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.0.31/31
+mlag_configuration:
+  domain_id: DC1_BLEAFL1-2
+  local_interface: Vlan4094
+  peer_address: 10.0.4.12
+  peer_link: Port-Channel3
+  reload_delay_mlag: 300
+  reload_delay_non_mlag: 330
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    shutdown: false
+    ip_address: 10.0.0.8/32
+  Loopback1:
+    description: VTEP_VXLAN_Tunnel_Source
+    shutdown: false
+    ip_address: 10.0.1.7/32
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: permit 10.0.0.0/24 eq 32
+      20:
+        action: permit 10.0.1.0/24 eq 32
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match:
+        - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 3000
+    min_rx: 3000
+    multiplier: 3
+ip_igmp_snooping:
+  globally_enabled: false
+ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+vxlan_interface:
+  Vxlan1:
+    description: DC1-BL2_VTEP
+    vxlan:
+      source_interface: Loopback1
+      virtual_router_encapsulation_mac_address: mlag-system-id
+      udp_port: 4789

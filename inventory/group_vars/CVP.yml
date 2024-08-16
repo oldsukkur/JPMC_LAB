@@ -1,0 +1,37 @@
+---
+ztp:
+  default:
+    # update with the appropiate CVP address
+    registration: 'http://10.88.160.137/ztp/bootstrap'
+    gateway: 10.88.160.1
+    nameservers:
+      - '10.88.160.61'
+  general:
+    subnets:
+      # subnet example for Arista switches
+      - network: 10.88.172.160
+        netmask: 255.255.255.224
+        gateway: 10.88.172.161
+        nameservers:
+          - '10.88.160.61'
+        start: 10.88.172.191
+        end: 10.88.172.191
+        lease_time: 300
+      # Example uses CVP as DHCP server. This subnet enables DHCP in local int.
+      - network: 10.88.160.0
+        netmask: 255.255.255.0
+        nameservers:
+          - '10.88.160.61'
+        start: 10.88.160.138
+        end: 10.88.160.138
+        lease_time: 300
+  clients:
+    # Example of static host entries.
+    - name: DC1-SP1
+      mac: '50:1d:00:3e:5c:50'
+      ip4: 10.88.172.162
+    - name: DC1-SP2
+      mac: '50:1d:00:c4:11:ce'
+      ip4: 10.88.172.163
+
+# Link to documentation: https://cvp.avd.sh/en/stable/roles/dhcp_configuration

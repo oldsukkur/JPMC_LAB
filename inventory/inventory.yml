@@ -1,0 +1,260 @@
+all:
+  children:
+    CLOUDVISION:
+      hosts:
+        CVaaS:
+          ansible_host: www.cv-prod-us-central1-c.arista.io
+          ansible_user: cvaas
+          ansible_password: "{{ lookup('file', '{{ inventory_dir }}/CVaaS.token')}}"
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: True
+          ansible_httpapi_validate_certs: True
+          ansible_network_os: eos
+        # cv_ztp:
+          # Address of host that will act as DHCP server
+          # ansible_host: 10.255.19.250
+        # cv_server:
+          # section for CVP primary node address
+          # ansible_httpapi_host: 10.255.19.250
+          # ansible_host: 10.255.19.250
+          # ansible_connection: httpapi
+          # ansible_httpapi_use_ssl: false
+          # ansible_httpapi_validate_certs: false
+          # ansible_network_os: eos
+          # ansible_httpapi_port: 443
+          #fabric_name: FABRIC
+          # Configuration to get Virtual Env information
+          # ansible_python_interpreter: $(which python3)
+    CAMPUS_GLOBAL:
+      children:
+        # node_groups indented below the fabric var will create containers
+        CAMPUS_ASIA:
+          children:
+            MANILA:
+              children:
+                MANILA_BORDER_LEAF:
+                  hosts:
+                    C000267-009R601P:
+                      # ansible_host var required for validation role.
+                      ansible_host: 192.168.0.200
+                    C000267-014R602P:
+                      ansible_host: 192.168.0.201
+                MANILA_LEAFS:
+                  children:
+                    MANILA_WC_GRD:
+                      hosts:  
+                        C000267-GRDS001P:
+                          ansible_host: 192.168.0.101
+                        C000267-GRDS002P:
+                          ansible_host: 192.168.0.102
+                        C000267-GRDS003P:
+                          ansible_host: 192.168.0.103
+                        C000267-GRDS004P:
+                          ansible_host: 192.168.0.104
+                        C000267-GRDS005P:
+                          ansible_host: 192.168.0.105
+                        C000267-GRDS006P:
+                          ansible_host: 192.168.0.106
+                        C000267-GRDS007P:
+                          ansible_host: 192.168.0.107
+                    MANILA_WC_7:
+                      hosts:
+                        C000267-007S008P:
+                         ansible_host: 192.168.0.108
+                        C000267-007S009P:
+                          ansible_host: 192.168.0.109
+                        C000267-007S010P:
+                          ansible_host: 192.168.0.110
+                        C000267-007S0011P:
+                          ansible_host: 192.168.0.111
+                    MANILA_WC_8:
+                      hosts:
+                        C000267-008S012P:
+                          ansible_host: 192.168.0.112
+                        C000267-008S013P:
+                          ansible_host: 192.168.0.113
+                        C000267-008S014P:
+                          ansible_host: 192.168.0.114
+                        C000267-008S015P:
+                          ansible_host: 192.168.0.115
+                    MANILA_WC_9:
+                      hosts:
+                        C000267-009S016P:
+                          ansible_host: 192.168.0.116
+                        C000267-009S017P:
+                          ansible_host: 192.168.0.117
+                        C000267-009S018P:
+                          ansible_host: 192.168.0.118
+                        C000267-009S019P:
+                          ansible_host: 192.168.0.119
+                    MANILA_WC_10:
+                      hosts:
+                        C000267-010S020P:
+                          ansible_host: 192.168.0.120
+                        C000267-010S021P:
+                          ansible_host: 192.168.0.121
+                        C000267-010S022P:
+                          ansible_host: 192.168.0.122
+                        C000267-010S023P:
+                          ansible_host: 192.168.0.123
+                    MANILA_WC_11:
+                      hosts:
+                        C000267-011S024P:
+                          ansible_host: 192.168.0.124
+                        C000267-011S025P:
+                          ansible_host: 192.168.0.125
+                        C000267-011S026P:
+                          ansible_host: 192.168.0.126
+                        C000267-011S027P:
+                          ansible_host: 192.168.0.127
+                    MANILA_WC_12:
+                      hosts:
+                        C000267-012S028P:
+                          ansible_host: 192.168.0.128
+                        C000267-012S029P:
+                          ansible_host: 192.168.0.129
+                        C000267-012S030P:
+                          ansible_host: 192.168.0.130
+                        C000267-012S031P:
+                          ansible_host: 192.168.0.131
+                    MANILA_WC_14:
+                      hosts:
+                        C000267-014S032P:
+                          ansible_host: 192.168.0.132
+                        C000267-014S033P:
+                          ansible_host: 192.168.0.133
+                        C000267-014S034P:
+                          ansible_host: 192.168.0.134
+                        C000267-014S035P:
+                          ansible_host: 192.168.0.135
+                    MANILA_WC_15:
+                      hosts:
+                        C000267-015S036P:
+                          ansible_host: 192.168.0.136
+                        C000267-015S037P:
+                          ansible_host: 192.168.0.137
+                        C000267-015S038P:
+                          ansible_host: 192.168.0.138
+                        C000267-015S039P:
+                          ansible_host: 192.168.0.139
+                    MANILA_WC_16:
+                      hosts:
+                        C000267-016S040P:
+                          ansible_host: 192.168.0.140
+                        C000267-016S041P:
+                          ansible_host: 192.168.0.141
+                        C000267-016S042P:
+                          ansible_host: 192.168.0.142
+                        C000267-016S043P:
+                          ansible_host: 192.168.0.143
+                    MANILA_WC_17:
+                      hosts:
+                        C000267-017S044P:
+                          ansible_host: 192.168.0.144
+                        C000267-017S045P:
+                          ansible_host: 192.168.0.145
+                        C000267-017S046P:
+                          ansible_host: 192.168.0.146
+                        C000267-017S047P:
+                          ansible_host: 192.168.0.147
+                    MANILA_WC_18:
+                      hosts:
+                        C000267-018S048P:
+                          ansible_host: 192.168.0.148
+                        C000267-018S049P:
+                          ansible_host: 192.168.0.149
+                        C000267-018S050P:
+                          ansible_host: 192.168.0.150
+                        C000267-018S051P:
+                          ansible_host: 192.168.0.151
+                    MANILA_WC_19:
+                      hosts:
+                        C000267-019S052P:
+                          ansible_host: 192.168.0.152
+                        C000267-019S053P:
+                          ansible_host: 192.168.0.153
+                        C000267-019S054P:
+                          ansible_host: 192.168.0.154
+                        C000267-019S055P:
+                          ansible_host: 192.168.0.155
+                    MANILA_WC_20:
+                      hosts:
+                        C000267-020S056P:
+                          ansible_host: 192.168.0.156
+                        C000267-020S057P:
+                          ansible_host: 192.168.0.157
+                        C000267-020S058P:
+                          ansible_host: 192.168.0.158
+                        C000267-020S059P:
+                          ansible_host: 192.168.0.159
+                    MANILA_SERVICE_LEAFS:
+                      hosts: 
+                        C000267-009S560P:
+                          ansible_host: 192.168.0.202
+                        C000267-009S571P:
+                          ansible_host: 192.168.0.203
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            # should use vault for passwords
+            ansible_become: true
+            ansible_become_method: enable
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_port: 443
+            ansible_httpapi_validate_certs: false
+
+        MANILA_TENANTS:
+          children:
+            MANILA_LEAVES:
+            MANILA_BORDERSPINES:
+            MANILA_SERVICE_LEAFS:
+
+        MANILA_ENDPOINTS:
+          children:
+           MANILA_LEAFS:
+        MANILA_WC_GF_CONNECTED_ENDPOINTS:
+          children:
+           MANILA_WC_GF:
+        MANILA_WC_F07_CONNECTED_ENDPOINTS:
+          children:
+           MANILA_WC_F7:
+        MANILA_WC_F08_CONNECTED_ENDPOINTS:
+          children:
+           MANILA_WC_F8:
+        MANILA_WC_F09_CONNECTED_ENDPOINTS:
+          children:
+           MANILA_WC_F9:
+        MANILA_WC_F10_CONNECTED_ENDPOINTS:
+          children:
+           MANILA_WC_F10:
+        MANILA_WC_F11_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F11:
+        MANILA_WC_F12_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F12:
+        MANILA_WC_F13_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F13:
+        MANILA_WC_F14_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F14:
+        MANILA_WC_F15_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F15:
+        MANILA_WC_F16_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F16:
+        MANILA_WC_F17_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F17:
+        MANILA_WC_F18_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F18:
+        MANILA_WC_F19_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F19:
+        MANILA_WC_F20_CONNECTED_ENDPOINTS:
+         children:
+           MANILA_WC_F20:
+

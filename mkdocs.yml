@@ -1,0 +1,9 @@
+site_name: "PS SKU L3LS"
+docs_dir: inventory/documentation
+
+theme:
+  name: material
+  features:
+    - navigation.prune
+
+site_dir: public

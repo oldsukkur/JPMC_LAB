@@ -1,0 +1,19 @@
+---
+exclude_paths:
+  - inventory/intended*
+  - inventory/documentation*
+  - .venv/
+  - .ansible/
+  - .gitlab-ci.yml
+  - .cache
+
+mock_roles:
+  - arista.avd.eos_designs
+  - arista.avd.eos_cli_config_gen
+  - arista.avd.cvp_configlet_upload
+  - arista.avd.eos_config_deploy_cvp
+
+skip_list:
+  - yaml[line-length]
+  - yaml[brackets]
+  - var-naming[no-role-prefix]

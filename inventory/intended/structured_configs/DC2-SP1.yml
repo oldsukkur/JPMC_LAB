@@ -1,0 +1,208 @@
+router_bgp:
+  as: '65331.0'
+  router_id: 57.7.192.249
+  bgp_defaults:
+  - maximum-paths 128 ecmp 128
+  peer_groups:
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      password: AQQvKeimxJu+uGQ/yYvv9w==
+      maximum_routes: 12000
+      send_community: all
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: '3'
+      password: q+VNViP5i4rVjW1cxFv2wA==
+      send_community: all
+      maximum_routes: 0
+      next_hop_unchanged: true
+  address_family_ipv4:
+    peer_groups:
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      EVPN-OVERLAY-PEERS:
+        activate: false
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  neighbors:
+    192.168.1.1:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.1'
+      description: DC2-CL1_Ethernet1
+    192.168.1.5:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.1'
+      description: DC2-CL2_Ethernet1
+    192.168.1.9:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.2'
+      description: DC2-SL1_Ethernet1
+    192.168.1.13:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.2'
+      description: DC2-SL2_Ethernet1
+    192.168.1.17:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.2'
+      description: DC2-BL1_Ethernet1
+    192.168.1.21:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65331.2'
+      description: DC2-BL2_Ethernet1
+    10.0.2.5:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-BL1
+      remote_as: '65331.2'
+    10.0.2.6:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-BL2
+      remote_as: '65331.2'
+    10.0.2.1:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-CL1
+      remote_as: '65331.1'
+    10.0.2.2:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-CL2
+      remote_as: '65331.1'
+    10.0.2.3:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-SL1
+      remote_as: '65331.2'
+    10.0.2.4:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC2-SL2
+      remote_as: '65331.2'
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+static_routes:
+- vrf: MGMT
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 10.81.121.1
+service_routing_protocols_model: multi-agent
+ip_routing: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+  - 10.81.120.60
+spanning_tree:
+  mode: none
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+vrfs:
+  MGMT:
+    ip_routing: false
+management_interfaces:
+  Management1:
+    description: oob_management
+    shutdown: false
+    vrf: MGMT
+    ip_address: 10.81.121.55/24
+    gateway: 10.81.121.1
+    type: oob
+management_api_http:
+  enable_vrfs:
+    MGMT:
+      access_group: CVP-ACL
+  enable_https: true
+  enable_http: false
+ethernet_interfaces:
+  Ethernet1:
+    peer: DC2-CL1
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-CL1_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.0/31
+  Ethernet2:
+    peer: DC2-CL2
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-CL2_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.4/31
+  Ethernet3:
+    peer: DC2-SL1
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-SL1_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.8/31
+  Ethernet4:
+    peer: DC2-SL2
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-SL2_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.12/31
+  Ethernet5:
+    peer: DC2-BL1
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-BL1_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.16/31
+  Ethernet6:
+    peer: DC2-BL2
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_DC2-BL2_Ethernet1
+    speed: forced 100g
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 192.168.1.20/31
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    shutdown: false
+    ip_address: 57.7.192.249/32
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: permit 57.7.192.248/29 eq 32
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match:
+        - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 3000
+    min_rx: 3000
+    multiplier: 3

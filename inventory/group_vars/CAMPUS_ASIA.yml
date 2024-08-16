@@ -1,0 +1,82 @@
+---
+# DNS servers. In ACT, reachable via default.
+# Cannot use eos_designs `name_servers` because mgmt_interface_vrf is MGMT
+custom_structured_configuration_ip_name_servers:
+  - ip_address: 10.255.0.2
+#   vrf: MGMT
+
+# NTP Servers IP or DNS name, first NTP server will be prefered
+ntp_settings:
+  server_vrf: default
+  servers:
+    - name: 0.pool.ntp.org
+
+# Management SSH
+custom_structured_configuration_management_ssh:
+  access_groups:
+    - name: SNMP-ACL
+      vrf: MGMT
+  idle_timeout: 5
+  enable: true
+  vrfs:
+    - name: MGMT
+      enable: true
+
+# custom_structured_configuration_aaa_accounting:
+#   exec:
+#     default:
+#       type: start-stop
+#       group: TacServer
+#   commands:
+#     commands_default:
+#       - commands: 0-15
+#         type: start-stop
+#         group: TacServer
+
+# If using tacacs+, add your key in Global/vault file:
+# custom_structured_configuration_tacacs_servers:
+#   hosts:
+#     - host: 1.2.3.4
+#       vrf: mgmt
+#       key: "{{ vault.tacacs.key }}"
+#       key_type: 7
+
+custom_structured_configuration_banners:
+  login: |
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !!                                                                        !!
+    !! IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!
+    !! WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!
+    !!                                                                        !!
+    !! UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!
+    !!                                                                        !!
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    EOF
+
+# snmp_settings:
+#   enable_mgmt_interface_vrf: true
+#   # engineID = use hostname + ip, by default
+#   compute_local_engineid: true
+#   compute_v3_user_localized_key: true
+#   groups:
+#     - name: arista_snmp_group
+#       version: v3
+#       authentication: priv
+#   users:
+#     - name: arista_snmp
+#       group: arista_snmp_group
+#       version: v3
+#       auth: sha
+#       auth_passphrase: "{{ vault.snmpv3.users.user1.auth }}"
+#       priv: aes
+#       priv_passphrase: "{{ vault.snmpv3.users.user1.priv }}"
+#   hosts:
+#     - host: 1.2.3.4
+#       vrf: MGMT
+#       version: 3
+#       users:
+#         - username: arista_snmp
+#           authentication_level: priv
+#   traps:
+#     enable: true

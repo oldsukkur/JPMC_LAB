@@ -1,0 +1,8 @@
+---
+type: spine
+
+spanning_tree:
+  mode: none
+
+# BGP update wait commands will be disabled for vEOS
+bgp_update_wait_for_convergence: true

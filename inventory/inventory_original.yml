@@ -1,0 +1,72 @@
+---
+all:
+  children:
+    CVP:
+      hosts:
+        cv_ztp:
+          # Address of host that will act as DHCP server
+          ansible_host: 10.255.19.250
+        cv_server:
+          # section for CVP primary node address
+          ansible_httpapi_host: 10.255.19.250
+          ansible_host: 10.255.19.250
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: false
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+          fabric_name: FABRIC
+          # Configuration to get Virtual Env information
+          ansible_python_interpreter: $(which python3)
+
+    GLOBAL:
+      children:
+        # node_groups indented below the fabric var will create containers
+        FABRIC:
+          children:
+            DC1:
+              children:
+                DC1_SPINES:
+                  hosts:
+                    DC1-SP1:
+                      # ansible_host var required for validation role.
+                      ansible_host: 192.168.0.100
+                    DC1-SP2:
+                      ansible_host: 192.168.0.101
+                DC1_LEAVES:
+                  children:
+                    DC1_CLEAF1_2:
+                      hosts:
+                        DC1-CL1:
+                          ansible_host: 192.168.0.102
+                        DC1-CL2:
+                          ansible_host: 192.168.0.103
+                    DC1_CLEAF3_4:
+                      hosts:
+                        DC1-CL3:
+                          ansible_host: 192.168.0.104
+                        DC1-CL4:
+                          ansible_host: 192.168.0.105
+
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            # should use vault for passwords
+            ansible_become: true
+            ansible_become_method: enable
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_port: 443
+            ansible_httpapi_validate_certs: false
+
+        DC1_TENANTS:
+          children:
+            DC1_LEAVES:
+
+        ENDPOINTS:
+          children:
+            DC1_ENDPOINTS_CL1_2:
+              children:
+                DC1_CLEAF1_2:
+            DC1_ENDPOINTS_CL3_4:
+              children:
+                DC1_CLEAF3_4:

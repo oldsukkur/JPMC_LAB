@@ -1,0 +1,89 @@
+variables:
+  PIP_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/pip
+  PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  ANSIBLE_CONFIG: "ansible.cfg"
+  PYTHON_IMAGE: "${DOCKER_REGISTRY_PATH_PREFIX}python:3.12-bullseye"
+  AUTO_UPLOAD_ENABLED: "no"
+  NO_AUTO_INSTALL_DEPS: 1
+
+cache:
+  paths:
+    - .cache/pip
+    - .ansible/collections/ansible_collections
+
+.install_deps: &install_deps
+  - make install-deps
+
+stages:
+  - lint
+  - build
+  - deploy
+
+pre-commit:
+  stage: lint
+  image: $PYTHON_IMAGE
+  before_script:
+    - make install-deps
+  script:
+    - make pre-commit-run
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH || $CI_COMMIT_TAG
+
+build-fabric:
+  stage: build
+  image: $PYTHON_IMAGE
+  parallel:
+    matrix:
+      - AVD_VERSION:
+          - 4.6.0
+          - 4.7.0
+          - 4.7.1
+          - 4.8.0
+          - 4.9.0
+          - 4.10.0
+  before_script:
+    - make install-deps
+  script:
+    - make build-skip-doc
+  artifacts:
+    paths:
+      - inventory/intended
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH || $CI_COMMIT_TAG
+
+#build-fabric-pyavd:
+#  stage: build
+#  image: $PYTHON_IMAGE
+#  before_script:
+#    - make install-deps
+#  script:
+#    - make build-pyavd
+#  artifacts:
+#    paths:
+#      - inventory/intended
+#  rules:
+#    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+#    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+#      when: never
+#    - if: $CI_COMMIT_BRANCH || $CI_COMMIT_TAG
+
+#upload-cvp:
+#  stage: deploy
+#  image: $PYTHON_IMAGE
+#  before_script:
+#    - make install-deps
+#  script:
+#    - make upload-cvp
+#  environment:
+#    name: cvp
+#  resource_group: $CI_ENVIRONMENT_NAME
+#  rules:
+#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $AUTO_UPLOAD_ENABLED == "yes"
+#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#      when: manual

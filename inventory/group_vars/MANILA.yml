@@ -1,0 +1,177 @@
+---
+# L3LS Fabric Values - update these values with caution,
+# SOME CHANGES COULD BE DISRUPTIVE.
+
+fabric_name: CAMPUS_GLOBAL
+dc_name: MANILA
+
+# mgmt_gateway: 10.255.0.1 //commented for ACT
+
+underlay_routing_protocol: OSPF
+
+# Point to Point Network Summary range, assigned as /31 for each
+# uplink interfaces
+# Assign range larger then total [spines * total potential leafs * 2]
+
+# Enable vlan aware bundles
+evpn_vlan_aware_bundles: false
+
+# Enable RT membership
+evpn_overlay_bgp_rtc: true
+
+# Disable igmp snooping default
+default_igmp_snooping_enabled: false
+
+# bgp peer groups passwords
+bgp_peer_groups:
+  ipv4_uderlay_peers:
+    password: "{{ vault.bgp_peerings.underlay.password }}"
+  evpn_overlay_peers:
+    password: "{{ vault.bgp_peerings.overlay.password }}"
+  mlag_ipv4_underlay_peer:
+    password: "{{ vault.bgp_peerings.mlag.password }}"
+
+# BGP defaults
+bgp_maximum_paths: 128
+bgp_ecmp: 128
+bgp_distance:
+  external_routes: 20
+  internal_routes: 200
+  local_routes: 200
+bgp_graceful_restart:
+  enabled: true
+  restart_time: 300
+# BGP update wait commands will be disabled for vEOS
+bgp_update_wait_install: true
+
+# Spine Switches
+spine:
+  defaults:
+    platform: EOS
+    bgp_as: "65000.0"
+    loopback_ipv4_pool: 192.168.100.248/29
+    loopback_ipv6_pool: 2001:db8:abcd:0012::/64
+    structured_config:
+      router_bgp:
+        as_notation: "asdot"
+    bgp_defaults:
+      - timers bgp 5 15
+      - neighbor default send-community
+
+  nodes:
+    - name: C000267-009R601P
+      id: 1
+      mgmt_ip: 192.168.0.200/24
+    - name: C000267-014R602P
+      id: 2
+      mgmt_ip: 192.168.0.201/24
+
+# Leaf switch groups
+# A maximum of two nodes can form a leaf group
+# When two nodes are in a leaf group this will automatically form mlag pair
+
+l3leaf:
+  defaults:
+    # virtual router mac for VNIs assigned to Leaf switches
+    virtual_router_mac_address: 00:1c:73:00:dc:01
+    platform: EOS
+    bgp_as: "65000.1-65000.30"
+    uplink_ipv4_pool: 192.168.1.0/24
+    uplink_ipv6_pool: 2001:db8:abcd:0012/64
+    loopback_ipv4_pool: 192.168.100.0/24
+    vtep_loopback_ipv4_pool: 192.168.200.0/24
+    uplink_interfaces: [Ethernet1, Ethernet2]
+    uplink_switches: [C000267-014R601P, C000267-014R602P]
+    uplink_interface_speed: forced 100g
+    mlag: false
+    mlag_peer_ipv4_pool: 192.168.2.0/25
+    # iBGP Peering between MLAG peers
+    mlag_peer_l3_ipv4_pool: 192.168.2.128/25
+    spanning_tree_priority: 4096
+    spanning_tree_mode: mstp
+    inband_mgmt_interface: Loopback0
+    structured_config:
+      router_bgp:
+        as_notation: "asdot"
+      dhcp_relay:
+        tunnel_requests_disabled: true
+    bgp_defaults:
+      - timers bgp 5 15
+      - neighbor default send-community
+    
+    node_groups:
+    - group: LEAFS-758
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      platform: default 
+      uplink_interfaces: [ Ethernet1/1/1, Ethernet2/1/1 ]
+      nodes:
+        - name: C160479-003S007A
+          filter:
+            tags: [ C160479-003S007A, MADISON_LEAFS ]
+          id: 3
+          mgmt_ip: 169.82.66.132/29
+          uplink_switch_interfaces: [Ethernet1/1, Ethernet1/1]  
+        - name: C160479-006S008A
+          filter:
+            tags: [ C160479-003S008A, MADISON_LEAFS ]
+          id: 4
+          mgmt_ip: 169.82.66.148/29
+    - group: LEAFS-720
+      filter:
+        tags: [ MANILA_LEAFS ]
+      vtep_loopback_ipv4_pool: 167.84.63.80/24               
+      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      platform: default 
+      uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
+      nodes:
+        - name: C160479-0V1S005A
+          filter:
+            tags: [ C160479-0V1S005A, MADISON_LEAFS  ]
+          id: 1
+          mgmt_ip: 169.82.66.156/29
+        - name: C160479-001S006A
+          filter:
+            tags: [ C160479-001S006A, MADISON_LEAFS ]
+          id: 2
+          mgmt_ip: 169.82.66.138/29
+    # TODO should service leaf become its own "type"?
+    - group: SERVICELEAF_FL3
+      filter:
+        tags: [ MANILA_BORDER_LEAF ]
+      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
+      mlag_interfaces: [ Ethernet49/1, Ethernet50/1 ]
+      mlag: true
+      mlag_dual_primary_detection: true
+      vtep_loopback: Loopback1
+      nodes:
+        - name: C160479-003S562A
+          id: 5
+          mgmt_ip: 169.82.66.133/29
+        - name: C160479-003S563A
+          id: 6
+          mgmt_ip: 169.82.66.134/29
+      # 750XP does not support Multi-VTEP mlag
+      structured_config:
+        vxlan_interface:
+          Vxlan1:
+            vxlan:
+              source_interface: Loopback1
+              mlag_source_interface: null
+        router_bgp:
+          session_trackers:
+            - name: TRACKER
+              recovery_delay: 500
+
+# update mtu for real deployment -> 9214
+p2p_uplinks_mtu: 1500
+
+# Adjust default bfd values
+bfd_multihop:
+  interval: 3000
+  min_rx: 3000
+  multiplier: 3

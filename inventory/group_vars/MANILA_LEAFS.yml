@@ -1,0 +1,7 @@
+---
+type: l3leaf
+
+# uncomment if dchp relay is enabled in the vteps.
+# custom_structured_configuration_dhcp_relay:
+#   tunnel_requests_disabled: true
+#   mlag_peerlink_requests_disabled: true

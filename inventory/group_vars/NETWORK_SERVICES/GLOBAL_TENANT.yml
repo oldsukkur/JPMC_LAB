@@ -1,0 +1,731 @@
+---
+# tenant_a Networks
+tenants:
+  # Definition of tenants. Additional level of abstraction to VRFs
+  - name: MADISON_SUPERSPINES
+    # Number used to generate the VNI of each VLAN by adding the VLAN number in this tenant.
+    # Force change
+    mac_vrf_vni_base: 10000
+    evpn_l3_multicast: 
+      enabled: true
+      evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
+    bgp_peer_groups:
+      - name: SD_WAN_EDGE
+        nodes: [ C160479-003R603A, C160479-003R604A ]
+        type: ipv4
+        remote_as: 65201
+        bfd: true
+        maximum_routes: 0
+        send_community: all
+      - name: SD_WAN_EDGE_IPV6
+        nodes: [ C160479-003R603A, C160479-003R604A ]
+        type: ipv6
+        remote_as: 65201
+        bfd: true
+        maximum_routes: 0
+        send_community: all
+    vrfs:
+      # VRF definitions inside the tenant.
+      - name: VRF_INTERNAL
+        # VRF VNI definition.
+        vrf_vni: 101
+        evpn_l3_multicast:
+          enabled: true
+        pim_rp_addresses:
+          - rps: [169.82.66.226]
+            nodes: [ C160479-003R603A, C160479-003R604A ]
+            groups: [ 224.0.0.0/4 ]
+          - rps: [169.82.66.226]
+            nodes: [ C160479-003R603A, C160479-003R604A ]
+            groups: [ 239.1.0.0/16 ]         
+        # Enable VTEP Network diagnostics
+        # This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.
+        vtep_diagnostic:
+          # Loopback interface number
+          loopback: 10
+          # Loopback ip range, a unique ip is derived from this ranged and assigned
+          # to each l3 leaf based on it's unique id.
+          loopback_ip_range: 167.84.63.96/28
+        structured_config:
+          ipv6_unicast_routing: true
+        # #bgp:
+        #  # structured_config:
+        #    # aggregate_addresses:
+        #       - prefix: 10.131.0.0/16
+        #         summary_only: True
+        svis:
+          #SVI definitions.
+          - id: 301
+            #vni_override: 60301
+
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Data
+
+            tags: [ C160479-0V1S005A ]
+            ip_address_virtual: 10.12.48.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 302
+            #vni_override: 80301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Voice
+            tags: [ C160479-0V1S005A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.37.223.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 303
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Data
+            tags: [ C160479-001S006A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.12.49.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 304
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Voice
+            tags: [ C160479-001S006A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.4.2.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 305
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Data
+            tags: [ C160479-003S007A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.120.96.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 306
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Voice
+            tags: [ C160479-003S007A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.4.3.1/25
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 307
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Data
+            tags: [ C160479-003S008A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.195.6.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 308
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Voice
+            tags: [ C160479-003S008A ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.4.104.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ] 
+          - id: 309
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Data
+            tags: [ MADISON_SERVICELEAFS ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.4.3.129/25
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]  
+          - id: 310
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 160479-410Madison-Voice
+            tags: [ MADISON_SERVICELEAFS ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 10.4.105.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]                
+            #tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            # ip_address_virtual: 10.12.48.1/24
+            # ipv6_address_virtuals:
+            #   - fd00:82:0::1/64
+            # bgp:
+            #   structured_config:
+            #     redistribute_routes: [ dot1x ]
+
+              ##PLEASE ADD WIFI SVIs HERE
+          # # Begin Wi-Fi client SVIs
+          # - id: 558
+          #   profile: INTERNAL_default
+          #   name: Tetrahedron_SSID
+          #   enabled: true 
+          #   tags: [ MADISON_SERVICELEAFS ]
+          #   ip_address_virtual: 10.150.12.1/22
+          #   bgp:
+          #     structured_config:
+          #       redistribute_routes: [ dot1x ]
+          # - id: 559
+          #   profile: INTERNAL_default
+          #   name: cusotomerx_Conference_SSID
+          #   enabled: True
+          #   tags: [ MADISON_SERVICELEAFS ]
+          #   ip_address_virtual: 10.150.16.1/22
+          #   bgp:
+          #     structured_config:
+          #       redistribute_routes: [ dot1x ]
+          # - id: 560
+          #   profile: INTERNAL_default
+          #   name: customerx_VOIP_SSID
+          #   enabled: True
+          #   tags: [ MADISON_SERVICELEAFS ]
+          #   ip_address_virtual: 10.150.24.1/22
+          #   bgp:
+          #     structured_config:
+          #       redistribute_routes: [ dot1x ]  
+          # - id: 500
+          #   profile: INTERNAL_default
+          #   name: MistEdge
+          #   enabled: true 
+          #   tags: [ MADISON_SERVICELEAFS ]
+          #   ip_address_virtual: 169.85.74.0/29
+          #   bgp:
+          #     structured_config:
+          #       redistribute_routes: [ dot1x ] 
+          - id: 500
+            #vni_override: 65301
+            # Get basic settings from this profile defined in MADISON.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: Mistedge
+            tags: [ MADISON_SERVICELEAFS ]
+            # IP anycast gateway to be used in the SVI in every leaf.
+            ip_address_virtual: 169.85.74.1/29
+            # ip_helpers:
+            # - ip_helper: 169.86.42.132
+            # - ip_helper: 169.86.42.100
+            # - ip_helper: 169.127.105.84
+            # - ip_helper: 169.98.141.207
+            # - ip_helper: 202.40.72.61
+            # - ip_helper: 202.40.73.61
+            # - ip_helper: 169.101.114.67  
+            # - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:83:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]    
+        l3_interfaces:
+          # Need to break these out into individual configs to accomodate ipv6 addresses which aren't modeled in l3_interfaces
+          # BorderSpine 1 to ASR01 - VLAN 100
+          - interfaces: [Ethernet3/48/1.100]
+            encapsulation_dot1q_vlan: [100]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.26/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_INTERNAL
+            pim:
+              enabled: true 
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:4::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR01 - VLAN 100
+          - interfaces: [Ethernet3/48/1.100]
+            encapsulation_dot1q_vlan: [100]
+            nodes: [C160479-003R604A]
+            ip_addresses: [10.12.46.8/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_INTERNAL
+            pim:
+              enabled: true 
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:1::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 1 to ASR02 - VLAN 100
+          - interfaces: [Ethernet4/48/1.100]
+            encapsulation_dot1q_vlan: [100]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.0/31]
+            description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_INTERNAL
+            pim:
+              enabled: true 
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:10::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR02 - VLAN 100
+          - interfaces: [Ethernet4/48/1.100]
+            encapsulation_dot1q_vlan: [100]
+            nodes: [C160479-003R604A]
+            ip_addresses: [10.12.46.16/31]
+            description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_INTERNAL
+            pim:
+              enabled: true 
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:7::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+        bgp_peers:
+          2000:10:2:4:::
+            nodes: [ C160479-003R603A ]
+            description: C160479-003R601A
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:10:::
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:16:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:22:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:1:::
+            nodes: [ C160479-003R604A ]
+            description: C160479-003R601A
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:7:::
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:13:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:19:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          10.12.46.27:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.1:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.16.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.22.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          10.12.46.9:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.17:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.13.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.19.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: sd_wan_edge    
+      - name: VRF_IOTBMS
+        vrf_vni: 201
+        vtep_diagnostic:
+          loopback: 20
+          loopback_ip_range: 167.84.63.112/24            
+        evpn_l3_multicast: 
+          enabled: false
+        svis:
+          - id: 610
+            profile: IOTBMS_default
+            name: IOT_WIRELESS
+            enabled: true
+            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            ip_address_virtual: 10.150.0.1/24
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 520
+            profile: IOTBMS_default
+            name: BMS_SEGMENT_520
+            enabled: true
+            tags: [ C160479-003S007A ]
+            ip_address_virtual: 10.142.197.1/25
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 521
+            profile: IOTBMS_default
+            name: BMS_SEGMENT_521
+            enabled: true
+            tags: [ C160479-003S007A ]
+            ip_address_virtual: 10.142.197.129/25
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+        l3_interfaces:
+          # BorderSpine 1 to ASR01 - VLAN 200
+          - interfaces: [Ethernet3/48/1.200]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.24/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_IOT
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:5::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR01 - VLAN 200
+          - interfaces: [Ethernet3/48/1.200]
+            nodes: [C160479-003R604A]
+            ip_addresses: [10.12.46.10/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_IOT
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:2::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 1 to ASR02 - VLAN 200
+          - interfaces: [Ethernet4/48/1.200]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.2/31]
+            description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_IOT
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:11::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR02 - VLAN 200
+          - interfaces: [ Ethernet4/48/1.200 ] 
+            nodes: [ C160479-003R604A ]
+            ip_addresses: [10.12.46.18/31]
+            description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_IOT
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:8::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+        bgp_peers:
+          2000:10:2:5:::
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:11:::
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:17:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:23:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:2:::
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:8:::
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:14:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:20:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          10.12.46.25:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.3:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.17.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.23.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          10.12.46.11:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.19:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.14.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.20.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: sd_wan_edge    
+      - name: VRF_GUEST
+        vrf_vni: 301
+        vtep_diagnostic:
+          loopback: 30
+          loopback_ip_range: 167.84.141.160/24           
+        evpn_l3_multicast: 
+          enabled: false
+        svis: 
+          - id: 600
+            name: Guest_Wireless
+            profile: INTERNAL_default
+            enabled: true 
+            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            ip_address_virtual: 10.120.40.1/22
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 601
+            name: Guest_Wired
+            profile: INTERNAL_default
+            enabled: true
+            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            ip_address_virtual: 10.120.44.1/22
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+        l3_interfaces:
+          # BorderSpine 1 to ASR01 - VLAN 300
+          - interfaces: [Ethernet3/48/1.300]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.28/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:6::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR01 - VLAN 300
+          - interfaces: [Ethernet3/48/1.300]
+            nodes: [C160479-003R604A]
+            ip_addresses: [10.12.46.12/31]
+            description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:3::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 1 to ASR02 - VLAN 300
+          - interfaces: [Ethernet4/48/1.300]
+            nodes: [C160479-003R603A]
+            ip_addresses: [10.12.46.4/31]
+            description: P2P_LINK_TO__C160479-003R630A_Gi0/1/5_VRF_GUEST
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:12::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+          # BorderSpine 2 to ASR02 - VLAN 300
+          - interfaces: [Ethernet4/48/1.300]
+            nodes: [C160479-003R604A]
+            ip_addresses: [10.12.46.20/31]
+            description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_GUEST
+            structured_config:
+              ipv6_enable: true
+              ipv6_address: 2000:10:2:9::1/127
+              flow_tracker:
+                sampled: ftr_sampled
+        bgp_peers:
+          2000:10:2:6:::
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:12:::
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:18:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:24:::
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:3:::
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          2000:10:2:9:::
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:15:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          # 2000:10:2:21:::
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE_IPV6
+          10.12.46.29:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.5:
+            nodes: [ C160479-003R603A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.18.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.24.0:
+          #   nodes: [ C160479-003R603A ]
+          #   peer_group: SD_WAN_EDGE
+          10.12.46.13:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          10.12.46.21:
+            nodes: [ C160479-003R604A ]
+            peer_group: SD_WAN_EDGE
+          # 10.2.15.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: SD_WAN_EDGE
+          # 10.2.21.0:
+          #   nodes: [ C160479-003R604A ]
+          #   peer_group: sd_wan_edge    
+
+    # l2vlans:
+      # These are pure L2 vlans. They do not have a SVI defined in the l3leafs and they will be bridged inside the VXLAN fabric
+      # - id: 400
+      #   name: MIST_EDGE_CONNECTIVITY
+      #   tags: [ MADISON_SERVICELEAFS ]
+      #   evpn_l2_multicast:
+      #     enabled: false
+      # - id: 1000
+      #   name: L2_VLAN1000
+      #   evpn_l2_multicast:
+      #     enabled: true
+      # - id: 1001
+      #   name: L2_VLAN1001
+      #   evpn_l2_multicast:
+      #     enabled: true
+
+# List of Loopback interfaces.
+        # This will create Loopback interfaces inside the VRF.
+        # Loopbacks:
+        #   - node: "C160479-003R603A"
+        #     loopback: 99
+        #     ip_address: 10.10.99.99
+        #     description: "Anycast RP"
+        #     enabled: <bool; default=True>
+
+            

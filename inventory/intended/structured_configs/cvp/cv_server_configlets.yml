@@ -1,0 +1,644 @@
+cvp_configlets:
+  AVD-FABRIC-_DC1-CL1: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nno ip igmp snooping\n!\nevent-monitor\n!\nload-interval
+    default 5\n!\ninterface defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver
+    qsfp default-mode 4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing
+    protocols model multi-agent\n!\nhostname DC1-CL1\nip name-server 10.255.0.2\n!\nntp
+    server 0.pool.ntp.org prefer\n!\nspanning-tree mode mstp\nno spanning-tree vlan-id
+    4093-4094\nspanning-tree mst 0 priority 4096\n!\naaa authentication login default
+    local\naaa authentication login console local\naaa authentication policy on-failure
+    log\naaa authentication policy on-success log\naaa authorization serial-console\naaa
+    authorization exec default local\naaa authorization commands all default local\n!\nenable
+    password sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvlan 10\n   name V10-T-A-VRF-RED\n!\nvlan 20\n   name
+    V20-T-B-VRF-BLUE\n!\nvlan 30\n   name V30-T-A-VRF-RED\n!\nvlan 40\n   name V40-T-B-VRF-BLUE\n!\nvlan
+    4000\n   name MLAG_iBGP_RED\n   trunk group LEAF_PEER_L3\n!\nvlan 4001\n   name
+    MLAG_iBGP_BLUE\n   trunk group LEAF_PEER_L3\n!\nvlan 4093\n   name LEAF_PEER_L3\n
+    \  trunk group LEAF_PEER_L3\n!\nvlan 4094\n   name MLAG_PEER\n   trunk group MLAG\n!\nvrf
+    instance BLUE\n!\nvrf instance MGMT\n!\nvrf instance RED\n!\ninterface Port-Channel3\n
+    \  description MLAG_PEER_DC1-CL2_Po3\n   no shutdown\n   switchport\n   switchport
+    mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
+    MLAG\n!\ninterface Port-Channel4\n   description Host1_PortChannel10\n   no shutdown\n
+    \  switchport\n   switchport trunk allowed vlan 10,20,30,40\n   switchport mode
+    trunk\n   mlag 4\n   spanning-tree portfast\n!\ninterface Port-Channel5\n   description
+    Host2_PortChannel10\n   no shutdown\n   switchport\n   switchport trunk allowed
+    vlan 10,20,30,40\n   switchport mode trunk\n   mlag 5\n   spanning-tree portfast\n!\ninterface
+    Ethernet1\n   description P2P_LINK_TO_DC1-SP1_Ethernet1\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.1/31\n   ip
+    ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet2\n
+    \  description P2P_LINK_TO_DC1-SP2_Ethernet1\n   no shutdown\n   mtu 1500\n   speed
+    forced 100g\n   no switchport\n   ip address 192.168.1.3/31\n   ip ospf network
+    point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet3\n   description
+    MLAG_PEER_DC1-CL2_Ethernet3\n   no shutdown\n   speed 100g\n   channel-group 3
+    mode active\n!\ninterface Ethernet4\n   description Host1_Ethernet1\n   no shutdown\n
+    \  speed 10g\n   channel-group 4 mode active\n!\ninterface Ethernet5\n   description
+    Host2_Ethernet1\n   no shutdown\n   speed 10g\n   channel-group 5 mode active\n!\ninterface
+    Loopback0\n   description EVPN_Overlay_Peering\n   no shutdown\n   ip address
+    192.168.100.1/32\n   ip ospf area 0.0.0.0\n!\ninterface Loopback1\n   description
+    VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address 192.168.200.1/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Loopback100\n   description RED_VTEP_DIAGNOSTICS\n
+    \  no shutdown\n   vrf RED\n   ip address 10.100.100.1/32\n!\ninterface Loopback101\n
+    \  description BLUE_VTEP_DIAGNOSTICS\n   no shutdown\n   vrf BLUE\n   ip address
+    10.100.101.1/32\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.102/24\n!\ninterface Vlan10\n   description
+    V10-T-A-VRF-RED\n   no shutdown\n   vrf RED\n   ip address virtual 10.10.10.254/24\n!\ninterface
+    Vlan20\n   description V20-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.20.254/24\n!\ninterface Vlan30\n   description V30-T-A-VRF-RED\n
+    \  no shutdown\n   vrf RED\n   ip address virtual 10.10.30.254/24\n!\ninterface
+    Vlan40\n   description V40-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.40.254/24\n!\ninterface Vlan4000\n   description MLAG_PEER_L3_iBGP:
+    vrf RED\n   no shutdown\n   mtu 1500\n   vrf RED\n   ip address 172.16.1.0/31\n!\ninterface
+    Vlan4001\n   description MLAG_PEER_L3_iBGP: vrf BLUE\n   no shutdown\n   mtu 1500\n
+    \  vrf BLUE\n   ip address 172.16.1.0/31\n!\ninterface Vlan4093\n   description
+    MLAG_PEER_L3_PEERING\n   no shutdown\n   mtu 1500\n   ip address 172.16.1.0/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Vlan4094\n
+    \  description MLAG_PEER\n   no shutdown\n   mtu 1500\n   no autostate\n   ip
+    address 172.16.0.0/31\n!\ninterface Vxlan1\n   description DC1-CL1_VTEP\n   vxlan
+    source-interface Loopback1\n   vxlan virtual-router encapsulation mac-address
+    mlag-system-id\n   vxlan udp-port 4789\n   vxlan vlan 10 vni 10010\n   vxlan vlan
+    20 vni 10020\n   vxlan vlan 30 vni 10030\n   vxlan vlan 40 vni 10040\n   vxlan
+    vrf BLUE vni 1002\n   vxlan vrf RED vni 1001\n!\nmac address-table aging-time
+    1800\n!\nip virtual-router mac-address 00:1c:73:00:dc:01\n!\nip address virtual
+    source-nat vrf BLUE address 10.100.101.1\nip address virtual source-nat vrf RED
+    address 10.100.100.1\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip
+    access-list standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp
+    redirect\nip routing vrf BLUE\nno ip routing vrf MGMT\nip routing vrf RED\n!\nmlag
+    configuration\n   domain-id DC1_CLEAF1_2\n   local-interface Vlan4094\n   peer-address
+    172.16.0.1\n   peer-link Port-Channel3\n   reload-delay mlag 300\n   reload-delay
+    non-mlag 330\n!\narp aging timeout default 1500\n!\nroute-map RM-MLAG-PEER-IN
+    permit 10\n   description Make routes learned over MLAG Peer-link less preferred
+    on spines to ensure optimal routing\n   set origin incomplete\n!\nrouter bfd\n
+    \  multihop interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.1\n   bgp
+    asn notation asdot\n   router-id 192.168.100.1\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS update-source
+    Loopback0\n   neighbor EVPN-OVERLAY-PEERS bfd\n   neighbor EVPN-OVERLAY-PEERS
+    ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS password 7 $1c$U41I+zV057R0l38LbPqKww==\n
+    \  neighbor EVPN-OVERLAY-PEERS send-community\n   neighbor EVPN-OVERLAY-PEERS
+    maximum-routes 0\n   neighbor MLAG-IPv4-UNDERLAY-PEER peer group\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER remote-as 65000.1\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    next-hop-self\n   neighbor MLAG-IPv4-UNDERLAY-PEER description DC1-CL2\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER password 7 $1c$U41I+zV057S2PuXZVQiX2g==\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    send-community\n   neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER route-map RM-MLAG-PEER-IN in\n   neighbor 192.168.100.249
+    peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.249 remote-as 65000.0\n
+    \  neighbor 192.168.100.249 description DC1-SP1\n   neighbor 192.168.100.250 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.250 remote-as 65000.0\n   neighbor
+    192.168.100.250 description DC1-SP2\n   !\n   vlan 10\n      rd 192.168.100.1:10010\n
+    \     route-target both 10010:10010\n      redistribute learned\n   !\n   vlan
+    20\n      rd 192.168.100.1:10020\n      route-target both 10020:10020\n      redistribute
+    learned\n   !\n   vlan 30\n      rd 192.168.100.1:10030\n      route-target both
+    10030:10030\n      redistribute learned\n   !\n   vlan 40\n      rd 192.168.100.1:10040\n
+    \     route-target both 10040:10040\n      redistribute learned\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family ipv4\n      no
+    neighbor EVPN-OVERLAY-PEERS activate\n      neighbor MLAG-IPv4-UNDERLAY-PEER activate\n
+    \  !\n   vrf BLUE\n      rd 192.168.100.1:1002\n      route-target import evpn
+    1002:1002\n      route-target export evpn 1002:1002\n      router-id 192.168.100.1\n
+    \     neighbor 172.16.1.1 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n   !\n   vrf RED\n      rd 192.168.100.1:1001\n      route-target import
+    evpn 1001:1001\n      route-target export evpn 1001:1001\n      router-id 192.168.100.1\n
+    \     neighbor 172.16.1.1 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n!\nrouter ospf 100\n   router-id 192.168.100.1\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Vlan4093\n   max-lsa 12000\n!\nip tacacs vrf MGMT source-interface
+    Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+  AVD-FABRIC-_DC1-CL2: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nno ip igmp snooping\n!\nevent-monitor\n!\nload-interval
+    default 5\n!\ninterface defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver
+    qsfp default-mode 4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing
+    protocols model multi-agent\n!\nhostname DC1-CL2\nip name-server 10.255.0.2\n!\nntp
+    server 0.pool.ntp.org prefer\n!\nspanning-tree mode mstp\nno spanning-tree vlan-id
+    4093-4094\nspanning-tree mst 0 priority 4096\n!\naaa authentication login default
+    local\naaa authentication login console local\naaa authentication policy on-failure
+    log\naaa authentication policy on-success log\naaa authorization serial-console\naaa
+    authorization exec default local\naaa authorization commands all default local\n!\nenable
+    password sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvlan 10\n   name V10-T-A-VRF-RED\n!\nvlan 20\n   name
+    V20-T-B-VRF-BLUE\n!\nvlan 30\n   name V30-T-A-VRF-RED\n!\nvlan 40\n   name V40-T-B-VRF-BLUE\n!\nvlan
+    4000\n   name MLAG_iBGP_RED\n   trunk group LEAF_PEER_L3\n!\nvlan 4001\n   name
+    MLAG_iBGP_BLUE\n   trunk group LEAF_PEER_L3\n!\nvlan 4093\n   name LEAF_PEER_L3\n
+    \  trunk group LEAF_PEER_L3\n!\nvlan 4094\n   name MLAG_PEER\n   trunk group MLAG\n!\nvrf
+    instance BLUE\n!\nvrf instance MGMT\n!\nvrf instance RED\n!\ninterface Port-Channel3\n
+    \  description MLAG_PEER_DC1-CL1_Po3\n   no shutdown\n   switchport\n   switchport
+    mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
+    MLAG\n!\ninterface Port-Channel4\n   description Host1_PortChannel10\n   no shutdown\n
+    \  switchport\n   switchport trunk allowed vlan 10,20,30,40\n   switchport mode
+    trunk\n   mlag 4\n   spanning-tree portfast\n!\ninterface Port-Channel5\n   description
+    Host2_PortChannel10\n   no shutdown\n   switchport\n   switchport trunk allowed
+    vlan 10,20,30,40\n   switchport mode trunk\n   mlag 5\n   spanning-tree portfast\n!\ninterface
+    Ethernet1\n   description P2P_LINK_TO_DC1-SP1_Ethernet2\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.5/31\n   ip
+    ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet2\n
+    \  description P2P_LINK_TO_DC1-SP2_Ethernet2\n   no shutdown\n   mtu 1500\n   speed
+    forced 100g\n   no switchport\n   ip address 192.168.1.7/31\n   ip ospf network
+    point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet3\n   description
+    MLAG_PEER_DC1-CL1_Ethernet3\n   no shutdown\n   speed 100g\n   channel-group 3
+    mode active\n!\ninterface Ethernet4\n   description Host1_Ethernet2\n   no shutdown\n
+    \  speed 10g\n   channel-group 4 mode active\n!\ninterface Ethernet5\n   description
+    Host2_Ethernet2\n   no shutdown\n   speed 10g\n   channel-group 5 mode active\n!\ninterface
+    Loopback0\n   description EVPN_Overlay_Peering\n   no shutdown\n   ip address
+    192.168.100.2/32\n   ip ospf area 0.0.0.0\n!\ninterface Loopback1\n   description
+    VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address 192.168.200.1/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Loopback100\n   description RED_VTEP_DIAGNOSTICS\n
+    \  no shutdown\n   vrf RED\n   ip address 10.100.100.2/32\n!\ninterface Loopback101\n
+    \  description BLUE_VTEP_DIAGNOSTICS\n   no shutdown\n   vrf BLUE\n   ip address
+    10.100.101.2/32\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.103/24\n!\ninterface Vlan10\n   description
+    V10-T-A-VRF-RED\n   no shutdown\n   vrf RED\n   ip address virtual 10.10.10.254/24\n!\ninterface
+    Vlan20\n   description V20-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.20.254/24\n!\ninterface Vlan30\n   description V30-T-A-VRF-RED\n
+    \  no shutdown\n   vrf RED\n   ip address virtual 10.10.30.254/24\n!\ninterface
+    Vlan40\n   description V40-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.40.254/24\n!\ninterface Vlan4000\n   description MLAG_PEER_L3_iBGP:
+    vrf RED\n   no shutdown\n   mtu 1500\n   vrf RED\n   ip address 172.16.1.1/31\n!\ninterface
+    Vlan4001\n   description MLAG_PEER_L3_iBGP: vrf BLUE\n   no shutdown\n   mtu 1500\n
+    \  vrf BLUE\n   ip address 172.16.1.1/31\n!\ninterface Vlan4093\n   description
+    MLAG_PEER_L3_PEERING\n   no shutdown\n   mtu 1500\n   ip address 172.16.1.1/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Vlan4094\n
+    \  description MLAG_PEER\n   no shutdown\n   mtu 1500\n   no autostate\n   ip
+    address 172.16.0.1/31\n!\ninterface Vxlan1\n   description DC1-CL2_VTEP\n   vxlan
+    source-interface Loopback1\n   vxlan virtual-router encapsulation mac-address
+    mlag-system-id\n   vxlan udp-port 4789\n   vxlan vlan 10 vni 10010\n   vxlan vlan
+    20 vni 10020\n   vxlan vlan 30 vni 10030\n   vxlan vlan 40 vni 10040\n   vxlan
+    vrf BLUE vni 1002\n   vxlan vrf RED vni 1001\n!\nmac address-table aging-time
+    1800\n!\nip virtual-router mac-address 00:1c:73:00:dc:01\n!\nip address virtual
+    source-nat vrf BLUE address 10.100.101.2\nip address virtual source-nat vrf RED
+    address 10.100.100.2\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip
+    access-list standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp
+    redirect\nip routing vrf BLUE\nno ip routing vrf MGMT\nip routing vrf RED\n!\nmlag
+    configuration\n   domain-id DC1_CLEAF1_2\n   local-interface Vlan4094\n   peer-address
+    172.16.0.0\n   peer-link Port-Channel3\n   reload-delay mlag 300\n   reload-delay
+    non-mlag 330\n!\narp aging timeout default 1500\n!\nroute-map RM-MLAG-PEER-IN
+    permit 10\n   description Make routes learned over MLAG Peer-link less preferred
+    on spines to ensure optimal routing\n   set origin incomplete\n!\nrouter bfd\n
+    \  multihop interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.1\n   bgp
+    asn notation asdot\n   router-id 192.168.100.2\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS update-source
+    Loopback0\n   neighbor EVPN-OVERLAY-PEERS bfd\n   neighbor EVPN-OVERLAY-PEERS
+    ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS password 7 $1c$U41I+zV057R0l38LbPqKww==\n
+    \  neighbor EVPN-OVERLAY-PEERS send-community\n   neighbor EVPN-OVERLAY-PEERS
+    maximum-routes 0\n   neighbor MLAG-IPv4-UNDERLAY-PEER peer group\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER remote-as 65000.1\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    next-hop-self\n   neighbor MLAG-IPv4-UNDERLAY-PEER description DC1-CL1\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER password 7 $1c$U41I+zV057S2PuXZVQiX2g==\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    send-community\n   neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER route-map RM-MLAG-PEER-IN in\n   neighbor 192.168.100.249
+    peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.249 remote-as 65000.0\n
+    \  neighbor 192.168.100.249 description DC1-SP1\n   neighbor 192.168.100.250 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.250 remote-as 65000.0\n   neighbor
+    192.168.100.250 description DC1-SP2\n   !\n   vlan 10\n      rd 192.168.100.2:10010\n
+    \     route-target both 10010:10010\n      redistribute learned\n   !\n   vlan
+    20\n      rd 192.168.100.2:10020\n      route-target both 10020:10020\n      redistribute
+    learned\n   !\n   vlan 30\n      rd 192.168.100.2:10030\n      route-target both
+    10030:10030\n      redistribute learned\n   !\n   vlan 40\n      rd 192.168.100.2:10040\n
+    \     route-target both 10040:10040\n      redistribute learned\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family ipv4\n      no
+    neighbor EVPN-OVERLAY-PEERS activate\n      neighbor MLAG-IPv4-UNDERLAY-PEER activate\n
+    \  !\n   vrf BLUE\n      rd 192.168.100.2:1002\n      route-target import evpn
+    1002:1002\n      route-target export evpn 1002:1002\n      router-id 192.168.100.2\n
+    \     neighbor 172.16.1.0 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n   !\n   vrf RED\n      rd 192.168.100.2:1001\n      route-target import
+    evpn 1001:1001\n      route-target export evpn 1001:1001\n      router-id 192.168.100.2\n
+    \     neighbor 172.16.1.0 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n!\nrouter ospf 100\n   router-id 192.168.100.2\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Vlan4093\n   max-lsa 12000\n!\nip tacacs vrf MGMT source-interface
+    Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+  AVD-FABRIC-_DC1-CL3: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nno ip igmp snooping\n!\nevent-monitor\n!\nload-interval
+    default 5\n!\ninterface defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver
+    qsfp default-mode 4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing
+    protocols model multi-agent\n!\nhostname DC1-CL3\nip name-server 10.255.0.2\n!\nntp
+    server 0.pool.ntp.org prefer\n!\nspanning-tree mode mstp\nno spanning-tree vlan-id
+    4093-4094\nspanning-tree mst 0 priority 4096\n!\naaa authentication login default
+    local\naaa authentication login console local\naaa authentication policy on-failure
+    log\naaa authentication policy on-success log\naaa authorization serial-console\naaa
+    authorization exec default local\naaa authorization commands all default local\n!\nenable
+    password sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvlan 10\n   name V10-T-A-VRF-RED\n!\nvlan 20\n   name
+    V20-T-B-VRF-BLUE\n!\nvlan 30\n   name V30-T-A-VRF-RED\n!\nvlan 40\n   name V40-T-B-VRF-BLUE\n!\nvlan
+    4000\n   name MLAG_iBGP_RED\n   trunk group LEAF_PEER_L3\n!\nvlan 4001\n   name
+    MLAG_iBGP_BLUE\n   trunk group LEAF_PEER_L3\n!\nvlan 4093\n   name LEAF_PEER_L3\n
+    \  trunk group LEAF_PEER_L3\n!\nvlan 4094\n   name MLAG_PEER\n   trunk group MLAG\n!\nvrf
+    instance BLUE\n!\nvrf instance MGMT\n!\nvrf instance RED\n!\ninterface Port-Channel3\n
+    \  description MLAG_PEER_DC1-CL4_Po3\n   no shutdown\n   switchport\n   switchport
+    mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
+    MLAG\n!\ninterface Port-Channel4\n   description Host3_PortChannel host3\n   no
+    shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40\n   switchport
+    mode trunk\n   mlag 4\n   spanning-tree portfast\n!\ninterface Port-Channel5\n
+    \  description Host4_PortChannel host4\n   no shutdown\n   switchport\n   switchport
+    trunk allowed vlan 10,20,30,40\n   switchport mode trunk\n   mlag 5\n   spanning-tree
+    portfast\n!\ninterface Ethernet1\n   description P2P_LINK_TO_DC1-SP1_Ethernet3\n
+    \  no shutdown\n   mtu 1500\n   speed forced 100g\n   no switchport\n   ip address
+    192.168.1.9/31\n   ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface
+    Ethernet2\n   description P2P_LINK_TO_DC1-SP2_Ethernet3\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.11/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet3\n
+    \  description MLAG_PEER_DC1-CL4_Ethernet3\n   no shutdown\n   speed 100g\n   channel-group
+    3 mode active\n!\ninterface Ethernet4\n   description Host3_Ethernet1\n   no shutdown\n
+    \  speed 10g\n   channel-group 4 mode active\n!\ninterface Ethernet5\n   description
+    Host4_Ethernet1\n   no shutdown\n   speed 10g\n   channel-group 5 mode active\n!\ninterface
+    Loopback0\n   description EVPN_Overlay_Peering\n   no shutdown\n   ip address
+    192.168.100.3/32\n   ip ospf area 0.0.0.0\n!\ninterface Loopback1\n   description
+    VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address 192.168.200.3/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Loopback100\n   description RED_VTEP_DIAGNOSTICS\n
+    \  no shutdown\n   vrf RED\n   ip address 10.100.100.3/32\n!\ninterface Loopback101\n
+    \  description BLUE_VTEP_DIAGNOSTICS\n   no shutdown\n   vrf BLUE\n   ip address
+    10.100.101.3/32\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.104/24\n!\ninterface Vlan10\n   description
+    V10-T-A-VRF-RED\n   no shutdown\n   vrf RED\n   ip address virtual 10.10.10.254/24\n!\ninterface
+    Vlan20\n   description V20-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.20.254/24\n!\ninterface Vlan30\n   description V30-T-A-VRF-RED\n
+    \  no shutdown\n   vrf RED\n   ip address virtual 10.10.30.254/24\n!\ninterface
+    Vlan40\n   description V40-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.40.254/24\n!\ninterface Vlan4000\n   description MLAG_PEER_L3_iBGP:
+    vrf RED\n   no shutdown\n   mtu 1500\n   vrf RED\n   ip address 172.16.1.4/31\n!\ninterface
+    Vlan4001\n   description MLAG_PEER_L3_iBGP: vrf BLUE\n   no shutdown\n   mtu 1500\n
+    \  vrf BLUE\n   ip address 172.16.1.4/31\n!\ninterface Vlan4093\n   description
+    MLAG_PEER_L3_PEERING\n   no shutdown\n   mtu 1500\n   ip address 172.16.1.4/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Vlan4094\n
+    \  description MLAG_PEER\n   no shutdown\n   mtu 1500\n   no autostate\n   ip
+    address 172.16.0.4/31\n!\ninterface Vxlan1\n   description DC1-CL3_VTEP\n   vxlan
+    source-interface Loopback1\n   vxlan virtual-router encapsulation mac-address
+    mlag-system-id\n   vxlan udp-port 4789\n   vxlan vlan 10 vni 10010\n   vxlan vlan
+    20 vni 10020\n   vxlan vlan 30 vni 10030\n   vxlan vlan 40 vni 10040\n   vxlan
+    vrf BLUE vni 1002\n   vxlan vrf RED vni 1001\n!\nmac address-table aging-time
+    1800\n!\nip virtual-router mac-address 00:1c:73:00:dc:01\n!\nip address virtual
+    source-nat vrf BLUE address 10.100.101.3\nip address virtual source-nat vrf RED
+    address 10.100.100.3\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip
+    access-list standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp
+    redirect\nip routing vrf BLUE\nno ip routing vrf MGMT\nip routing vrf RED\n!\nmlag
+    configuration\n   domain-id DC1_CLEAF3_4\n   local-interface Vlan4094\n   peer-address
+    172.16.0.5\n   peer-link Port-Channel3\n   reload-delay mlag 300\n   reload-delay
+    non-mlag 330\n!\narp aging timeout default 1500\n!\nroute-map RM-MLAG-PEER-IN
+    permit 10\n   description Make routes learned over MLAG Peer-link less preferred
+    on spines to ensure optimal routing\n   set origin incomplete\n!\nrouter bfd\n
+    \  multihop interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.3\n   bgp
+    asn notation asdot\n   router-id 192.168.100.3\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS update-source
+    Loopback0\n   neighbor EVPN-OVERLAY-PEERS bfd\n   neighbor EVPN-OVERLAY-PEERS
+    ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS password 7 $1c$U41I+zV057R0l38LbPqKww==\n
+    \  neighbor EVPN-OVERLAY-PEERS send-community\n   neighbor EVPN-OVERLAY-PEERS
+    maximum-routes 0\n   neighbor MLAG-IPv4-UNDERLAY-PEER peer group\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER remote-as 65000.3\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    next-hop-self\n   neighbor MLAG-IPv4-UNDERLAY-PEER description DC1-CL4\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER password 7 $1c$U41I+zV057S2PuXZVQiX2g==\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    send-community\n   neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER route-map RM-MLAG-PEER-IN in\n   neighbor 192.168.100.249
+    peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.249 remote-as 65000.0\n
+    \  neighbor 192.168.100.249 description DC1-SP1\n   neighbor 192.168.100.250 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.250 remote-as 65000.0\n   neighbor
+    192.168.100.250 description DC1-SP2\n   !\n   vlan 10\n      rd 192.168.100.3:10010\n
+    \     route-target both 10010:10010\n      redistribute learned\n   !\n   vlan
+    20\n      rd 192.168.100.3:10020\n      route-target both 10020:10020\n      redistribute
+    learned\n   !\n   vlan 30\n      rd 192.168.100.3:10030\n      route-target both
+    10030:10030\n      redistribute learned\n   !\n   vlan 40\n      rd 192.168.100.3:10040\n
+    \     route-target both 10040:10040\n      redistribute learned\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family ipv4\n      no
+    neighbor EVPN-OVERLAY-PEERS activate\n      neighbor MLAG-IPv4-UNDERLAY-PEER activate\n
+    \  !\n   vrf BLUE\n      rd 192.168.100.3:1002\n      route-target import evpn
+    1002:1002\n      route-target export evpn 1002:1002\n      router-id 192.168.100.3\n
+    \     neighbor 172.16.1.5 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n   !\n   vrf RED\n      rd 192.168.100.3:1001\n      route-target import
+    evpn 1001:1001\n      route-target export evpn 1001:1001\n      router-id 192.168.100.3\n
+    \     neighbor 172.16.1.5 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n!\nrouter ospf 100\n   router-id 192.168.100.3\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Vlan4093\n   max-lsa 12000\n!\nip tacacs vrf MGMT source-interface
+    Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+  AVD-FABRIC-_DC1-CL4: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nno ip igmp snooping\n!\nevent-monitor\n!\nload-interval
+    default 5\n!\ninterface defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver
+    qsfp default-mode 4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing
+    protocols model multi-agent\n!\nhostname DC1-CL4\nip name-server 10.255.0.2\n!\nntp
+    server 0.pool.ntp.org prefer\n!\nspanning-tree mode mstp\nno spanning-tree vlan-id
+    4093-4094\nspanning-tree mst 0 priority 4096\n!\naaa authentication login default
+    local\naaa authentication login console local\naaa authentication policy on-failure
+    log\naaa authentication policy on-success log\naaa authorization serial-console\naaa
+    authorization exec default local\naaa authorization commands all default local\n!\nenable
+    password sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvlan 10\n   name V10-T-A-VRF-RED\n!\nvlan 20\n   name
+    V20-T-B-VRF-BLUE\n!\nvlan 30\n   name V30-T-A-VRF-RED\n!\nvlan 40\n   name V40-T-B-VRF-BLUE\n!\nvlan
+    4000\n   name MLAG_iBGP_RED\n   trunk group LEAF_PEER_L3\n!\nvlan 4001\n   name
+    MLAG_iBGP_BLUE\n   trunk group LEAF_PEER_L3\n!\nvlan 4093\n   name LEAF_PEER_L3\n
+    \  trunk group LEAF_PEER_L3\n!\nvlan 4094\n   name MLAG_PEER\n   trunk group MLAG\n!\nvrf
+    instance BLUE\n!\nvrf instance MGMT\n!\nvrf instance RED\n!\ninterface Port-Channel3\n
+    \  description MLAG_PEER_DC1-CL3_Po3\n   no shutdown\n   switchport\n   switchport
+    mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
+    MLAG\n!\ninterface Port-Channel4\n   description Host3_PortChannel host3\n   no
+    shutdown\n   switchport\n   switchport trunk allowed vlan 10,20,30,40\n   switchport
+    mode trunk\n   mlag 4\n   spanning-tree portfast\n!\ninterface Port-Channel5\n
+    \  description Host4_PortChannel host4\n   no shutdown\n   switchport\n   switchport
+    trunk allowed vlan 10,20,30,40\n   switchport mode trunk\n   mlag 5\n   spanning-tree
+    portfast\n!\ninterface Ethernet1\n   description P2P_LINK_TO_DC1-SP1_Ethernet4\n
+    \  no shutdown\n   mtu 1500\n   speed forced 100g\n   no switchport\n   ip address
+    192.168.1.13/31\n   ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface
+    Ethernet2\n   description P2P_LINK_TO_DC1-SP2_Ethernet4\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.15/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet3\n
+    \  description MLAG_PEER_DC1-CL3_Ethernet3\n   no shutdown\n   speed 100g\n   channel-group
+    3 mode active\n!\ninterface Ethernet4\n   description Host3_Ethernet2\n   no shutdown\n
+    \  speed 10g\n   channel-group 4 mode active\n!\ninterface Ethernet5\n   description
+    Host4_Ethernet2\n   no shutdown\n   speed 10g\n   channel-group 5 mode active\n!\ninterface
+    Loopback0\n   description EVPN_Overlay_Peering\n   no shutdown\n   ip address
+    192.168.100.4/32\n   ip ospf area 0.0.0.0\n!\ninterface Loopback1\n   description
+    VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address 192.168.200.3/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Loopback100\n   description RED_VTEP_DIAGNOSTICS\n
+    \  no shutdown\n   vrf RED\n   ip address 10.100.100.4/32\n!\ninterface Loopback101\n
+    \  description BLUE_VTEP_DIAGNOSTICS\n   no shutdown\n   vrf BLUE\n   ip address
+    10.100.101.4/32\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.105/24\n!\ninterface Vlan10\n   description
+    V10-T-A-VRF-RED\n   no shutdown\n   vrf RED\n   ip address virtual 10.10.10.254/24\n!\ninterface
+    Vlan20\n   description V20-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.20.254/24\n!\ninterface Vlan30\n   description V30-T-A-VRF-RED\n
+    \  no shutdown\n   vrf RED\n   ip address virtual 10.10.30.254/24\n!\ninterface
+    Vlan40\n   description V40-T-B-VRF-BLUE\n   no shutdown\n   vrf BLUE\n   ip address
+    virtual 10.10.40.254/24\n!\ninterface Vlan4000\n   description MLAG_PEER_L3_iBGP:
+    vrf RED\n   no shutdown\n   mtu 1500\n   vrf RED\n   ip address 172.16.1.5/31\n!\ninterface
+    Vlan4001\n   description MLAG_PEER_L3_iBGP: vrf BLUE\n   no shutdown\n   mtu 1500\n
+    \  vrf BLUE\n   ip address 172.16.1.5/31\n!\ninterface Vlan4093\n   description
+    MLAG_PEER_L3_PEERING\n   no shutdown\n   mtu 1500\n   ip address 172.16.1.5/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Vlan4094\n
+    \  description MLAG_PEER\n   no shutdown\n   mtu 1500\n   no autostate\n   ip
+    address 172.16.0.5/31\n!\ninterface Vxlan1\n   description DC1-CL4_VTEP\n   vxlan
+    source-interface Loopback1\n   vxlan virtual-router encapsulation mac-address
+    mlag-system-id\n   vxlan udp-port 4789\n   vxlan vlan 10 vni 10010\n   vxlan vlan
+    20 vni 10020\n   vxlan vlan 30 vni 10030\n   vxlan vlan 40 vni 10040\n   vxlan
+    vrf BLUE vni 1002\n   vxlan vrf RED vni 1001\n!\nmac address-table aging-time
+    1800\n!\nip virtual-router mac-address 00:1c:73:00:dc:01\n!\nip address virtual
+    source-nat vrf BLUE address 10.100.101.4\nip address virtual source-nat vrf RED
+    address 10.100.100.4\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip
+    access-list standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp
+    redirect\nip routing vrf BLUE\nno ip routing vrf MGMT\nip routing vrf RED\n!\nmlag
+    configuration\n   domain-id DC1_CLEAF3_4\n   local-interface Vlan4094\n   peer-address
+    172.16.0.4\n   peer-link Port-Channel3\n   reload-delay mlag 300\n   reload-delay
+    non-mlag 330\n!\narp aging timeout default 1500\n!\nroute-map RM-MLAG-PEER-IN
+    permit 10\n   description Make routes learned over MLAG Peer-link less preferred
+    on spines to ensure optimal routing\n   set origin incomplete\n!\nrouter bfd\n
+    \  multihop interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.3\n   bgp
+    asn notation asdot\n   router-id 192.168.100.4\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS update-source
+    Loopback0\n   neighbor EVPN-OVERLAY-PEERS bfd\n   neighbor EVPN-OVERLAY-PEERS
+    ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS password 7 $1c$U41I+zV057R0l38LbPqKww==\n
+    \  neighbor EVPN-OVERLAY-PEERS send-community\n   neighbor EVPN-OVERLAY-PEERS
+    maximum-routes 0\n   neighbor MLAG-IPv4-UNDERLAY-PEER peer group\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER remote-as 65000.3\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    next-hop-self\n   neighbor MLAG-IPv4-UNDERLAY-PEER description DC1-CL3\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER password 7 $1c$U41I+zV057S2PuXZVQiX2g==\n   neighbor MLAG-IPv4-UNDERLAY-PEER
+    send-community\n   neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000\n   neighbor
+    MLAG-IPv4-UNDERLAY-PEER route-map RM-MLAG-PEER-IN in\n   neighbor 192.168.100.249
+    peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.249 remote-as 65000.0\n
+    \  neighbor 192.168.100.249 description DC1-SP1\n   neighbor 192.168.100.250 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.250 remote-as 65000.0\n   neighbor
+    192.168.100.250 description DC1-SP2\n   !\n   vlan 10\n      rd 192.168.100.4:10010\n
+    \     route-target both 10010:10010\n      redistribute learned\n   !\n   vlan
+    20\n      rd 192.168.100.4:10020\n      route-target both 10020:10020\n      redistribute
+    learned\n   !\n   vlan 30\n      rd 192.168.100.4:10030\n      route-target both
+    10030:10030\n      redistribute learned\n   !\n   vlan 40\n      rd 192.168.100.4:10040\n
+    \     route-target both 10040:10040\n      redistribute learned\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family ipv4\n      no
+    neighbor EVPN-OVERLAY-PEERS activate\n      neighbor MLAG-IPv4-UNDERLAY-PEER activate\n
+    \  !\n   vrf BLUE\n      rd 192.168.100.4:1002\n      route-target import evpn
+    1002:1002\n      route-target export evpn 1002:1002\n      router-id 192.168.100.4\n
+    \     neighbor 172.16.1.4 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n   !\n   vrf RED\n      rd 192.168.100.4:1001\n      route-target import
+    evpn 1001:1001\n      route-target export evpn 1001:1001\n      router-id 192.168.100.4\n
+    \     neighbor 172.16.1.4 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
+    connected\n!\nrouter ospf 100\n   router-id 192.168.100.4\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Vlan4093\n   max-lsa 12000\n!\nip tacacs vrf MGMT source-interface
+    Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+  AVD-FABRIC-_DC1-SP1: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nevent-monitor\n!\nload-interval default 5\n!\ninterface
+    defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver qsfp default-mode
+    4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing protocols model
+    multi-agent\n!\nhostname DC1-SP1\nip name-server 10.255.0.2\n!\nntp server 0.pool.ntp.org
+    prefer\n!\nspanning-tree mode none\n!\naaa authentication login default local\naaa
+    authentication login console local\naaa authentication policy on-failure log\naaa
+    authentication policy on-success log\naaa authorization serial-console\naaa authorization
+    exec default local\naaa authorization commands all default local\n!\nenable password
+    sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvrf instance MGMT\n!\ninterface Ethernet1\n   description
+    P2P_LINK_TO_DC1-CL1_Ethernet1\n   no shutdown\n   mtu 1500\n   speed forced 100g\n
+    \  no switchport\n   ip address 192.168.1.0/31\n   ip ospf network point-to-point\n
+    \  ip ospf area 0.0.0.0\n!\ninterface Ethernet2\n   description P2P_LINK_TO_DC1-CL2_Ethernet1\n
+    \  no shutdown\n   mtu 1500\n   speed forced 100g\n   no switchport\n   ip address
+    192.168.1.4/31\n   ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface
+    Ethernet3\n   description P2P_LINK_TO_DC1-CL3_Ethernet1\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.8/31\n   ip
+    ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet4\n
+    \  description P2P_LINK_TO_DC1-CL4_Ethernet1\n   no shutdown\n   mtu 1500\n   speed
+    forced 100g\n   no switchport\n   ip address 192.168.1.12/31\n   ip ospf network
+    point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Loopback0\n   description
+    EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.100.249/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.100/24\n!\nmac address-table aging-time
+    1800\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip access-list
+    standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp redirect\nno
+    ip routing vrf MGMT\n!\narp aging timeout default 1500\n!\nrouter bfd\n   multihop
+    interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.0\n   bgp asn notation
+    asdot\n   router-id 192.168.100.249\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS next-hop-unchanged\n
+    \  neighbor EVPN-OVERLAY-PEERS update-source Loopback0\n   neighbor EVPN-OVERLAY-PEERS
+    bfd\n   neighbor EVPN-OVERLAY-PEERS ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS
+    password 7 $1c$U41I+zV057R0l38LbPqKww==\n   neighbor EVPN-OVERLAY-PEERS send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS maximum-routes 0\n   neighbor 192.168.100.1 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.1 remote-as 65000.1\n   neighbor
+    192.168.100.1 description DC1-CL1\n   neighbor 192.168.100.2 peer group EVPN-OVERLAY-PEERS\n
+    \  neighbor 192.168.100.2 remote-as 65000.1\n   neighbor 192.168.100.2 description
+    DC1-CL2\n   neighbor 192.168.100.3 peer group EVPN-OVERLAY-PEERS\n   neighbor
+    192.168.100.3 remote-as 65000.3\n   neighbor 192.168.100.3 description DC1-CL3\n
+    \  neighbor 192.168.100.4 peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.4
+    remote-as 65000.3\n   neighbor 192.168.100.4 description DC1-CL4\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n      neighbor EVPN-OVERLAY-PEERS
+    default-route-target only\n   !\n   address-family ipv4\n      no neighbor EVPN-OVERLAY-PEERS
+    activate\n!\nrouter ospf 100\n   router-id 192.168.100.249\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Ethernet3\n   no passive-interface Ethernet4\n   max-lsa
+    12000\n!\nip tacacs vrf MGMT source-interface Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+  AVD-FABRIC-_DC1-SP2: "!RANCID-CONTENT-TYPE: arista\n!\nterminal length 60\n!\ndaemon
+    TerminAttr\n   exec /usr/bin/TerminAttr -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token
+    -cvvrf=MGMT -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+    -taillogs\n   no shutdown\n!\nswitchport default mode routed\n!\nvlan internal
+    order ascending range 3500 4000\n!\nevent-monitor\n!\nload-interval default 5\n!\ninterface
+    defaults\n   ethernet\n      shutdown\n   mtu 1500\n!\ntransceiver qsfp default-mode
+    4x10G\n!\nerrdisable recovery interval 30\n!\nservice routing protocols model
+    multi-agent\n!\nhostname DC1-SP2\nip name-server 10.255.0.2\n!\nntp server 0.pool.ntp.org
+    prefer\n!\nspanning-tree mode none\n!\naaa authentication login default local\naaa
+    authentication login console local\naaa authentication policy on-failure log\naaa
+    authentication policy on-success log\naaa authorization serial-console\naaa authorization
+    exec default local\naaa authorization commands all default local\n!\nenable password
+    sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nno
+    aaa root\n!\nusername admin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\nusername
+    cvpadmin privilege 15 role network-admin secret sha512 $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.\n!\nclock
+    timezone US/Central\n!\nvrf instance MGMT\n!\ninterface Ethernet1\n   description
+    P2P_LINK_TO_DC1-CL1_Ethernet2\n   no shutdown\n   mtu 1500\n   speed forced 100g\n
+    \  no switchport\n   ip address 192.168.1.2/31\n   ip ospf network point-to-point\n
+    \  ip ospf area 0.0.0.0\n!\ninterface Ethernet2\n   description P2P_LINK_TO_DC1-CL2_Ethernet2\n
+    \  no shutdown\n   mtu 1500\n   speed forced 100g\n   no switchport\n   ip address
+    192.168.1.6/31\n   ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface
+    Ethernet3\n   description P2P_LINK_TO_DC1-CL3_Ethernet2\n   no shutdown\n   mtu
+    1500\n   speed forced 100g\n   no switchport\n   ip address 192.168.1.10/31\n
+    \  ip ospf network point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Ethernet4\n
+    \  description P2P_LINK_TO_DC1-CL4_Ethernet2\n   no shutdown\n   mtu 1500\n   speed
+    forced 100g\n   no switchport\n   ip address 192.168.1.14/31\n   ip ospf network
+    point-to-point\n   ip ospf area 0.0.0.0\n!\ninterface Loopback0\n   description
+    EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.168.100.250/32\n   ip
+    ospf area 0.0.0.0\n!\ninterface Management1\n   description oob_management\n   no
+    shutdown\n   vrf MGMT\n   ip address 192.168.0.101/24\n!\nmac address-table aging-time
+    1800\n!\nip access-list standard CVP-ACL\n   10 permit 0.0.0.0/0\n!\nip access-list
+    standard SNMP-ACL\n   10 permit 0.0.0.0/0\n!\nip routing\nno ip icmp redirect\nno
+    ip routing vrf MGMT\n!\narp aging timeout default 1500\n!\nrouter bfd\n   multihop
+    interval 3000 min-rx 3000 multiplier 3\n!\nrouter bgp 65000.0\n   bgp asn notation
+    asdot\n   router-id 192.168.100.250\n   distance bgp 20 200 200\n   graceful-restart
+    restart-time 300\n   graceful-restart\n   maximum-paths 128 ecmp 128\n   no bgp
+    default ipv4-unicast\n   timers bgp 5 15\n   neighbor default send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS peer group\n   neighbor EVPN-OVERLAY-PEERS next-hop-unchanged\n
+    \  neighbor EVPN-OVERLAY-PEERS update-source Loopback0\n   neighbor EVPN-OVERLAY-PEERS
+    bfd\n   neighbor EVPN-OVERLAY-PEERS ebgp-multihop 3\n   neighbor EVPN-OVERLAY-PEERS
+    password 7 $1c$U41I+zV057R0l38LbPqKww==\n   neighbor EVPN-OVERLAY-PEERS send-community\n
+    \  neighbor EVPN-OVERLAY-PEERS maximum-routes 0\n   neighbor 192.168.100.1 peer
+    group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.1 remote-as 65000.1\n   neighbor
+    192.168.100.1 description DC1-CL1\n   neighbor 192.168.100.2 peer group EVPN-OVERLAY-PEERS\n
+    \  neighbor 192.168.100.2 remote-as 65000.1\n   neighbor 192.168.100.2 description
+    DC1-CL2\n   neighbor 192.168.100.3 peer group EVPN-OVERLAY-PEERS\n   neighbor
+    192.168.100.3 remote-as 65000.3\n   neighbor 192.168.100.3 description DC1-CL3\n
+    \  neighbor 192.168.100.4 peer group EVPN-OVERLAY-PEERS\n   neighbor 192.168.100.4
+    remote-as 65000.3\n   neighbor 192.168.100.4 description DC1-CL4\n   !\n   address-family
+    evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family rt-membership\n
+    \     neighbor EVPN-OVERLAY-PEERS activate\n      neighbor EVPN-OVERLAY-PEERS
+    default-route-target only\n   !\n   address-family ipv4\n      no neighbor EVPN-OVERLAY-PEERS
+    activate\n!\nrouter ospf 100\n   router-id 192.168.100.250\n   passive-interface
+    default\n   no passive-interface Ethernet1\n   no passive-interface Ethernet2\n
+    \  no passive-interface Ethernet3\n   no passive-interface Ethernet4\n   max-lsa
+    12000\n!\nip tacacs vrf MGMT source-interface Management1\n!\nbanner login\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!
+    \                                                                       !!\n!!
+    IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!\n!!
+    WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!\n!!
+    \                                                                       !!\n!!
+    UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!\n!!
+    \                                                                       !!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\nEOF\n\n!\nmanagement
+    api http-commands\n   protocol https\n   no protocol http\n   no shutdown\n   !\n
+    \  vrf MGMT\n      no shutdown\n      ip access-group CVP-ACL\n!\nmanagement console\n
+    \  idle-timeout 100\n!\nmanagement security\n   password encryption-key common\n!\nmanagement
+    ssh\n   ip access-group SNMP-ACL vrf MGMT in\n   idle-timeout 5\n   no shutdown\n
+    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+cvp_topology:
+  DC1:
+    devices: []
+    parent_container: FABRIC
+  DC1_CLEAF1_2:
+    devices:
+    - DC1-CL1
+    - DC1-CL2
+    parent_container: DC1_LEAVES
+  DC1_CLEAF3_4:
+    devices:
+    - DC1-CL3
+    - DC1-CL4
+    parent_container: DC1_LEAVES
+  DC1_LEAVES:
+    devices: []
+    parent_container: DC1
+  DC1_SPINES:
+    devices:
+    - DC1-SP1
+    - DC1-SP2
+    parent_container: DC1
+  FABRIC:
+    devices: []
+    parent_container: Tenant
