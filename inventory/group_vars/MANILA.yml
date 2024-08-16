@@ -140,12 +140,12 @@ l3leaf:
       nodes:
         - name: C160479-0V1S005A
           filter:
-            tags: [ C160479-0V1S005A, MADISON_LEAFS  ]
+            tags: [ C160479-0V1S005A, _MANILA_LEAFS  ]
           id: 1
           mgmt_ip: 169.82.66.156/29
         - name: C160479-001S006A
           filter:
-            tags: [ C160479-001S006A, MADISON_LEAFS ]
+            tags: [ C160479-001S006A, MANILA_LEAFS ]
           id: 2
           mgmt_ip: 169.82.66.138/29
     # TODO should service leaf become its own "type"?

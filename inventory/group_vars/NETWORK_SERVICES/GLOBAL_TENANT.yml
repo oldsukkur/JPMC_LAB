@@ -286,7 +286,7 @@ tenants:
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]                
-            #tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            #tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             # ip_address_virtual: 10.12.48.1/24
             # ipv6_address_virtuals:
@@ -473,7 +473,7 @@ tenants:
             profile: IOTBMS_default
             name: IOT_WIRELESS
             enabled: true
-            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
             ip_address_virtual: 10.150.0.1/24
             bgp:
               structured_config:
@@ -598,7 +598,7 @@ tenants:
             name: Guest_Wireless
             profile: INTERNAL_default
             enabled: true 
-            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
             ip_address_virtual: 10.120.40.1/22
             bgp:
               structured_config:
@@ -607,7 +607,7 @@ tenants:
             name: Guest_Wired
             profile: INTERNAL_default
             enabled: true
-            tags: [ MADISON_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
             ip_address_virtual: 10.120.44.1/22
             bgp:
               structured_config:
