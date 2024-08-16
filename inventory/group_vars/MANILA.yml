@@ -88,7 +88,7 @@ l3leaf:
     virtual_router_mac_address: 00:1c:73:00:dc:01
     platform: EOS
     bgp_as: "65000.1-65000.30"
-    uplink_ipv4_pool: 192.168.1.0/24
+    uplink_ipv4_pool: 192.168.3.0/24
     uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
