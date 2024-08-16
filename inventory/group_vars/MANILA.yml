@@ -154,6 +154,34 @@ l3leaf:
             tags: [ C000267-GRDS007, MANILA_LEAFS ]
           id: 7
           mgmt_ip: 192.168.0.107/24
+    - group: MANILA_WC_7
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-008S0008
+          filter:
+            tags: [ C000267-008S0008, MANILA_LEAFS ]
+          id: 8
+          mgmt_ip: 192.168.0.108/24
+        - name: C000267-008S0009
+          filter:
+            tags: [ C000267-008S0009, MANILA_LEAFS ]
+          id: 9
+          mgmt_ip: 192.168.0.109/24
+        - name: C000267-008S0010
+          filter:
+            tags: [ C000267-008S0010, MANILA_LEAFS ]
+          id: 10
+          mgmt_ip: 192.168.0.110/24
+        - name: C000267-008S0011
+          filter:
+            tags: [ C000267-008S0011, MANILA_LEAFS ]
+          id: 11
+          mgmt_ip: 192.168.0.111/24
     - group: MANILA_WC_8
       filter:
         tags: [ MANILA_LEAFS ]
