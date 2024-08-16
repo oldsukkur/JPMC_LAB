@@ -111,6 +111,49 @@ l3leaf:
       - neighbor default send-community
     
     node_groups:
+    - group: MANILA_WC_GRD
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 720XP-48 
+      nodes:
+        - name: C000267-GRDS001
+          filter:
+            tags: [ C000267-GRDS001, MANILA_LEAFS ]
+          id: 1
+          mgmt_ip: 192.168.0.101/24
+        - name: C000267-GRDS002
+          filter:
+            tags: [ C000267-GRDS002, MANILA_LEAFS ]
+          id: 2
+          mgmt_ip: 192.168.0.102/24
+        - name: C000267-GRDS003
+          filter:
+            tags: [ C000267-GRDS003, MANILA_LEAFS ]
+          id: 3
+          mgmt_ip: 192.168.0.103/24
+        - name: C000267-GRDS004
+          filter:
+            tags: [ C000267-GRDS004, MANILA_LEAFS ]
+          id: 4
+          mgmt_ip: 192.168.0.104/24
+        - name: C000267-GRDS005
+          filter:
+            tags: [ C000267-GRDS005, MANILA_LEAFS ]
+          id: 5
+          mgmt_ip: 192.168.0.105/24
+        - name: C000267-GRDS006
+          filter:
+            tags: [ C000267-GRDS006, MANILA_LEAFS ]
+          id: 6
+          mgmt_ip: 192.168.0.106/24
+        - name: C000267-GRDS007
+          filter:
+            tags: [ C000267-GRDS007, MANILA_LEAFS ]
+          id: 7
+          mgmt_ip: 192.168.0.107/24
     - group: MANILA_WC_8
       filter:
         tags: [ MANILA_LEAFS ]
