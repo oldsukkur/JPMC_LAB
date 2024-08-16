@@ -119,39 +119,39 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 720XP-48 
       nodes:
-        - name: C000267-GRDS001
+        - name: C000267-GRDS001P
           filter:
-            tags: [ C000267-GRDS001, MANILA_LEAFS ]
+            tags: [ C000267-GRDS001P, MANILA_LEAFS ]
           id: 1
           mgmt_ip: 192.168.0.101/24
-        - name: C000267-GRDS002
+        - name: C000267-GRDS002P
           filter:
-            tags: [ C000267-GRDS002, MANILA_LEAFS ]
+            tags: [ C000267-GRDS002P, MANILA_LEAFS ]
           id: 2
           mgmt_ip: 192.168.0.102/24
-        - name: C000267-GRDS003
+        - name: C000267-GRDS003P
           filter:
-            tags: [ C000267-GRDS003, MANILA_LEAFS ]
+            tags: [ C000267-GRDS003P, MANILA_LEAFS ]
           id: 3
           mgmt_ip: 192.168.0.103/24
-        - name: C000267-GRDS004
+        - name: C000267-GRDS004P
           filter:
-            tags: [ C000267-GRDS004, MANILA_LEAFS ]
+            tags: [ C000267-GRDS004P, MANILA_LEAFS ]
           id: 4
           mgmt_ip: 192.168.0.104/24
-        - name: C000267-GRDS005
+        - name: C000267-GRDS005P
           filter:
-            tags: [ C000267-GRDS005, MANILA_LEAFS ]
+            tags: [ C000267-GRDS005P, MANILA_LEAFS ]
           id: 5
           mgmt_ip: 192.168.0.105/24
-        - name: C000267-GRDS006
+        - name: C000267-GRDS006P
           filter:
-            tags: [ C000267-GRDS006, MANILA_LEAFS ]
+            tags: [ C000267-GRDS006P, MANILA_LEAFS ]
           id: 6
           mgmt_ip: 192.168.0.106/24
-        - name: C000267-GRDS007
+        - name: C000267-GRDS007P
           filter:
-            tags: [ C000267-GRDS007, MANILA_LEAFS ]
+            tags: [ C000267-GRDS007P, MANILA_LEAFS ]
           id: 7
           mgmt_ip: 192.168.0.107/24
     - group: MANILA_WC_7
@@ -162,24 +162,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758-100-BND 
       nodes:
-        - name: C000267-008S0008
+        - name: C000267-008S008P
           filter:
-            tags: [ C000267-008S0008, MANILA_LEAFS ]
+            tags: [ C000267-008S008P, MANILA_LEAFS ]
           id: 8
           mgmt_ip: 192.168.0.108/24
-        - name: C000267-008S0009
+        - name: C000267-008S009P
           filter:
-            tags: [ C000267-008S0009, MANILA_LEAFS ]
+            tags: [ C000267-008S009P, MANILA_LEAFS ]
           id: 9
           mgmt_ip: 192.168.0.109/24
-        - name: C000267-008S0010
+        - name: C000267-008S010
           filter:
-            tags: [ C000267-008S0010, MANILA_LEAFS ]
+            tags: [ C000267-008S010, MANILA_LEAFS ]
           id: 10
           mgmt_ip: 192.168.0.110/24
-        - name: C000267-008S0011
+        - name: C000267-008S011
           filter:
-            tags: [ C000267-008S0011, MANILA_LEAFS ]
+            tags: [ C000267-008S011, MANILA_LEAFS ]
           id: 11
           mgmt_ip: 192.168.0.111/24
     - group: MANILA_WC_8
@@ -190,14 +190,14 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758-100-BND 
       nodes:
-        - name: C000267-008S0012
+        - name: C000267-008S012
           filter:
-            tags: [ C000267-008S0012, MANILA_LEAFS ]
+            tags: [ C000267-008S012, MANILA_LEAFS ]
           id: 12
           mgmt_ip: 192.168.0.112/24
-        - name: C000267-008S0013
+        - name: C000267-008S013
           filter:
-            tags: [ C000267-008S0013, MANILA_LEAFS ]
+            tags: [ C000267-008S013, MANILA_LEAFS ]
           id: 13
           mgmt_ip: 192.168.0.113/24
         - name: C000267-008S0014
@@ -205,11 +205,39 @@ l3leaf:
             tags: [ C000267-008S0014, MANILA_LEAFS ]
           id: 14
           mgmt_ip: 192.168.0.114/24
-        - name: C000267-008S0015
+        - name: C000267-008S015
           filter:
-            tags: [ C000267-008S0015, MANILA_LEAFS ]
+            tags: [ C000267-008S015, MANILA_LEAFS ]
           id: 15
           mgmt_ip: 192.168.0.115/24
+    - group: MANILA_WC_9
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24    
     - group: LEAFS-720
       filter:
         tags: [ MANILA_LEAFS ]
