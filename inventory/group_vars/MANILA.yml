@@ -237,7 +237,287 @@ l3leaf:
           filter:
             tags: [ C000267-008S019P, MANILA_LEAFS ]
           id: 19
-          mgmt_ip: 192.168.0.119/24    
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_10
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_11
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24 
+    - group: MANILA_WC_12
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_14
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_15
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_16
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24  
+    - group: MANILA_WC_17
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_18
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24  
+    - group: MANILA_WC_19
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24
+    - group: MANILA_WC_20
+      filter:
+        tags: [ MANILA_LEAFS ]
+      #loopback_ipv4_pool: 192.168.100.0/24
+      # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      platform: 758-100-BND 
+      nodes:
+        - name: C000267-009S016P
+          filter:
+            tags: [ C000267-009S016P, MANILA_LEAFS ]
+          id: 16
+          mgmt_ip: 192.168.0.116/24
+        - name: C000267-008S017P
+          filter:
+            tags: [ C000267-008S017P, MANILA_LEAFS ]
+          id: 17
+          mgmt_ip: 192.168.0.117/24
+        - name: C000267-008S018P
+          filter:
+            tags: [ C000267-008S018P, MANILA_LEAFS ]
+          id: 18
+          mgmt_ip: 192.168.0.118/24
+        - name: C000267-008S019P
+          filter:
+            tags: [ C000267-008S019P, MANILA_LEAFS ]
+          id: 19
+          mgmt_ip: 192.168.0.119/24          
     - group: LEAFS-720
       filter:
         tags: [ MANILA_LEAFS ]
