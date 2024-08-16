@@ -11,14 +11,14 @@ tenants:
       evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
     bgp_peer_groups:
       - name: SD_WAN_EDGE
-        nodes: [ C160479-003R603A, C160479-003R604A ]
+        nodes: [ C000267-009R601P, C000267-014R602P ]
         type: ipv4
         remote_as: 65201
         bfd: true
         maximum_routes: 0
         send_community: all
       - name: SD_WAN_EDGE_IPV6
-        nodes: [ C160479-003R603A, C160479-003R604A ]
+        nodes: [ C000267-009R601P, C000267-014R602P ]
         type: ipv6
         remote_as: 65201
         bfd: true
@@ -33,10 +33,10 @@ tenants:
           enabled: true
         pim_rp_addresses:
           - rps: [169.82.66.226]
-            nodes: [ C160479-003R603A, C160479-003R604A ]
+            nodes: [ C000267-009R601P, C000267-014R602P ]
             groups: [ 224.0.0.0/4 ]
           - rps: [169.82.66.226]
-            nodes: [ C160479-003R603A, C160479-003R604A ]
+            nodes: [ C000267-009R601P, C000267-014R602P ]
             groups: [ 239.1.0.0/16 ]         
         # Enable VTEP Network diagnostics
         # This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.
@@ -361,7 +361,7 @@ tenants:
           # BorderSpine 1 to ASR01 - VLAN 100
           - interfaces: [Ethernet3/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.26/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_INTERNAL
             pim:
@@ -374,7 +374,7 @@ tenants:
           # BorderSpine 2 to ASR01 - VLAN 100
           - interfaces: [Ethernet3/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C160479-003R604A]
+            nodes: [C000267-014R602P]
             ip_addresses: [10.12.46.8/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_INTERNAL
             pim:
@@ -387,7 +387,7 @@ tenants:
           # BorderSpine 1 to ASR02 - VLAN 100
           - interfaces: [Ethernet4/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.0/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_INTERNAL
             pim:
@@ -400,7 +400,7 @@ tenants:
           # BorderSpine 2 to ASR02 - VLAN 100
           - interfaces: [Ethernet4/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C160479-003R604A]
+            nodes: [C000267-014R602P]
             ip_addresses: [10.12.46.16/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_INTERNAL
             pim:
@@ -412,54 +412,54 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           2000:10:2:4:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             description: C160479-003R601A
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:10:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:16:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:22:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:1:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             description: C160479-003R601A
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:7:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:13:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:19:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           10.12.46.27:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           10.12.46.1:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.16.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.22.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           10.12.46.9:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           10.12.46.17:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.13.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.19.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: sd_wan_edge    
       - name: VRF_IOTBMS
         vrf_vni: 201
@@ -499,7 +499,7 @@ tenants:
         l3_interfaces:
           # BorderSpine 1 to ASR01 - VLAN 200
           - interfaces: [Ethernet3/48/1.200]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.24/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_IOT
             structured_config:
@@ -509,7 +509,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR01 - VLAN 200
           - interfaces: [Ethernet3/48/1.200]
-            nodes: [C160479-003R604A]
+            nodes: [C000267-014R602P]
             ip_addresses: [10.12.46.10/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_IOT
             structured_config:
@@ -519,7 +519,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 1 to ASR02 - VLAN 200
           - interfaces: [Ethernet4/48/1.200]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.2/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_IOT
             structured_config:
@@ -529,7 +529,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR02 - VLAN 200
           - interfaces: [ Ethernet4/48/1.200 ] 
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             ip_addresses: [10.12.46.18/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_IOT
             structured_config:
@@ -539,52 +539,52 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           2000:10:2:5:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:11:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:17:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:23:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:2:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:8:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:14:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:20:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           10.12.46.25:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           10.12.46.3:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.17.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.23.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           10.12.46.11:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           10.12.46.19:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.14.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.20.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: sd_wan_edge    
       - name: VRF_GUEST
         vrf_vni: 301
@@ -615,7 +615,7 @@ tenants:
         l3_interfaces:
           # BorderSpine 1 to ASR01 - VLAN 300
           - interfaces: [Ethernet3/48/1.300]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.28/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
             structured_config:
@@ -625,7 +625,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR01 - VLAN 300
           - interfaces: [Ethernet3/48/1.300]
-            nodes: [C160479-003R604A]
+            nodes: [C000267-014R602P]
             ip_addresses: [10.12.46.12/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
             structured_config:
@@ -635,7 +635,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 1 to ASR02 - VLAN 300
           - interfaces: [Ethernet4/48/1.300]
-            nodes: [C160479-003R603A]
+            nodes: [C000267-009R601P]
             ip_addresses: [10.12.46.4/31]
             description: P2P_LINK_TO__C160479-003R630A_Gi0/1/5_VRF_GUEST
             structured_config:
@@ -645,7 +645,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR02 - VLAN 300
           - interfaces: [Ethernet4/48/1.300]
-            nodes: [C160479-003R604A]
+            nodes: [C000267-014R602P]
             ip_addresses: [10.12.46.20/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_GUEST
             structured_config:
@@ -655,52 +655,52 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           2000:10:2:6:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:12:::
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:18:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:24:::
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:3:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           2000:10:2:9:::
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:15:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:21:::
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           10.12.46.29:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           10.12.46.5:
-            nodes: [ C160479-003R603A ]
+            nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.18.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.24.0:
-          #   nodes: [ C160479-003R603A ]
+          #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
           10.12.46.13:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           10.12.46.21:
-            nodes: [ C160479-003R604A ]
+            nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.15.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.21.0:
-          #   nodes: [ C160479-003R604A ]
+          #   nodes: [ C000267-014R602P ]
           #   peer_group: sd_wan_edge    
 
     # l2vlans:
@@ -722,7 +722,7 @@ tenants:
 # List of Loopback interfaces.
         # This will create Loopback interfaces inside the VRF.
         # Loopbacks:
-        #   - node: "C160479-003R603A"
+        #   - node: "C000267-009R601P"
         #     loopback: 99
         #     ip_address: 10.10.99.99
         #     description: "Anycast RP"

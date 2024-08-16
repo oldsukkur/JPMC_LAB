@@ -6,3 +6,4 @@ spanning_tree:
 
 # BGP update wait commands will be disabled for vEOS
 bgp_update_wait_for_convergence: true
+#ip_offset_20: 0

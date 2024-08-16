@@ -22,13 +22,16 @@ evpn_overlay_bgp_rtc: true
 # Disable igmp snooping default
 default_igmp_snooping_enabled: false
 default_interfaces: 
+  - types: [ spine ]
+    platforms: [ default ]
+    downlink_interfaces: [ Ethernet3/1-30/1,Ethernet4/1-30/1 ]
   - types: [ l3leaf ]
     platforms: [ 720XP-48 ]
     uplink_interfaces: [ Ethernet53-54 ]
-    downlink_interfaces: [ Ethernet1-48 ]
+    # downlink_interfaces: [ Ethernet1-48 ]
   - types: [ l3leaf ]
-    platforms: [ 758-100-BND ]
-    uplink_interfaces: [ Ethernet1/1/1,Ethernet21/1 ]
+    platforms: [ "758" ]
+    uplink_interfaces: [ Ethernet1/1/1,Ethernet2/1/1 ]
     # downlink_interfaces: [ Ethernet8 ]
 # bgp peer groups passwords
 bgp_peer_groups:
@@ -57,7 +60,8 @@ spine:
   defaults:
     platform: EOS
     bgp_as: "65000.0"
-    loopback_ipv4_pool: 192.168.100.248/29
+    loopback_ipv4_pool: 192.168.1.0/24
+    loopback_ipv4_offset: 250
     loopback_ipv6_pool: 2001:db8:abcd:0012::/64
     structured_config:
       router_bgp:
@@ -112,18 +116,17 @@ l3leaf:
         tags: [ MANILA_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758-100-BND 
       nodes:
         - name: C000267-008S0012
           filter:
-            tags: [ C160479-003S007A, MADISON_LEAFS ]
+            tags: [ C000267-008S0012, MANILA_LEAFS ]
           id: 3
-          mgmt_ip: 169.82.66.132/29
-          uplink_switch_interfaces: [Ethernet3/1/1, Ethernet3/1/1]  
+          mgmt_ip: 169.82.66.132/29  
         - name: C160479-006S008A
           filter:
-            tags: [ C160479-003S008A, MADISON_LEAFS ]
+            tags: [ C160479-003S008A, MANILA_LEAFS ]
           id: 4
           mgmt_ip: 169.82.66.148/29
           uplink_switch_interfaces: [Ethernet3/2/1, Ethernet3/2/1] 
@@ -131,7 +134,7 @@ l3leaf:
       filter:
         tags: [ MANILA_LEAFS ]
       vtep_loopback_ipv4_pool: 167.84.63.80/24               
-      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: default 
       uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
       nodes:
@@ -149,7 +152,7 @@ l3leaf:
     - group: SERVICELEAF_FL3
       filter:
         tags: [ MANILA_BORDER_LEAF ]
-      uplink_switches: [ C160479-003R603A, C160479-003R604A ]
+      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
       mlag_interfaces: [ Ethernet49/1, Ethernet50/1 ]
       mlag: true
