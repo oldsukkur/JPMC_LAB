@@ -122,14 +122,23 @@ l3leaf:
         - name: C000267-008S0012
           filter:
             tags: [ C000267-008S0012, MANILA_LEAFS ]
-          id: 3
+          id: 12
           mgmt_ip: 192.168.0.112/24
         - name: C000267-008S0013
           filter:
             tags: [ C000267-008S0013, MANILA_LEAFS ]
-          id: 4
+          id: 13
           mgmt_ip: 192.168.0.113/24
-          uplink_switch_interfaces: [Ethernet3/2/1, Ethernet3/2/1] 
+        - name: C000267-008S0014
+          filter:
+            tags: [ C000267-008S0014, MANILA_LEAFS ]
+          id: 14
+          mgmt_ip: 192.168.0.114/24
+        - name: C000267-008S0015
+          filter:
+            tags: [ C000267-008S0015, MANILA_LEAFS ]
+          id: 15
+          mgmt_ip: 192.168.0.115/24
     - group: LEAFS-720
       filter:
         tags: [ MANILA_LEAFS ]
