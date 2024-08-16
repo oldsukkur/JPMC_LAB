@@ -69,13 +69,13 @@ all:
                           ansible_host: 192.168.0.111
                     MANILA_WC_8:
                       hosts:
-                        C000267-008S012P:
+                        C000267-008S0012P:
                           ansible_host: 192.168.0.112
-                        C000267-008S013P:
+                        C000267-008S0013P:
                           ansible_host: 192.168.0.113
-                        C000267-008S014P:
+                        C000267-008S0014P:
                           ansible_host: 192.168.0.114
-                        C000267-008S015P:
+                        C000267-008S0015P:
                           ansible_host: 192.168.0.115
                     MANILA_WC_9:
                       hosts:

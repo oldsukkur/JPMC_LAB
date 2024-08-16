@@ -88,7 +88,6 @@ l3leaf:
     uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
-    uplink_interfaces: [Ethernet1, Ethernet2]
     uplink_switches: [C000267-014R601P, C000267-014R602P]
     uplink_interface_speed: forced 100g
     mlag: false
@@ -108,26 +107,26 @@ l3leaf:
       - neighbor default send-community
     
     node_groups:
-    - group: LEAFS-758
+    - group: MANILA_WC_8
       filter:
         tags: [ MANILA_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C160479-003R603A, C160479-003R604A ]
-      platform: default 
-      uplink_interfaces: [ Ethernet1/1/1, Ethernet2/1/1 ]
+      platform: 758-100-BND 
       nodes:
-        - name: C160479-003S007A
+        - name: C000267-008S0012
           filter:
             tags: [ C160479-003S007A, MADISON_LEAFS ]
           id: 3
           mgmt_ip: 169.82.66.132/29
-          uplink_switch_interfaces: [Ethernet1/1, Ethernet1/1]  
+          uplink_switch_interfaces: [Ethernet3/1/1, Ethernet3/1/1]  
         - name: C160479-006S008A
           filter:
             tags: [ C160479-003S008A, MADISON_LEAFS ]
           id: 4
           mgmt_ip: 169.82.66.148/29
+          uplink_switch_interfaces: [Ethernet3/2/1, Ethernet3/2/1] 
     - group: LEAFS-720
       filter:
         tags: [ MANILA_LEAFS ]
