@@ -233,9 +233,6 @@ all:
         MANILA_WC_F12_CONNECTED_ENDPOINTS:
          children:
            MANILA_WC_F12:
-        MANILA_WC_F13_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F13:
         MANILA_WC_F14_CONNECTED_ENDPOINTS:
          children:
            MANILA_WC_F14:
