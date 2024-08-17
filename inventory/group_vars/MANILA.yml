@@ -525,16 +525,16 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 720XP-48 
       nodes:
-        - name: C160479-0V1S005A
+        - name: C000267-009S560P
           filter:
-            tags: [ C160479-0V1S005A, _MANILA_LEAFS  ]
-          id: 1
-          mgmt_ip: 169.82.66.156/29
-        - name: C160479-001S006A
+            tags: [ C000267-009S560P, MANILA_LEAFS  ]
+          id: 60
+          mgmt_ip: 192.168.0.160/24
+        - name: C000267-009S561P
           filter:
-            tags: [ C160479-001S006A, MANILA_LEAFS ]
-          id: 2
-          mgmt_ip: 169.82.66.138/29
+            tags: [ C000267-009S561P, MANILA_LEAFS ]
+          id: 61
+          mgmt_ip: 92.168.0.161/24
     # TODO should service leaf become its own "type"?
     - group: SERVICELEAF_FL3
       filter:
