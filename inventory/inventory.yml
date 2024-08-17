@@ -191,7 +191,7 @@ all:
                       hosts: 
                         C000267-009S560P:
                           ansible_host: 192.168.0.160
-                        C000267-009S571P:
+                        C000267-009S561P:
                           ansible_host: 192.168.0.161
           vars:
             ansible_connection: httpapi
@@ -205,16 +205,16 @@ all:
 
         MANILA_TENANTS:
           children:
-            MANILA_LEAVES:
+            MANILA_LEAFS:
             MANILA_BORDERSPINES:
             MANILA_SERVICE_LEAFS:
 
         MANILA_ENDPOINTS:
           children:
            MANILA_LEAFS:
-        MANILA_WC_GF_CONNECTED_ENDPOINTS:
+        MANILA_WC_GRD_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_GF:
+           MANILA_WC_GRD:
         MANILA_WC_F07_CONNECTED_ENDPOINTS:
           children:
            MANILA_WC_F7:

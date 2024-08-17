@@ -518,7 +518,7 @@ l3leaf:
             tags: [ C000267-008S059P, MANILA_LEAFS ]
           id: 59
           mgmt_ip: 192.168.0.159/24          
-    - group: LEAFS-720
+    - group: MANILA_SERVICE_LEAFS
       filter:
         tags: [ MANILA_LEAFS ]
       vtep_loopback_ipv4_pool: 167.84.63.80/24               
