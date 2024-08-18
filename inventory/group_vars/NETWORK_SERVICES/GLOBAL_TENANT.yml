@@ -61,7 +61,7 @@ tenants:
             # Get basic settings from this profile defined in MADISON.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Data
+            name: C000267-Manila-Data
 
             tags: [ C160479-0V1S005A ]
             ip_address_virtual: 10.12.48.1/24
@@ -107,7 +107,7 @@ tenants:
             # Get basic settings from this profile defined in MADISON.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Data
+            name: C000267-Manila-Data
             tags: [ C160479-001S006A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.12.49.1/24
@@ -153,7 +153,7 @@ tenants:
             # Get basic settings from this profile defined in MADISON.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Data
+            name: C000267-Manila-Data
             tags: [ C160479-003S007A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.120.96.1/24
@@ -199,7 +199,7 @@ tenants:
             # Get basic settings from this profile defined in MADISON.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Data
+            name: C000267-Manila-Data
             tags: [ C160479-003S008A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.195.6.1/24
@@ -245,7 +245,7 @@ tenants:
             # Get basic settings from this profile defined in MADISON.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Data
+            name: C000267-Manila-Data
             tags: [ MADISON_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.3.129/25
