@@ -2,7 +2,7 @@
 # tenant_a Networks
 tenants:
   # Definition of tenants. Additional level of abstraction to VRFs
-  - name: MADISON_SUPERSPINES
+  - name: MANILA_SUPERSPINES
     # Number used to generate the VNI of each VLAN by adding the VLAN number in this tenant.
     # Force change
     mac_vrf_vni_base: 10000
@@ -58,7 +58,7 @@ tenants:
           - id: 301
             #vni_override: 60301
 
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
@@ -81,10 +81,10 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 302
             #vni_override: 80301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Voice
+            name: 160479-410MANILA-Voice
             tags: [ C160479-0V1S005A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.37.223.1/24
@@ -104,7 +104,7 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 303
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
@@ -127,10 +127,10 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 304
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Voice
+            name: 160479-410MANILA-Voice
             tags: [ C160479-001S006A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.2.1/24
@@ -150,7 +150,7 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 305
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
@@ -173,10 +173,10 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 306
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Voice
+            name: 160479-410MANILA-Voice
             tags: [ C160479-003S007A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.3.1/25
@@ -196,7 +196,7 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 307
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
@@ -219,10 +219,10 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 308
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Voice
+            name: 160479-410MANILA-Voice
             tags: [ C160479-003S008A ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.104.1/24
@@ -242,11 +242,11 @@ tenants:
                 redistribute_routes: [ dot1x ] 
           - id: 309
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
-            tags: [ MADISON_SERVICELEAFS ]
+            tags: [ MANILA_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.3.129/25
             ip_helpers:
@@ -265,11 +265,11 @@ tenants:
                 redistribute_routes: [ dot1x ]  
           - id: 310
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410Madison-Voice
-            tags: [ MADISON_SERVICELEAFS ]
+            name: 160479-410MANILA-Voice
+            tags: [ MANILA_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.105.1/24
             ip_helpers:
@@ -286,7 +286,7 @@ tenants:
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]                
-            #tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
+            #tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             # ip_address_virtual: 10.12.48.1/24
             # ipv6_address_virtuals:
@@ -301,7 +301,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: Tetrahedron_SSID
           #   enabled: true 
-          #   tags: [ MADISON_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICELEAFS ]
           #   ip_address_virtual: 10.150.12.1/22
           #   bgp:
           #     structured_config:
@@ -310,7 +310,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: cusotomerx_Conference_SSID
           #   enabled: True
-          #   tags: [ MADISON_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICELEAFS ]
           #   ip_address_virtual: 10.150.16.1/22
           #   bgp:
           #     structured_config:
@@ -319,7 +319,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: customerx_VOIP_SSID
           #   enabled: True
-          #   tags: [ MADISON_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICELEAFS ]
           #   ip_address_virtual: 10.150.24.1/22
           #   bgp:
           #     structured_config:
@@ -328,18 +328,18 @@ tenants:
           #   profile: INTERNAL_default
           #   name: MistEdge
           #   enabled: true 
-          #   tags: [ MADISON_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICELEAFS ]
           #   ip_address_virtual: 169.85.74.0/29
           #   bgp:
           #     structured_config:
           #       redistribute_routes: [ dot1x ] 
           - id: 500
             #vni_override: 65301
-            # Get basic settings from this profile defined in MADISON.yml
+            # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
             name: Mistedge
-            tags: [ MADISON_SERVICELEAFS ]
+            tags: [ MANILA_SERVICELEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 169.85.74.1/29
             # ip_helpers:
@@ -473,7 +473,7 @@ tenants:
             profile: IOTBMS_default
             name: IOT_WIRELESS
             enabled: true
-            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
             ip_address_virtual: 10.150.0.1/24
             bgp:
               structured_config:
@@ -598,7 +598,7 @@ tenants:
             name: Guest_Wireless
             profile: INTERNAL_default
             enabled: true 
-            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
             ip_address_virtual: 10.120.40.1/22
             bgp:
               structured_config:
@@ -607,7 +607,7 @@ tenants:
             name: Guest_Wired
             profile: INTERNAL_default
             enabled: true
-            tags: [ MANILA_LEAFS, MADISON_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
             ip_address_virtual: 10.120.44.1/22
             bgp:
               structured_config:
@@ -707,7 +707,7 @@ tenants:
       # These are pure L2 vlans. They do not have a SVI defined in the l3leafs and they will be bridged inside the VXLAN fabric
       # - id: 400
       #   name: MIST_EDGE_CONNECTIVITY
-      #   tags: [ MADISON_SERVICELEAFS ]
+      #   tags: [ MANILA_SERVICELEAFS ]
       #   evpn_l2_multicast:
       #     enabled: false
       # - id: 1000
