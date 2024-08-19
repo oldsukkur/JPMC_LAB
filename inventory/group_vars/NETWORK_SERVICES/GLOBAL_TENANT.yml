@@ -63,8 +63,8 @@ tenants:
             # SVI description.
             name: C000267-Manila-Data
 
-            tags: [ C160479-0V1S005A ]
-            ip_address_virtual: 10.12.48.1/24
+            tags: [ C000267-GNDS001P ]
+            ip_address_virtual: 10.67.1.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -84,10 +84,10 @@ tenants:
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410MANILA-Voice
-            tags: [ C160479-0V1S005A ]
+            name: C000267-Manila-Data
+            tags: [ C000267-GNDS002P ]
             # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.37.223.1/24
+            ip_address_virtual: 10.67.2.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
