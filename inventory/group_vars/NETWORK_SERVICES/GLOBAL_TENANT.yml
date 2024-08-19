@@ -85,7 +85,8 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
-            tags: [ C000267-GNDS002P ]
+
+            tags: [ C000267-GRDS002P ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.67.2.1/24
             ip_helpers:
@@ -102,16 +103,15 @@ tenants:
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
-
           - id: 303
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
-            tags: [ C160479-001S006A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.12.49.1/24
+            name: 000267-Manila-Data
+
+            tags: [ C000267-GRDS003P ]
+            ip_address_virtual: 10.67.3.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -119,10 +119,10 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
@@ -132,7 +132,7 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
-            tags: [ C000267-GNDS004P ]
+            tags: [ C000267-GRDS004P ]
             ip_address_virtual: 10.67.4.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -154,7 +154,7 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
-            tags: [ C000267-GNDS005P ]
+            tags: [ C000267-GRDS005P ]
             ip_address_virtual: 10.67.5.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -171,14 +171,14 @@ tenants:
               structured_config:
                 redistribute_routes: [ dot1x ]
           - id: 306
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410MANILA-Voice
-            tags: [ C160479-003S007A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.4.3.1/25
+            name: 000267-Manila-Data
+
+            tags: [ C000267-GRDS006P ]
+            ip_address_virtual: 10.67.6.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -186,22 +186,22 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
           - id: 307
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
-            tags: [ C160479-003S008A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.195.6.1/24
+            name: 000267-Manila-Data
+
+            tags: [ C000267-GRDS007P ]
+            ip_address_virtual: 10.67.7.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -209,22 +209,22 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
           - id: 308
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410MANILA-Voice
-            tags: [ C160479-003S008A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.4.104.1/24
+            name: 000267-Manila-Data
+
+            tags: [ C000267-007S008P ]
+            ip_address_virtual: 10.67.71.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -232,106 +232,1186 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 309
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-007S009P ]
+            ip_address_virtual: 10.67.72.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 310
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-007S010P ]
+            ip_address_virtual: 10.67.73.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ] 
-          - id: 309
-            #vni_override: 65301
+          - id: 311
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
-            tags: [ MANILA_SERVICE_LEAFS ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.4.3.129/25
-            ip_helpers:
-            - ip_helper: 169.86.42.132
-            - ip_helper: 169.86.42.100
-            - ip_helper: 169.127.105.84
-            - ip_helper: 169.98.141.207
-            - ip_helper: 202.40.72.61
-            - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
-            - ip_helper: 169.104.25.67
-            ipv6_address_virtuals:
-              - fd00:83:0::1/64
-            bgp:
-              structured_config:
-                redistribute_routes: [ dot1x ]  
-          - id: 310
-            #vni_override: 65301
-            # Get basic settings from this profile defined in MANILA.yml
-            profile: INTERNAL_default
-            # SVI description.
-            name: 160479-410MANILA-Voice
-            tags: [ MANILA_SERVICE_LEAFS ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.4.105.1/24
-            ip_helpers:
-            - ip_helper: 169.86.42.132
-            - ip_helper: 169.86.42.100
-            - ip_helper: 169.127.105.84
-            - ip_helper: 169.98.141.207
-            - ip_helper: 202.40.72.61
-            - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
-            - ip_helper: 169.104.25.67
-            ipv6_address_virtuals:
-              - fd00:83:0::1/64
-            bgp:
-              structured_config:
-                redistribute_routes: [ dot1x ]                
-            #tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            # ip_address_virtual: 10.12.48.1/24
-            # ipv6_address_virtuals:
-            #   - fd00:82:0::1/64
-            # bgp:
-            #   structured_config:
-            #     redistribute_routes: [ dot1x ]
+            name: 000267-Manila-Data
 
-              ##PLEASE ADD WIFI SVIs HERE
-          # # Begin Wi-Fi client SVIs
-          # - id: 558
-          #   profile: INTERNAL_default
-          #   name: Tetrahedron_SSID
-          #   enabled: true 
-          #   tags: [ MANILA_SERVICE_LEAFS ]
-          #   ip_address_virtual: 10.150.12.1/22
-          #   bgp:
-          #     structured_config:
-          #       redistribute_routes: [ dot1x ]
-          # - id: 559
-          #   profile: INTERNAL_default
-          #   name: cusotomerx_Conference_SSID
-          #   enabled: True
-          #   tags: [ MANILA_SERVICE_LEAFS ]
-          #   ip_address_virtual: 10.150.16.1/22
-          #   bgp:
-          #     structured_config:
-          #       redistribute_routes: [ dot1x ]
-          # - id: 560
-          #   profile: INTERNAL_default
-          #   name: customerx_VOIP_SSID
-          #   enabled: True
-          #   tags: [ MANILA_SERVICE_LEAFS ]
-          #   ip_address_virtual: 10.150.24.1/22
-          #   bgp:
-          #     structured_config:
-          #       redistribute_routes: [ dot1x ]  
-          # - id: 500
-          #   profile: INTERNAL_default
-          #   name: MistEdge
-          #   enabled: true 
-          #   tags: [ MANILA_SERVICE_LEAFS ]
-          #   ip_address_virtual: 169.85.74.0/29
-          #   bgp:
-          #     structured_config:
-          #       redistribute_routes: [ dot1x ] 
+            tags: [ C000267-007S011P ]
+            ip_address_virtual: 10.67.74.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 312
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-008S012P ]
+            ip_address_virtual: 10.67.81.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 313
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-008S013P ]
+            ip_address_virtual: 10.67.82.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 314
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-008S014P ]
+            ip_address_virtual: 10.67.83.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 315
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-008S015P ]
+            ip_address_virtual: 10.67.84.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 316
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-009S016P ]
+            ip_address_virtual: 10.67.91.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 317
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-009S017P ]
+            ip_address_virtual: 10.67.92.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 318
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-009S018P ]
+            ip_address_virtual: 10.67.93.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 319
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-009S019P ]
+                      ip_address_virtual: 10.67.94.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 320
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-010S020P ]
+                      ip_address_virtual: 10.67.101.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 321
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-010S021P ]
+                      ip_address_virtual: 10.67.102.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 322
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-010S022P ]
+                      ip_address_virtual: 10.67.103.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 323
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-010S023P ]
+                      ip_address_virtual: 10.67.104.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 324
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-011S024P ]
+                      ip_address_virtual: 10.67.111.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 325
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-011S025P ]
+                      ip_address_virtual: 10.67.112.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 326
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-011S026P ]
+                      ip_address_virtual: 10.67.113.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 327
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-011S027P ]
+                      ip_address_virtual: 10.67.114.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 328
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-012S028P ]
+            ip_address_virtual: 10.67.121.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 329
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-012S029P ]
+                      ip_address_virtual: 10.67.122.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 330
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-012S030P ]
+                      ip_address_virtual: 10.67.123.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 331
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-012S031P ]
+                      ip_address_virtual: 10.67.124.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 332
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-014S032P ]
+                      ip_address_virtual: 10.67.141.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 333
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-014S033P ]
+                      ip_address_virtual: 10.67.142.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 334
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-014S034P ]
+                      ip_address_virtual: 10.67.143.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 335
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-014S035P ]
+                      ip_address_virtual: 10.67.144.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 336
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-015S036P ]
+                      ip_address_virtual: 10.67.151.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 337
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-015S037P ]
+                      ip_address_virtual: 10.67.152.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 338
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-015S038P ]
+                      ip_address_virtual: 10.67.153.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 339
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-015S039P ]
+                      ip_address_virtual: 10.67.154.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 340
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-016S040P ]
+                      ip_address_virtual: 10.67.161.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 341
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-016S041P ]
+                      ip_address_virtual: 10.67.162.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 342
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-016S042P ]
+                      ip_address_virtual: 10.67.163.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 343
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-016S043P ]
+                      ip_address_virtual: 10.67.164.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 344
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-017S044P ]
+                      ip_address_virtual: 10.67.171.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 345
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-017S045P ]
+                      ip_address_virtual: 10.67.172.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 346
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-017S046P ]
+                      ip_address_virtual: 10.67.173.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 347
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-017S047P ]
+                      ip_address_virtual: 10.67.174.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 348
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-018S048P ]
+                      ip_address_virtual: 10.67.181.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 349
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-018S049P ]
+                      ip_address_virtual: 10.67.182.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 350
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-018S050P ]
+                      ip_address_virtual: 10.67.183.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 351
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-018S051P ]
+                      ip_address_virtual: 10.67.184.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 352
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-019S052P ]
+                      ip_address_virtual: 10.67.191.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 353
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-019S053P ]
+                      ip_address_virtual: 10.67.192.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 354
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-019S054P ]
+                      ip_address_virtual: 10.67.193.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 355
+                      #vni_override: 60301
+                      # Get basic settings from this profile defined in MANILA.yml
+                      profile: INTERNAL_default
+                      # SVI description.
+                      name: 000267-Manila-Data
+
+                      tags: [ C000267-019S055P ]
+                      ip_address_virtual: 10.67.194.1/24
+                      ip_helpers:
+                      - ip_helper: 169.86.42.132
+                      - ip_helper: 169.86.42.100
+                      - ip_helper: 169.127.105.84
+                      - ip_helper: 169.98.141.207
+                      - ip_helper: 202.40.72.61
+                      - ip_helper: 202.40.73.61
+                      - ip_helper: 169.101.114.67
+                      - ip_helper: 169.104.25.67
+                      ipv6_address_virtuals:
+                        - fd00:82:0::1/64
+                      bgp:
+                        structured_config:
+                          redistribute_routes: [ dot1x ]
+          - id: 356
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-020S056P ]
+            ip_address_virtual: 10.67.201.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 357
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-020S057P ]
+            ip_address_virtual: 10.67.202.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 358
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-020S058P ]
+            ip_address_virtual: 10.67.203.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
+          - id: 359
+            #vni_override: 60301
+            # Get basic settings from this profile defined in MANILA.yml
+            profile: INTERNAL_default
+            # SVI description.
+            name: 000267-Manila-Data
+
+            tags: [ C000267-020S059P ]
+            ip_address_virtual: 10.67.204.1/24
+            ip_helpers:
+            - ip_helper: 169.86.42.132
+            - ip_helper: 169.86.42.100
+            - ip_helper: 169.127.105.84
+            - ip_helper: 169.98.141.207
+            - ip_helper: 202.40.72.61
+            - ip_helper: 202.40.73.61
+            - ip_helper: 169.101.114.67
+            - ip_helper: 169.104.25.67
+            ipv6_address_virtuals:
+              - fd00:82:0::1/64
+            bgp:
+              structured_config:
+                redistribute_routes: [ dot1x ]
           - id: 500
             #vni_override: 65301
             # Get basic settings from this profile defined in MANILA.yml

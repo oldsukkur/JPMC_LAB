@@ -123,7 +123,7 @@ tenants:
       profile: INTERNAL_default
       name: C000267-Manila-Data
       tags:
-      - C000267-GNDS002P
+      - C000267-GRDS002P
       ip_address_virtual: 10.67.2.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
@@ -142,10 +142,10 @@ tenants:
           - dot1x
     - id: 303
       profile: INTERNAL_default
-      name: C000267-Manila-Data
+      name: 000267-Manila-Data
       tags:
-      - C160479-001S006A
-      ip_address_virtual: 10.12.49.1/24
+      - C000267-GNDS003P
+      ip_address_virtual: 10.67.3.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -156,7 +156,7 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
@@ -165,7 +165,7 @@ tenants:
       profile: INTERNAL_default
       name: 000267-Manila-Data
       tags:
-      - C000267-GNDS004P
+      - C000267-GRDS004P
       ip_address_virtual: 10.67.4.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
@@ -186,7 +186,7 @@ tenants:
       profile: INTERNAL_default
       name: 000267-Manila-Data
       tags:
-      - C000267-GNDS005P
+      - C000267-GRDS005P
       ip_address_virtual: 10.67.5.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
@@ -1592,7 +1592,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 302,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS003P:
@@ -1708,7 +1708,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 304,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS005P:
@@ -1766,7 +1766,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 305,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS006P:
@@ -5435,7 +5435,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 302,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS003P:
@@ -5551,7 +5551,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 304,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS005P:
@@ -5609,7 +5609,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 305,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS006P:
@@ -9615,7 +9615,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__dda01b38ba6c4f365fbc840d7305b0b6ecec3569
+omit: __omit_place_holder__4d634d9b844bd64696b5eeddb3ed48360471af29
 ansible_version:
   string: 2.17.3
   full: 2.17.3
