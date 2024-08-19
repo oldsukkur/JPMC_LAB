@@ -372,24 +372,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S036P
+        - name: C000267-015S036P
           filter:
-            tags: [ C000267-009S036P, MANILA_LEAFS ]
+            tags: [ C000267-015S036P, MANILA_LEAFS ]
           id: 36
           mgmt_ip: 192.168.0.136/24
-        - name: C000267-008S037P
+        - name: C000267-015S037P
           filter:
-            tags: [ C000267-008S037P, MANILA_LEAFS ]
+            tags: [ C000267-015S037P, MANILA_LEAFS ]
           id: 37
           mgmt_ip: 192.168.0.137/24
-        - name: C000267-008S038P
+        - name: C000267-015S038P
           filter:
-            tags: [ C000267-008S038P, MANILA_LEAFS ]
+            tags: [ C000267-015S038P, MANILA_LEAFS ]
           id: 38
           mgmt_ip: 192.168.0.138/24
-        - name: C000267-008S039P
+        - name: C000267-015S039P
           filter:
-            tags: [ C000267-008S039P, MANILA_LEAFS ]
+            tags: [ C000267-015S039P, MANILA_LEAFS ]
           id: 39
           mgmt_ip: 192.168.0.139/24
     - group: MANILA_WC_16
@@ -400,24 +400,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S040P
+        - name: C000267-016S040P
           filter:
-            tags: [ C000267-009S040P, MANILA_LEAFS ]
+            tags: [ C000267-016S040P, MANILA_LEAFS ]
           id: 40
           mgmt_ip: 192.168.0.140/24
-        - name: C000267-008S041P
+        - name: C000267-016S041P
           filter:
-            tags: [ C000267-008S041P, MANILA_LEAFS ]
+            tags: [ C000267-016S041P, MANILA_LEAFS ]
           id: 41
           mgmt_ip: 192.168.0.141/24
-        - name: C000267-008S042P
+        - name: C000267-016S042P
           filter:
-            tags: [ C000267-008S042P, MANILA_LEAFS ]
+            tags: [ C000267-016S042P, MANILA_LEAFS ]
           id: 42
           mgmt_ip: 192.168.0.142/24
-        - name: C000267-008S043P
+        - name: C000267-016S043P
           filter:
-            tags: [ C000267-008S043P, MANILA_LEAFS ]
+            tags: [ C000267-016S043P, MANILA_LEAFS ]
           id: 43
           mgmt_ip: 192.168.0.143/24  
     - group: MANILA_WC_17
@@ -428,24 +428,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 720XP-48 
       nodes:
-        - name: C000267-009S044P
+        - name: C000267-017S044P
           filter:
-            tags: [ C000267-009S044P, MANILA_LEAFS ]
+            tags: [ C000267-017S044P, MANILA_LEAFS ]
           id: 44
           mgmt_ip: 192.168.0.144/24
-        - name: C000267-008S045P
+        - name: C000267-017S045P
           filter:
-            tags: [ C000267-008S045P, MANILA_LEAFS ]
+            tags: [ C000267-017S045P, MANILA_LEAFS ]
           id: 45
           mgmt_ip: 192.168.0.145/24
-        - name: C000267-008S046P
+        - name: C000267-017S046P
           filter:
-            tags: [ C000267-008S046P, MANILA_LEAFS ]
+            tags: [ C000267-017S046P, MANILA_LEAFS ]
           id: 46
           mgmt_ip: 192.168.0.146/24
-        - name: C000267-008S047P
+        - name: C000267-017S047P
           filter:
-            tags: [ C000267-008S047P, MANILA_LEAFS ]
+            tags: [ C000267-017S047P, MANILA_LEAFS ]
           id: 47
           mgmt_ip: 192.168.0.147/24
     - group: MANILA_WC_18
@@ -456,24 +456,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 720XP-48
       nodes:
-        - name: C000267-009S048P
+        - name: C000267-018S048P
           filter:
-            tags: [ C000267-009S048P, MANILA_LEAFS ]
+            tags: [ C000267-018S048P, MANILA_LEAFS ]
           id: 48
           mgmt_ip: 192.168.0.148/24
-        - name: C000267-008S049P
+        - name: C000267-018S049P
           filter:
-            tags: [ C000267-008S049P, MANILA_LEAFS ]
+            tags: [ C000267-018S049P, MANILA_LEAFS ]
           id: 49
           mgmt_ip: 192.168.0.149/24
-        - name: C000267-008S050P
+        - name: C000267-018S050P
           filter:
-            tags: [ C000267-008S050P, MANILA_LEAFS ]
+            tags: [ C000267-018S050P, MANILA_LEAFS ]
           id: 50
           mgmt_ip: 192.168.0.150/24
-        - name: C000267-008S051P
+        - name: C000267-018S051P
           filter:
-            tags: [ C000267-008S051P, MANILA_LEAFS ]
+            tags: [ C000267-018S051P, MANILA_LEAFS ]
           id: 51
           mgmt_ip: 192.168.0.151/24  
     - group: MANILA_WC_19
@@ -484,24 +484,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S052P
+        - name: C000267-019S052P
           filter:
-            tags: [ C000267-009S052P, MANILA_LEAFS ]
+            tags: [ C000267-019S052P, MANILA_LEAFS ]
           id: 52
           mgmt_ip: 192.168.0.152/24
-        - name: C000267-008S053P
+        - name: C000267-019S053P
           filter:
-            tags: [ C000267-008S053P, MANILA_LEAFS ]
+            tags: [ C000267-019S053P, MANILA_LEAFS ]
           id: 53
           mgmt_ip: 192.168.0.153/24
-        - name: C000267-008S054P
+        - name: C000267-019S054P
           filter:
-            tags: [ C000267-008S054P, MANILA_LEAFS ]
+            tags: [ C000267-019S054P, MANILA_LEAFS ]
           id: 54
           mgmt_ip: 192.168.0.154/24
-        - name: C000267-008S055P
+        - name: C000267-019S055P
           filter:
-            tags: [ C000267-008S055P, MANILA_LEAFS ]
+            tags: [ C000267-019S055P, MANILA_LEAFS ]
           id: 55
           mgmt_ip: 192.168.0.155/24
     - group: MANILA_WC_20
@@ -512,24 +512,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S056P
+        - name: C000267-020S056P
           filter:
-            tags: [ C000267-009S056P, MANILA_LEAFS ]
+            tags: [ C000267-020S056P, MANILA_LEAFS ]
           id: 56
           mgmt_ip: 192.168.0.156/24
-        - name: C000267-008S057P
+        - name: C000267-020S057P
           filter:
-            tags: [ C000267-008S057P, MANILA_LEAFS ]
+            tags: [ C000267-020S057P, MANILA_LEAFS ]
           id: 57
           mgmt_ip: 192.168.0.157/24
-        - name: C000267-008S058P
+        - name: C000267-020S058P
           filter:
-            tags: [ C000267-008S058P, MANILA_LEAFS ]
+            tags: [ C000267-020S058P, MANILA_LEAFS ]
           id: 58
           mgmt_ip: 192.168.0.158/24
-        - name: C000267-008S059P
+        - name: C000267-020S059P
           filter:
-            tags: [ C000267-008S059P, MANILA_LEAFS ]
+            tags: [ C000267-020S059P, MANILA_LEAFS ]
           id: 59
           mgmt_ip: 192.168.0.159/24          
     - group: MANILA_SERVICE_LEAFS
