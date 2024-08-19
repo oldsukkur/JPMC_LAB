@@ -24,20 +24,20 @@ tenants:
         bfd: true
         maximum_routes: 0
         send_community: all
+    pim_rp_addresses:
+    - rps: [169.82.66.226]
+      nodes: [ C000267-009R601P, C000267-014R602P ]
+      groups: [ 224.0.0.0/4 ]
+    - rps: [169.82.66.226]
+      nodes: [ C000267-009R601P, C000267-014R602P ]
+      groups: [ 239.1.0.0/16 ] 
     vrfs:
       # VRF definitions inside the tenant.
       - name: VRF_INTERNAL
         # VRF VNI definition.
         vrf_vni: 101
         evpn_l3_multicast:
-          enabled: true
-        pim_rp_addresses:
-          - rps: [169.82.66.226]
-            nodes: [ C000267-009R601P, C000267-014R602P ]
-            groups: [ 224.0.0.0/4 ]
-          - rps: [169.82.66.226]
-            nodes: [ C000267-009R601P, C000267-014R602P ]
-            groups: [ 239.1.0.0/16 ]         
+          enabled: true        
         # Enable VTEP Network diagnostics
         # This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.
         vtep_diagnostic:
@@ -63,7 +63,7 @@ tenants:
             # SVI description.
             name: C000267-Manila-Data
 
-            tags: [ C000267-GNDS001P ]
+            tags: [ C000267-GRDS001P ]
             ip_address_virtual: 10.67.1.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -410,12 +410,13 @@ tenants:
               flow_tracker:
                 sampled: ftr_sampled
         bgp_peers:
-          2000:10:2:4:::
+          - ip_address: "2000:10:2:4::"
             nodes: [ C000267-009R601P ]
-            description: C160479-003R601A
+            description: C000267-CSG5000A
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:10:::
+          - ip_address: "2000:10:2:10::"
             nodes: [ C000267-009R601P ]
+            description: C000267-CSG5000B
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:16:::
           #   nodes: [ C000267-009R601P ]
@@ -423,12 +424,13 @@ tenants:
           # 2000:10:2:22:::
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:1:::
+          - ip_address: "2000:10:2:1::"
             nodes: [ C000267-014R602P ]
-            description: C160479-003R601A
+            description: C000267-CSG5000A
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:7:::
+          - ip_address: "2000:10:2:7::"
             nodes: [ C000267-014R602P ]
+            description: C000267-CSG5000B
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:13:::
           #   nodes: [ C000267-014R602P ]
@@ -436,10 +438,10 @@ tenants:
           # 2000:10:2:19:::
           #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          10.12.46.27:
+          - ip_address: 10.12.46.27
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.1:
+          - ip_address: 10.12.46.1
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.16.0:
@@ -448,10 +450,10 @@ tenants:
           # 10.2.22.0:
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
-          10.12.46.9:
+          - ip_address: 10.12.46.9
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.17:
+          - ip_address: 10.12.46.17
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.13.0:
@@ -472,7 +474,7 @@ tenants:
             profile: IOTBMS_default
             name: IOT_WIRELESS
             enabled: true
-            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.150.0.1/24
             bgp:
               structured_config:
@@ -537,10 +539,10 @@ tenants:
               flow_tracker:
                 sampled: ftr_sampled
         bgp_peers:
-          2000:10:2:5:::
+          - ip_address: "2000:10:2:5::"
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:11:::
+          - ip_address: "2000:10:2:11::"
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:17:::
@@ -549,10 +551,10 @@ tenants:
           # 2000:10:2:23:::
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:2:::
+          - ip_address: "2000:10:2:2::"
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:8:::
+          - ip_address: "2000:10:2:8::"
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:14:::
@@ -561,10 +563,10 @@ tenants:
           # 2000:10:2:20:::
           #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          10.12.46.25:
+          - ip_address: 10.12.46.25
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.3:
+          - ip_address: 10.12.46.3
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.17.0:
@@ -573,10 +575,10 @@ tenants:
           # 10.2.23.0:
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
-          10.12.46.11:
+          - ip_address: 10.12.46.11
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.19:
+          - ip_address: 10.12.46.19
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.14.0:
@@ -597,7 +599,7 @@ tenants:
             name: Guest_Wireless
             profile: INTERNAL_default
             enabled: true 
-            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.120.40.1/22
             bgp:
               structured_config:
@@ -606,7 +608,7 @@ tenants:
             name: Guest_Wired
             profile: INTERNAL_default
             enabled: true
-            tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
+            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.120.44.1/22
             bgp:
               structured_config:
@@ -653,10 +655,10 @@ tenants:
               flow_tracker:
                 sampled: ftr_sampled
         bgp_peers:
-          2000:10:2:6:::
+          - ip_address: "2000:10:2:6::"
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:12:::
+          - ip_address: "2000:10:2:12::"
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:18:::
@@ -665,10 +667,10 @@ tenants:
           # 2000:10:2:24:::
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:3:::
+          - ip_address: "2000:10:2:3::"
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
-          2000:10:2:9:::
+          - ip_address: "2000:10:2:9::"
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:15:::
@@ -677,10 +679,10 @@ tenants:
           # 2000:10:2:21:::
           #   nodes: [ C000267-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
-          10.12.46.29:
+          - ip_address: 10.12.46.29
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.5:
+          - ip_address: 10.12.46.5
             nodes: [ C000267-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.18.0:
@@ -689,10 +691,10 @@ tenants:
           # 10.2.24.0:
           #   nodes: [ C000267-009R601P ]
           #   peer_group: SD_WAN_EDGE
-          10.12.46.13:
+          - ip_address: 10.12.46.13
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
-          10.12.46.21:
+          - ip_address: 10.12.46.21
             nodes: [ C000267-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.15.0:

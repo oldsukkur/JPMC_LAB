@@ -47,6 +47,619 @@ port_profiles:
   speed: 10g
   spanning_tree_portfast: edge
   vlans: 10,20,30,40
+tenants:
+- name: MANILA_SUPERSPINES
+  mac_vrf_vni_base: 10000
+  evpn_l3_multicast:
+    enabled: true
+    evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
+  bgp_peer_groups:
+  - name: SD_WAN_EDGE
+    nodes:
+    - C000267-009R601P
+    - C000267-014R602P
+    type: ipv4
+    remote_as: 65201
+    bfd: true
+    maximum_routes: 0
+    send_community: all
+  - name: SD_WAN_EDGE_IPV6
+    nodes:
+    - C000267-009R601P
+    - C000267-014R602P
+    type: ipv6
+    remote_as: 65201
+    bfd: true
+    maximum_routes: 0
+    send_community: all
+  pim_rp_addresses:
+  - rps:
+    - 169.82.66.226
+    nodes:
+    - C000267-009R601P
+    - C000267-014R602P
+    groups:
+    - 224.0.0.0/4
+  - rps:
+    - 169.82.66.226
+    nodes:
+    - C000267-009R601P
+    - C000267-014R602P
+    groups:
+    - 239.1.0.0/16
+  vrfs:
+  - name: VRF_INTERNAL
+    vrf_vni: 101
+    evpn_l3_multicast:
+      enabled: true
+    vtep_diagnostic:
+      loopback: 10
+      loopback_ip_range: 167.84.63.96/28
+    structured_config:
+      ipv6_unicast_routing: true
+    svis:
+    - id: 301
+      profile: INTERNAL_default
+      name: C000267-Manila-Data
+      tags:
+      - C000267-GRDS001P
+      ip_address_virtual: 10.67.1.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 302
+      profile: INTERNAL_default
+      name: C000267-Manila-Data
+      tags:
+      - C000267-GNDS002P
+      ip_address_virtual: 10.67.2.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 303
+      profile: INTERNAL_default
+      name: C000267-Manila-Data
+      tags:
+      - C160479-001S006A
+      ip_address_virtual: 10.12.49.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 304
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-GNDS004P
+      ip_address_virtual: 10.67.4.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 305
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-GNDS005P
+      ip_address_virtual: 10.67.5.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 306
+      profile: INTERNAL_default
+      name: 160479-410MANILA-Voice
+      tags:
+      - C160479-003S007A
+      ip_address_virtual: 10.4.3.1/25
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 307
+      profile: INTERNAL_default
+      name: C000267-Manila-Data
+      tags:
+      - C160479-003S008A
+      ip_address_virtual: 10.195.6.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 308
+      profile: INTERNAL_default
+      name: 160479-410MANILA-Voice
+      tags:
+      - C160479-003S008A
+      ip_address_virtual: 10.4.104.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 309
+      profile: INTERNAL_default
+      name: C000267-Manila-Data
+      tags:
+      - MANILA_SERVICELEAFS
+      ip_address_virtual: 10.4.3.129/25
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 310
+      profile: INTERNAL_default
+      name: 160479-410MANILA-Voice
+      tags:
+      - MANILA_SERVICELEAFS
+      ip_address_virtual: 10.4.105.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 500
+      profile: INTERNAL_default
+      name: Mistedge
+      tags:
+      - MANILA_SERVICELEAFS
+      ip_address_virtual: 169.85.74.1/29
+      ipv6_address_virtuals:
+      - fd00:83:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    l3_interfaces:
+    - interfaces:
+      - Ethernet3/48/1.100
+      encapsulation_dot1q_vlan:
+      - 100
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.26/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_INTERNAL
+      pim:
+        enabled: true
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:4::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet3/48/1.100
+      encapsulation_dot1q_vlan:
+      - 100
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.8/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_INTERNAL
+      pim:
+        enabled: true
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:1::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.100
+      encapsulation_dot1q_vlan:
+      - 100
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.0/31
+      description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_INTERNAL
+      pim:
+        enabled: true
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:10::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.100
+      encapsulation_dot1q_vlan:
+      - 100
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.16/31
+      description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_INTERNAL
+      pim:
+        enabled: true
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:7::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    bgp_peers:
+    - ip_address: '2000:10:2:4::'
+      nodes:
+      - C000267-009R601P
+      description: C000267-CSG5000A
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:10::'
+      nodes:
+      - C000267-009R601P
+      description: C000267-CSG5000B
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:1::'
+      nodes:
+      - C000267-014R602P
+      description: C000267-CSG5000A
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:7::'
+      nodes:
+      - C000267-014R602P
+      description: C000267-CSG5000B
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: 10.12.46.27
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.1
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.9
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.17
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
+  - name: VRF_IOTBMS
+    vrf_vni: 201
+    vtep_diagnostic:
+      loopback: 20
+      loopback_ip_range: 167.84.63.112/24
+    evpn_l3_multicast:
+      enabled: false
+    svis:
+    - id: 610
+      profile: IOTBMS_default
+      name: IOT_WIRELESS
+      enabled: true
+      tags:
+      - MANILA_LEAFS
+      - MANILA_SERVICE_LEAFS
+      ip_address_virtual: 10.150.0.1/24
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 520
+      profile: IOTBMS_default
+      name: BMS_SEGMENT_520
+      enabled: true
+      tags:
+      - C160479-003S007A
+      ip_address_virtual: 10.142.197.1/25
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 521
+      profile: IOTBMS_default
+      name: BMS_SEGMENT_521
+      enabled: true
+      tags:
+      - C160479-003S007A
+      ip_address_virtual: 10.142.197.129/25
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    l3_interfaces:
+    - interfaces:
+      - Ethernet3/48/1.200
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.24/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_IOT
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:5::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet3/48/1.200
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.10/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_IOT
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:2::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.200
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.2/31
+      description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_IOT
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:11::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.200
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.18/31
+      description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_IOT
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:8::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    bgp_peers:
+    - ip_address: '2000:10:2:5::'
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:11::'
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:2::'
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:8::'
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: 10.12.46.25
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.3
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.11
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.19
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
+  - name: VRF_GUEST
+    vrf_vni: 301
+    vtep_diagnostic:
+      loopback: 30
+      loopback_ip_range: 167.84.141.160/24
+    evpn_l3_multicast:
+      enabled: false
+    svis:
+    - id: 600
+      name: Guest_Wireless
+      profile: INTERNAL_default
+      enabled: true
+      tags:
+      - MANILA_LEAFS
+      - MANILA_SERVICE_LEAFS
+      ip_address_virtual: 10.120.40.1/22
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 601
+      name: Guest_Wired
+      profile: INTERNAL_default
+      enabled: true
+      tags:
+      - MANILA_LEAFS
+      - MANILA_SERVICE_LEAFS
+      ip_address_virtual: 10.120.44.1/22
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    l3_interfaces:
+    - interfaces:
+      - Ethernet3/48/1.300
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.28/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:6::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet3/48/1.300
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.12/31
+      description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:3::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.300
+      nodes:
+      - C000267-009R601P
+      ip_addresses:
+      - 10.12.46.4/31
+      description: P2P_LINK_TO__C160479-003R630A_Gi0/1/5_VRF_GUEST
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:12::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    - interfaces:
+      - Ethernet4/48/1.300
+      nodes:
+      - C000267-014R602P
+      ip_addresses:
+      - 10.12.46.20/31
+      description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_GUEST
+      structured_config:
+        ipv6_enable: true
+        ipv6_address: 2000:10:2:9::1/127
+        flow_tracker:
+          sampled: ftr_sampled
+    bgp_peers:
+    - ip_address: '2000:10:2:6::'
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:12::'
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:3::'
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: '2000:10:2:9::'
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE_IPV6
+    - ip_address: 10.12.46.29
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.5
+      nodes:
+      - C000267-009R601P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.13
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
+    - ip_address: 10.12.46.21
+      nodes:
+      - C000267-014R602P
+      peer_group: SD_WAN_EDGE
 fabric_name: CAMPUS_GLOBAL
 dc_name: MANILA
 underlay_routing_protocol: OSPF
@@ -739,9 +1352,9 @@ group_names:
 - MANILA
 - MANILA_ENDPOINTS
 - MANILA_LEAFS
-- MANILA_TENANTS
 - MANILA_WC_GRD
 - MANILA_WC_GRD_CONNECTED_ENDPOINTS
+- NETWORK_SERVICES
 ansible_facts:
   avd_switch_facts:
     C000267-GRDS001P:
@@ -797,9 +1410,9 @@ ansible_facts:
           ip_address: 192.168.3.3
           peer_ip_address: 192.168.3.2
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 301,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS002P:
@@ -855,9 +1468,9 @@ ansible_facts:
           ip_address: 192.168.3.7
           peer_ip_address: 192.168.3.6
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS003P:
@@ -913,9 +1526,9 @@ ansible_facts:
           ip_address: 192.168.3.11
           peer_ip_address: 192.168.3.10
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS004P:
@@ -971,9 +1584,9 @@ ansible_facts:
           ip_address: 192.168.3.15
           peer_ip_address: 192.168.3.14
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS005P:
@@ -1029,9 +1642,9 @@ ansible_facts:
           ip_address: 192.168.3.19
           peer_ip_address: 192.168.3.18
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS006P:
@@ -1087,9 +1700,9 @@ ansible_facts:
           ip_address: 192.168.3.23
           peer_ip_address: 192.168.3.22
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS007P:
@@ -1145,9 +1758,9 @@ ansible_facts:
           ip_address: 192.168.3.27
           peer_ip_address: 192.168.3.26
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S560P:
@@ -1203,9 +1816,9 @@ ansible_facts:
           ip_address: 192.168.3.239
           peer_ip_address: 192.168.3.238
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S561P:
@@ -1261,9 +1874,9 @@ ansible_facts:
           ip_address: 192.168.3.243
           peer_ip_address: 192.168.3.242
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009R601P:
@@ -1373,9 +1986,9 @@ ansible_facts:
           ip_address: 192.168.3.31
           peer_ip_address: 192.168.3.30
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S009P:
@@ -1431,9 +2044,9 @@ ansible_facts:
           ip_address: 192.168.3.35
           peer_ip_address: 192.168.3.34
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S010P:
@@ -1489,9 +2102,9 @@ ansible_facts:
           ip_address: 192.168.3.39
           peer_ip_address: 192.168.3.38
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S011P:
@@ -1547,9 +2160,9 @@ ansible_facts:
           ip_address: 192.168.3.43
           peer_ip_address: 192.168.3.42
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S012P:
@@ -1605,9 +2218,9 @@ ansible_facts:
           ip_address: 192.168.3.47
           peer_ip_address: 192.168.3.46
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S013P:
@@ -1663,9 +2276,9 @@ ansible_facts:
           ip_address: 192.168.3.51
           peer_ip_address: 192.168.3.50
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S014P:
@@ -1721,9 +2334,9 @@ ansible_facts:
           ip_address: 192.168.3.55
           peer_ip_address: 192.168.3.54
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S015P:
@@ -1779,9 +2392,9 @@ ansible_facts:
           ip_address: 192.168.3.59
           peer_ip_address: 192.168.3.58
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S016P:
@@ -1837,9 +2450,9 @@ ansible_facts:
           ip_address: 192.168.3.63
           peer_ip_address: 192.168.3.62
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S017P:
@@ -1895,9 +2508,9 @@ ansible_facts:
           ip_address: 192.168.3.67
           peer_ip_address: 192.168.3.66
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S018P:
@@ -1953,9 +2566,9 @@ ansible_facts:
           ip_address: 192.168.3.71
           peer_ip_address: 192.168.3.70
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S019P:
@@ -2011,9 +2624,9 @@ ansible_facts:
           ip_address: 192.168.3.75
           peer_ip_address: 192.168.3.74
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S020P:
@@ -2069,9 +2682,9 @@ ansible_facts:
           ip_address: 192.168.3.79
           peer_ip_address: 192.168.3.78
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S021P:
@@ -2127,9 +2740,9 @@ ansible_facts:
           ip_address: 192.168.3.83
           peer_ip_address: 192.168.3.82
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S022P:
@@ -2185,9 +2798,9 @@ ansible_facts:
           ip_address: 192.168.3.87
           peer_ip_address: 192.168.3.86
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S023P:
@@ -2243,9 +2856,9 @@ ansible_facts:
           ip_address: 192.168.3.91
           peer_ip_address: 192.168.3.90
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S024P:
@@ -2301,9 +2914,9 @@ ansible_facts:
           ip_address: 192.168.3.95
           peer_ip_address: 192.168.3.94
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S025P:
@@ -2359,9 +2972,9 @@ ansible_facts:
           ip_address: 192.168.3.99
           peer_ip_address: 192.168.3.98
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S026P:
@@ -2417,9 +3030,9 @@ ansible_facts:
           ip_address: 192.168.3.103
           peer_ip_address: 192.168.3.102
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S027P:
@@ -2475,9 +3088,9 @@ ansible_facts:
           ip_address: 192.168.3.107
           peer_ip_address: 192.168.3.106
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S028P:
@@ -2533,9 +3146,9 @@ ansible_facts:
           ip_address: 192.168.3.111
           peer_ip_address: 192.168.3.110
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S029P:
@@ -2591,9 +3204,9 @@ ansible_facts:
           ip_address: 192.168.3.115
           peer_ip_address: 192.168.3.114
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S030P:
@@ -2649,9 +3262,9 @@ ansible_facts:
           ip_address: 192.168.3.119
           peer_ip_address: 192.168.3.118
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S031P:
@@ -2707,9 +3320,9 @@ ansible_facts:
           ip_address: 192.168.3.123
           peer_ip_address: 192.168.3.122
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S032P:
@@ -2765,9 +3378,9 @@ ansible_facts:
           ip_address: 192.168.3.127
           peer_ip_address: 192.168.3.126
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S033P:
@@ -2823,9 +3436,9 @@ ansible_facts:
           ip_address: 192.168.3.131
           peer_ip_address: 192.168.3.130
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S034P:
@@ -2881,9 +3494,9 @@ ansible_facts:
           ip_address: 192.168.3.135
           peer_ip_address: 192.168.3.134
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S035P:
@@ -2939,9 +3552,9 @@ ansible_facts:
           ip_address: 192.168.3.139
           peer_ip_address: 192.168.3.138
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S036P:
@@ -2997,9 +3610,9 @@ ansible_facts:
           ip_address: 192.168.3.143
           peer_ip_address: 192.168.3.142
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S037P:
@@ -3055,9 +3668,9 @@ ansible_facts:
           ip_address: 192.168.3.147
           peer_ip_address: 192.168.3.146
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S038P:
@@ -3113,9 +3726,9 @@ ansible_facts:
           ip_address: 192.168.3.151
           peer_ip_address: 192.168.3.150
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S039P:
@@ -3171,9 +3784,9 @@ ansible_facts:
           ip_address: 192.168.3.155
           peer_ip_address: 192.168.3.154
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S040P:
@@ -3229,9 +3842,9 @@ ansible_facts:
           ip_address: 192.168.3.159
           peer_ip_address: 192.168.3.158
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S041P:
@@ -3287,9 +3900,9 @@ ansible_facts:
           ip_address: 192.168.3.163
           peer_ip_address: 192.168.3.162
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S042P:
@@ -3345,9 +3958,9 @@ ansible_facts:
           ip_address: 192.168.3.167
           peer_ip_address: 192.168.3.166
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S043P:
@@ -3403,9 +4016,9 @@ ansible_facts:
           ip_address: 192.168.3.171
           peer_ip_address: 192.168.3.170
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S044P:
@@ -3461,9 +4074,9 @@ ansible_facts:
           ip_address: 192.168.3.175
           peer_ip_address: 192.168.3.174
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S045P:
@@ -3519,9 +4132,9 @@ ansible_facts:
           ip_address: 192.168.3.179
           peer_ip_address: 192.168.3.178
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S046P:
@@ -3577,9 +4190,9 @@ ansible_facts:
           ip_address: 192.168.3.183
           peer_ip_address: 192.168.3.182
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S047P:
@@ -3635,9 +4248,9 @@ ansible_facts:
           ip_address: 192.168.3.187
           peer_ip_address: 192.168.3.186
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S048P:
@@ -3693,9 +4306,9 @@ ansible_facts:
           ip_address: 192.168.3.191
           peer_ip_address: 192.168.3.190
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S049P:
@@ -3751,9 +4364,9 @@ ansible_facts:
           ip_address: 192.168.3.195
           peer_ip_address: 192.168.3.194
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S050P:
@@ -3809,9 +4422,9 @@ ansible_facts:
           ip_address: 192.168.3.199
           peer_ip_address: 192.168.3.198
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S051P:
@@ -3867,9 +4480,9 @@ ansible_facts:
           ip_address: 192.168.3.203
           peer_ip_address: 192.168.3.202
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S052P:
@@ -3925,9 +4538,9 @@ ansible_facts:
           ip_address: 192.168.3.207
           peer_ip_address: 192.168.3.206
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S053P:
@@ -3983,9 +4596,9 @@ ansible_facts:
           ip_address: 192.168.3.211
           peer_ip_address: 192.168.3.210
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S054P:
@@ -4041,9 +4654,9 @@ ansible_facts:
           ip_address: 192.168.3.215
           peer_ip_address: 192.168.3.214
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S055P:
@@ -4099,9 +4712,9 @@ ansible_facts:
           ip_address: 192.168.3.219
           peer_ip_address: 192.168.3.218
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S056P:
@@ -4157,9 +4770,9 @@ ansible_facts:
           ip_address: 192.168.3.223
           peer_ip_address: 192.168.3.222
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S057P:
@@ -4215,9 +4828,9 @@ ansible_facts:
           ip_address: 192.168.3.227
           peer_ip_address: 192.168.3.226
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S058P:
@@ -4273,9 +4886,9 @@ ansible_facts:
           ip_address: 192.168.3.231
           peer_ip_address: 192.168.3.230
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S059P:
@@ -4331,9 +4944,9 @@ ansible_facts:
           ip_address: 192.168.3.235
           peer_ip_address: 192.168.3.234
         uplink_peers:
-        - C000267-014R602P
         - C000267-009R601P
-        vlans: ''
+        - C000267-014R602P
+        vlans: 600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
   avd_overlay_peers:
@@ -4462,7 +5075,7 @@ ansible_facts:
     - C000267-020S058P
     - C000267-020S059P
   avd_topology_peers:
-    C000267-014R602P:
+    C000267-009R601P:
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4524,7 +5137,7 @@ ansible_facts:
     - C000267-020S057P
     - C000267-020S058P
     - C000267-020S059P
-    C000267-009R601P:
+    C000267-014R602P:
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4640,9 +5253,9 @@ avd_switch_facts:
         ip_address: 192.168.3.3
         peer_ip_address: 192.168.3.2
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 301,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS002P:
@@ -4698,9 +5311,9 @@ avd_switch_facts:
         ip_address: 192.168.3.7
         peer_ip_address: 192.168.3.6
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS003P:
@@ -4756,9 +5369,9 @@ avd_switch_facts:
         ip_address: 192.168.3.11
         peer_ip_address: 192.168.3.10
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS004P:
@@ -4814,9 +5427,9 @@ avd_switch_facts:
         ip_address: 192.168.3.15
         peer_ip_address: 192.168.3.14
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS005P:
@@ -4872,9 +5485,9 @@ avd_switch_facts:
         ip_address: 192.168.3.19
         peer_ip_address: 192.168.3.18
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS006P:
@@ -4930,9 +5543,9 @@ avd_switch_facts:
         ip_address: 192.168.3.23
         peer_ip_address: 192.168.3.22
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS007P:
@@ -4988,9 +5601,9 @@ avd_switch_facts:
         ip_address: 192.168.3.27
         peer_ip_address: 192.168.3.26
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S560P:
@@ -5046,9 +5659,9 @@ avd_switch_facts:
         ip_address: 192.168.3.239
         peer_ip_address: 192.168.3.238
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S561P:
@@ -5104,9 +5717,9 @@ avd_switch_facts:
         ip_address: 192.168.3.243
         peer_ip_address: 192.168.3.242
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009R601P:
@@ -5216,9 +5829,9 @@ avd_switch_facts:
         ip_address: 192.168.3.31
         peer_ip_address: 192.168.3.30
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S009P:
@@ -5274,9 +5887,9 @@ avd_switch_facts:
         ip_address: 192.168.3.35
         peer_ip_address: 192.168.3.34
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S010P:
@@ -5332,9 +5945,9 @@ avd_switch_facts:
         ip_address: 192.168.3.39
         peer_ip_address: 192.168.3.38
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S011P:
@@ -5390,9 +6003,9 @@ avd_switch_facts:
         ip_address: 192.168.3.43
         peer_ip_address: 192.168.3.42
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S012P:
@@ -5448,9 +6061,9 @@ avd_switch_facts:
         ip_address: 192.168.3.47
         peer_ip_address: 192.168.3.46
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S013P:
@@ -5506,9 +6119,9 @@ avd_switch_facts:
         ip_address: 192.168.3.51
         peer_ip_address: 192.168.3.50
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S014P:
@@ -5564,9 +6177,9 @@ avd_switch_facts:
         ip_address: 192.168.3.55
         peer_ip_address: 192.168.3.54
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S015P:
@@ -5622,9 +6235,9 @@ avd_switch_facts:
         ip_address: 192.168.3.59
         peer_ip_address: 192.168.3.58
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S016P:
@@ -5680,9 +6293,9 @@ avd_switch_facts:
         ip_address: 192.168.3.63
         peer_ip_address: 192.168.3.62
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S017P:
@@ -5738,9 +6351,9 @@ avd_switch_facts:
         ip_address: 192.168.3.67
         peer_ip_address: 192.168.3.66
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S018P:
@@ -5796,9 +6409,9 @@ avd_switch_facts:
         ip_address: 192.168.3.71
         peer_ip_address: 192.168.3.70
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S019P:
@@ -5854,9 +6467,9 @@ avd_switch_facts:
         ip_address: 192.168.3.75
         peer_ip_address: 192.168.3.74
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S020P:
@@ -5912,9 +6525,9 @@ avd_switch_facts:
         ip_address: 192.168.3.79
         peer_ip_address: 192.168.3.78
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S021P:
@@ -5970,9 +6583,9 @@ avd_switch_facts:
         ip_address: 192.168.3.83
         peer_ip_address: 192.168.3.82
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S022P:
@@ -6028,9 +6641,9 @@ avd_switch_facts:
         ip_address: 192.168.3.87
         peer_ip_address: 192.168.3.86
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S023P:
@@ -6086,9 +6699,9 @@ avd_switch_facts:
         ip_address: 192.168.3.91
         peer_ip_address: 192.168.3.90
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S024P:
@@ -6144,9 +6757,9 @@ avd_switch_facts:
         ip_address: 192.168.3.95
         peer_ip_address: 192.168.3.94
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S025P:
@@ -6202,9 +6815,9 @@ avd_switch_facts:
         ip_address: 192.168.3.99
         peer_ip_address: 192.168.3.98
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S026P:
@@ -6260,9 +6873,9 @@ avd_switch_facts:
         ip_address: 192.168.3.103
         peer_ip_address: 192.168.3.102
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S027P:
@@ -6318,9 +6931,9 @@ avd_switch_facts:
         ip_address: 192.168.3.107
         peer_ip_address: 192.168.3.106
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S028P:
@@ -6376,9 +6989,9 @@ avd_switch_facts:
         ip_address: 192.168.3.111
         peer_ip_address: 192.168.3.110
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S029P:
@@ -6434,9 +7047,9 @@ avd_switch_facts:
         ip_address: 192.168.3.115
         peer_ip_address: 192.168.3.114
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S030P:
@@ -6492,9 +7105,9 @@ avd_switch_facts:
         ip_address: 192.168.3.119
         peer_ip_address: 192.168.3.118
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S031P:
@@ -6550,9 +7163,9 @@ avd_switch_facts:
         ip_address: 192.168.3.123
         peer_ip_address: 192.168.3.122
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S032P:
@@ -6608,9 +7221,9 @@ avd_switch_facts:
         ip_address: 192.168.3.127
         peer_ip_address: 192.168.3.126
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S033P:
@@ -6666,9 +7279,9 @@ avd_switch_facts:
         ip_address: 192.168.3.131
         peer_ip_address: 192.168.3.130
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S034P:
@@ -6724,9 +7337,9 @@ avd_switch_facts:
         ip_address: 192.168.3.135
         peer_ip_address: 192.168.3.134
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S035P:
@@ -6782,9 +7395,9 @@ avd_switch_facts:
         ip_address: 192.168.3.139
         peer_ip_address: 192.168.3.138
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S036P:
@@ -6840,9 +7453,9 @@ avd_switch_facts:
         ip_address: 192.168.3.143
         peer_ip_address: 192.168.3.142
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S037P:
@@ -6898,9 +7511,9 @@ avd_switch_facts:
         ip_address: 192.168.3.147
         peer_ip_address: 192.168.3.146
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S038P:
@@ -6956,9 +7569,9 @@ avd_switch_facts:
         ip_address: 192.168.3.151
         peer_ip_address: 192.168.3.150
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S039P:
@@ -7014,9 +7627,9 @@ avd_switch_facts:
         ip_address: 192.168.3.155
         peer_ip_address: 192.168.3.154
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S040P:
@@ -7072,9 +7685,9 @@ avd_switch_facts:
         ip_address: 192.168.3.159
         peer_ip_address: 192.168.3.158
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S041P:
@@ -7130,9 +7743,9 @@ avd_switch_facts:
         ip_address: 192.168.3.163
         peer_ip_address: 192.168.3.162
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S042P:
@@ -7188,9 +7801,9 @@ avd_switch_facts:
         ip_address: 192.168.3.167
         peer_ip_address: 192.168.3.166
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S043P:
@@ -7246,9 +7859,9 @@ avd_switch_facts:
         ip_address: 192.168.3.171
         peer_ip_address: 192.168.3.170
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S044P:
@@ -7304,9 +7917,9 @@ avd_switch_facts:
         ip_address: 192.168.3.175
         peer_ip_address: 192.168.3.174
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S045P:
@@ -7362,9 +7975,9 @@ avd_switch_facts:
         ip_address: 192.168.3.179
         peer_ip_address: 192.168.3.178
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S046P:
@@ -7420,9 +8033,9 @@ avd_switch_facts:
         ip_address: 192.168.3.183
         peer_ip_address: 192.168.3.182
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S047P:
@@ -7478,9 +8091,9 @@ avd_switch_facts:
         ip_address: 192.168.3.187
         peer_ip_address: 192.168.3.186
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S048P:
@@ -7536,9 +8149,9 @@ avd_switch_facts:
         ip_address: 192.168.3.191
         peer_ip_address: 192.168.3.190
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S049P:
@@ -7594,9 +8207,9 @@ avd_switch_facts:
         ip_address: 192.168.3.195
         peer_ip_address: 192.168.3.194
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S050P:
@@ -7652,9 +8265,9 @@ avd_switch_facts:
         ip_address: 192.168.3.199
         peer_ip_address: 192.168.3.198
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S051P:
@@ -7710,9 +8323,9 @@ avd_switch_facts:
         ip_address: 192.168.3.203
         peer_ip_address: 192.168.3.202
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S052P:
@@ -7768,9 +8381,9 @@ avd_switch_facts:
         ip_address: 192.168.3.207
         peer_ip_address: 192.168.3.206
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S053P:
@@ -7826,9 +8439,9 @@ avd_switch_facts:
         ip_address: 192.168.3.211
         peer_ip_address: 192.168.3.210
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S054P:
@@ -7884,9 +8497,9 @@ avd_switch_facts:
         ip_address: 192.168.3.215
         peer_ip_address: 192.168.3.214
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S055P:
@@ -7942,9 +8555,9 @@ avd_switch_facts:
         ip_address: 192.168.3.219
         peer_ip_address: 192.168.3.218
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S056P:
@@ -8000,9 +8613,9 @@ avd_switch_facts:
         ip_address: 192.168.3.223
         peer_ip_address: 192.168.3.222
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S057P:
@@ -8058,9 +8671,9 @@ avd_switch_facts:
         ip_address: 192.168.3.227
         peer_ip_address: 192.168.3.226
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S058P:
@@ -8116,9 +8729,9 @@ avd_switch_facts:
         ip_address: 192.168.3.231
         peer_ip_address: 192.168.3.230
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S059P:
@@ -8174,9 +8787,9 @@ avd_switch_facts:
         ip_address: 192.168.3.235
         peer_ip_address: 192.168.3.234
       uplink_peers:
-      - C000267-014R602P
       - C000267-009R601P
-      vlans: ''
+      - C000267-014R602P
+      vlans: 600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
 avd_overlay_peers:
@@ -8305,7 +8918,7 @@ avd_overlay_peers:
   - C000267-020S058P
   - C000267-020S059P
 avd_topology_peers:
-  C000267-014R602P:
+  C000267-009R601P:
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8367,7 +8980,7 @@ avd_topology_peers:
   - C000267-020S057P
   - C000267-020S058P
   - C000267-020S059P
-  C000267-009R601P:
+  C000267-014R602P:
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8837,7 +9450,7 @@ groups:
   MANILA_SERVICE_LEAFS:
   - C000267-009S560P
   - C000267-009S561P
-  MANILA_TENANTS:
+  NETWORK_SERVICES:
   - C000267-009S560P
   - C000267-009S561P
   - C000267-GRDS001P
@@ -8996,7 +9609,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__00b275d0cf8c38faae2721ef9a3f26607874f64b
+omit: __omit_place_holder__04f53ecf2b0d695803ac6a83cf055451e2429026
 ansible_version:
   string: 2.17.3
   full: 2.17.3

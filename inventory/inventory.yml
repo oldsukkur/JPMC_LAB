@@ -203,7 +203,7 @@ all:
             ansible_httpapi_port: 443
             ansible_httpapi_validate_certs: false
 
-        MANILA_TENANTS:
+        NETWORK_SERVICES:
           children:
             MANILA_LEAFS:
             MANILA_BORDERSPINES:
