@@ -53,6 +53,63 @@ router_bgp:
     peer_group: EVPN-OVERLAY-PEERS
     peer: C000267-014R602P
     description: C000267-014R602P
+  vrfs:
+  - name: VRF_GUEST
+    router_id: 192.168.100.10
+    rd: 192.168.100.10:301
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - 301:301
+      export:
+      - address_family: evpn
+        route_targets:
+        - 301:301
+    redistribute_routes:
+    - source_protocol: connected
+  - name: VRF_IOTBMS
+    router_id: 192.168.100.10
+    rd: 192.168.100.10:201
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - 201:201
+      export:
+      - address_family: evpn
+        route_targets:
+        - 201:201
+    redistribute_routes:
+    - source_protocol: connected
+  vlans:
+  - id: 600
+    tenant: MANILA_SUPERSPINES
+    rd: 192.168.100.10:10600
+    route_targets:
+      both:
+      - 10600:10600
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 601
+    tenant: MANILA_SUPERSPINES
+    rd: 192.168.100.10:10601
+    route_targets:
+      both:
+      - 10601:10601
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 610
+    tenant: MANILA_SUPERSPINES
+    rd: 192.168.100.10:10610
+    route_targets:
+      both:
+      - 10610:10610
+    redistribute_routes:
+    - learned
+    - dot1x
   as_notation: asdot
 service_routing_protocols_model: multi-agent
 ip_routing: true
@@ -69,6 +126,12 @@ spanning_tree:
 vrfs:
 - name: MGMT
   ip_routing: false
+- name: VRF_GUEST
+  tenant: MANILA_SUPERSPINES
+  ip_routing: true
+- name: VRF_IOTBMS
+  tenant: MANILA_SUPERSPINES
+  ip_routing: true
 management_interfaces:
 - name: Management1
   description: oob_management
@@ -122,6 +185,16 @@ loopback_interfaces:
   shutdown: false
   ip_address: 192.168.200.10/32
   ospf_area: 0.0.0.0
+- name: Loopback30
+  description: VRF_GUEST_VTEP_DIAGNOSTICS
+  shutdown: false
+  vrf: VRF_GUEST
+  ip_address: 167.84.141.10/32
+- name: Loopback20
+  description: VRF_IOTBMS_VTEP_DIAGNOSTICS
+  shutdown: false
+  vrf: VRF_IOTBMS
+  ip_address: 167.84.63.10/32
 router_ospf:
   process_ids:
   - id: 100
@@ -157,15 +230,70 @@ route_maps:
     type: permit
     set:
     - extcommunity soo 192.168.200.10:1 additive
+vlans:
+- id: 600
+  name: Guest_Wireless
+  tenant: MANILA_SUPERSPINES
+- id: 601
+  name: Guest_Wired
+  tenant: MANILA_SUPERSPINES
+- id: 610
+  name: IOT_WIRELESS
+  tenant: MANILA_SUPERSPINES
 ip_igmp_snooping:
   globally_enabled: false
 ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+vlan_interfaces:
+- name: Vlan600
+  tenant: MANILA_SUPERSPINES
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: Guest_Wireless
+  shutdown: false
+  ip_address_virtual: 10.120.40.1/22
+  vrf: VRF_GUEST
+- name: Vlan601
+  tenant: MANILA_SUPERSPINES
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: Guest_Wired
+  shutdown: false
+  ip_address_virtual: 10.120.44.1/22
+  vrf: VRF_GUEST
+- name: Vlan610
+  tenant: MANILA_SUPERSPINES
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: IOT_WIRELESS
+  shutdown: false
+  ip_address_virtual: 10.150.0.1/24
+  vrf: VRF_IOTBMS
 vxlan_interface:
   Vxlan1:
     description: C000267-007S010P_VTEP
     vxlan:
       udp_port: 4789
       source_interface: Loopback1
+      vlans:
+      - id: 600
+        vni: 10600
+      - id: 601
+        vni: 10601
+      - id: 610
+        vni: 10610
+      vrfs:
+      - name: VRF_GUEST
+        vni: 301
+      - name: VRF_IOTBMS
+        vni: 201
+virtual_source_nat_vrfs:
+- name: VRF_GUEST
+  ip_address: 167.84.141.10
+- name: VRF_IOTBMS
+  ip_address: 167.84.63.10
 metadata:
   platform: '758'
 dhcp_relay:

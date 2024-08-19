@@ -721,6 +721,13 @@ bfd_multihop:
   interval: 3000
   min_rx: 3000
   multiplier: 3
+svi_profiles:
+  OVERLAY_SVI:
+    enabled: true
+  INTERNAL_default:
+    parent_profile: OVERLAY_SVI
+  IOTBMS_default:
+    parent_profile: OVERLAY_SVI
 type: spine
 spanning_tree:
   mode: none
@@ -737,6 +744,122 @@ group_names:
 - MANILA_SPINES
 ansible_facts:
   avd_switch_facts:
+    C000267-009S560P:
+      switch:
+        id: 60
+        type: l3leaf
+        platform: 7050TX3-48
+        is_deployed: true
+        mgmt_interface: Management1
+        mgmt_ip: 192.168.0.160/24
+        mpls_lsr: false
+        loopback_ipv4_pool: 192.168.100.0/24
+        uplink_ipv4_pool: 192.168.3.0/24
+        bgp_as: '65001'
+        underlay_routing_protocol: ospf
+        vtep_loopback_ipv4_pool: 192.168.200.0/24
+        inband_ztp_lacp_fallback_delay: 30
+        dc_name: MANILA
+        group: MANILA_SERVICE_LEAFS
+        router_id: 192.168.100.60
+        evpn_role: client
+        mpls_overlay_role: none
+        evpn_route_servers:
+        - C000267-009R601P
+        - C000267-014R602P
+        overlay:
+          peering_address: 192.168.100.60
+          evpn_mpls: false
+        vtep_ip: 192.168.200.60
+        max_parallel_uplinks: 1
+        max_uplink_switches: 2
+        uplinks:
+        - interface: Ethernet1/1/1
+          peer: C000267-009R601P
+          peer_interface: Ethernet4/29/1
+          peer_type: spine
+          peer_is_deployed: true
+          peer_bgp_as: '65001'
+          type: underlay_p2p
+          speed: forced 100g
+          prefix_length: 31
+          ip_address: 192.168.3.237
+          peer_ip_address: 192.168.3.236
+        - interface: Ethernet2/1/1
+          peer: C000267-014R602P
+          peer_interface: Ethernet4/29/1
+          peer_type: spine
+          peer_is_deployed: true
+          peer_bgp_as: '65001'
+          type: underlay_p2p
+          speed: forced 100g
+          prefix_length: 31
+          ip_address: 192.168.3.239
+          peer_ip_address: 192.168.3.238
+        uplink_peers:
+        - C000267-009R601P
+        - C000267-014R602P
+        vlans: 309-310,500,600-601,610
+        local_endpoint_trunk_groups: []
+        endpoint_trunk_groups: []
+    C000267-009S561P:
+      switch:
+        id: 61
+        type: l3leaf
+        platform: 7050TX3-48
+        is_deployed: true
+        mgmt_interface: Management1
+        mgmt_ip: 192.168.0.161/24
+        mpls_lsr: false
+        loopback_ipv4_pool: 192.168.100.0/24
+        uplink_ipv4_pool: 192.168.3.0/24
+        bgp_as: '65001'
+        underlay_routing_protocol: ospf
+        vtep_loopback_ipv4_pool: 192.168.200.0/24
+        inband_ztp_lacp_fallback_delay: 30
+        dc_name: MANILA
+        group: MANILA_SERVICE_LEAFS
+        router_id: 192.168.100.61
+        evpn_role: client
+        mpls_overlay_role: none
+        evpn_route_servers:
+        - C000267-009R601P
+        - C000267-014R602P
+        overlay:
+          peering_address: 192.168.100.61
+          evpn_mpls: false
+        vtep_ip: 192.168.200.61
+        max_parallel_uplinks: 1
+        max_uplink_switches: 2
+        uplinks:
+        - interface: Ethernet1/1/1
+          peer: C000267-009R601P
+          peer_interface: Ethernet4/30/1
+          peer_type: spine
+          peer_is_deployed: true
+          peer_bgp_as: '65001'
+          type: underlay_p2p
+          speed: forced 100g
+          prefix_length: 31
+          ip_address: 192.168.3.241
+          peer_ip_address: 192.168.3.240
+        - interface: Ethernet2/1/1
+          peer: C000267-014R602P
+          peer_interface: Ethernet4/30/1
+          peer_type: spine
+          peer_is_deployed: true
+          peer_bgp_as: '65001'
+          type: underlay_p2p
+          speed: forced 100g
+          prefix_length: 31
+          ip_address: 192.168.3.243
+          peer_ip_address: 192.168.3.242
+        uplink_peers:
+        - C000267-009R601P
+        - C000267-014R602P
+        vlans: 309-310,500,600-601,610
+        local_endpoint_trunk_groups: []
+        endpoint_trunk_groups: []
     C000267-GRDS001P:
       switch:
         id: 1
@@ -1137,122 +1260,6 @@ ansible_facts:
           prefix_length: 31
           ip_address: 192.168.3.27
           peer_ip_address: 192.168.3.26
-        uplink_peers:
-        - C000267-009R601P
-        - C000267-014R602P
-        vlans: 600-601,610
-        local_endpoint_trunk_groups: []
-        endpoint_trunk_groups: []
-    C000267-009S560P:
-      switch:
-        id: 60
-        type: l3leaf
-        platform: 7050TX3-48
-        is_deployed: true
-        mgmt_interface: Management1
-        mgmt_ip: 192.168.0.160/24
-        mpls_lsr: false
-        loopback_ipv4_pool: 192.168.100.0/24
-        uplink_ipv4_pool: 192.168.3.0/24
-        bgp_as: '65001'
-        underlay_routing_protocol: ospf
-        vtep_loopback_ipv4_pool: 192.168.200.0/24
-        inband_ztp_lacp_fallback_delay: 30
-        dc_name: MANILA
-        group: MANILA_SERVICE_LEAFS
-        router_id: 192.168.100.60
-        evpn_role: client
-        mpls_overlay_role: none
-        evpn_route_servers:
-        - C000267-009R601P
-        - C000267-014R602P
-        overlay:
-          peering_address: 192.168.100.60
-          evpn_mpls: false
-        vtep_ip: 192.168.200.60
-        max_parallel_uplinks: 1
-        max_uplink_switches: 2
-        uplinks:
-        - interface: Ethernet1/1/1
-          peer: C000267-009R601P
-          peer_interface: Ethernet4/29/1
-          peer_type: spine
-          peer_is_deployed: true
-          peer_bgp_as: '65001'
-          type: underlay_p2p
-          speed: forced 100g
-          prefix_length: 31
-          ip_address: 192.168.3.237
-          peer_ip_address: 192.168.3.236
-        - interface: Ethernet2/1/1
-          peer: C000267-014R602P
-          peer_interface: Ethernet4/29/1
-          peer_type: spine
-          peer_is_deployed: true
-          peer_bgp_as: '65001'
-          type: underlay_p2p
-          speed: forced 100g
-          prefix_length: 31
-          ip_address: 192.168.3.239
-          peer_ip_address: 192.168.3.238
-        uplink_peers:
-        - C000267-009R601P
-        - C000267-014R602P
-        vlans: 600-601,610
-        local_endpoint_trunk_groups: []
-        endpoint_trunk_groups: []
-    C000267-009S561P:
-      switch:
-        id: 61
-        type: l3leaf
-        platform: 7050TX3-48
-        is_deployed: true
-        mgmt_interface: Management1
-        mgmt_ip: 192.168.0.161/24
-        mpls_lsr: false
-        loopback_ipv4_pool: 192.168.100.0/24
-        uplink_ipv4_pool: 192.168.3.0/24
-        bgp_as: '65001'
-        underlay_routing_protocol: ospf
-        vtep_loopback_ipv4_pool: 192.168.200.0/24
-        inband_ztp_lacp_fallback_delay: 30
-        dc_name: MANILA
-        group: MANILA_SERVICE_LEAFS
-        router_id: 192.168.100.61
-        evpn_role: client
-        mpls_overlay_role: none
-        evpn_route_servers:
-        - C000267-009R601P
-        - C000267-014R602P
-        overlay:
-          peering_address: 192.168.100.61
-          evpn_mpls: false
-        vtep_ip: 192.168.200.61
-        max_parallel_uplinks: 1
-        max_uplink_switches: 2
-        uplinks:
-        - interface: Ethernet1/1/1
-          peer: C000267-009R601P
-          peer_interface: Ethernet4/30/1
-          peer_type: spine
-          peer_is_deployed: true
-          peer_bgp_as: '65001'
-          type: underlay_p2p
-          speed: forced 100g
-          prefix_length: 31
-          ip_address: 192.168.3.241
-          peer_ip_address: 192.168.3.240
-        - interface: Ethernet2/1/1
-          peer: C000267-014R602P
-          peer_interface: Ethernet4/30/1
-          peer_type: spine
-          peer_is_deployed: true
-          peer_bgp_as: '65001'
-          type: underlay_p2p
-          speed: forced 100g
-          prefix_length: 31
-          ip_address: 192.168.3.243
-          peer_ip_address: 192.168.3.242
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
@@ -4331,6 +4338,8 @@ ansible_facts:
         endpoint_trunk_groups: []
   avd_overlay_peers:
     C000267-009R601P:
+    - C000267-009S560P
+    - C000267-009S561P
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4338,8 +4347,6 @@ ansible_facts:
     - C000267-GRDS005P
     - C000267-GRDS006P
     - C000267-GRDS007P
-    - C000267-009S560P
-    - C000267-009S561P
     - C000267-007S008P
     - C000267-007S009P
     - C000267-007S010P
@@ -4393,6 +4400,8 @@ ansible_facts:
     - C000267-020S058P
     - C000267-020S059P
     C000267-014R602P:
+    - C000267-009S560P
+    - C000267-009S561P
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4400,8 +4409,6 @@ ansible_facts:
     - C000267-GRDS005P
     - C000267-GRDS006P
     - C000267-GRDS007P
-    - C000267-009S560P
-    - C000267-009S561P
     - C000267-007S008P
     - C000267-007S009P
     - C000267-007S010P
@@ -4456,6 +4463,8 @@ ansible_facts:
     - C000267-020S059P
   avd_topology_peers:
     C000267-009R601P:
+    - C000267-009S560P
+    - C000267-009S561P
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4463,8 +4472,6 @@ ansible_facts:
     - C000267-GRDS005P
     - C000267-GRDS006P
     - C000267-GRDS007P
-    - C000267-009S560P
-    - C000267-009S561P
     - C000267-007S008P
     - C000267-007S009P
     - C000267-007S010P
@@ -4518,6 +4525,8 @@ ansible_facts:
     - C000267-020S058P
     - C000267-020S059P
     C000267-014R602P:
+    - C000267-009S560P
+    - C000267-009S561P
     - C000267-GRDS001P
     - C000267-GRDS002P
     - C000267-GRDS003P
@@ -4525,8 +4534,6 @@ ansible_facts:
     - C000267-GRDS005P
     - C000267-GRDS006P
     - C000267-GRDS007P
-    - C000267-009S560P
-    - C000267-009S561P
     - C000267-007S008P
     - C000267-007S009P
     - C000267-007S010P
@@ -4580,6 +4587,122 @@ ansible_facts:
     - C000267-020S058P
     - C000267-020S059P
 avd_switch_facts:
+  C000267-009S560P:
+    switch:
+      id: 60
+      type: l3leaf
+      platform: 7050TX3-48
+      is_deployed: true
+      mgmt_interface: Management1
+      mgmt_ip: 192.168.0.160/24
+      mpls_lsr: false
+      loopback_ipv4_pool: 192.168.100.0/24
+      uplink_ipv4_pool: 192.168.3.0/24
+      bgp_as: '65001'
+      underlay_routing_protocol: ospf
+      vtep_loopback_ipv4_pool: 192.168.200.0/24
+      inband_ztp_lacp_fallback_delay: 30
+      dc_name: MANILA
+      group: MANILA_SERVICE_LEAFS
+      router_id: 192.168.100.60
+      evpn_role: client
+      mpls_overlay_role: none
+      evpn_route_servers:
+      - C000267-009R601P
+      - C000267-014R602P
+      overlay:
+        peering_address: 192.168.100.60
+        evpn_mpls: false
+      vtep_ip: 192.168.200.60
+      max_parallel_uplinks: 1
+      max_uplink_switches: 2
+      uplinks:
+      - interface: Ethernet1/1/1
+        peer: C000267-009R601P
+        peer_interface: Ethernet4/29/1
+        peer_type: spine
+        peer_is_deployed: true
+        peer_bgp_as: '65001'
+        type: underlay_p2p
+        speed: forced 100g
+        prefix_length: 31
+        ip_address: 192.168.3.237
+        peer_ip_address: 192.168.3.236
+      - interface: Ethernet2/1/1
+        peer: C000267-014R602P
+        peer_interface: Ethernet4/29/1
+        peer_type: spine
+        peer_is_deployed: true
+        peer_bgp_as: '65001'
+        type: underlay_p2p
+        speed: forced 100g
+        prefix_length: 31
+        ip_address: 192.168.3.239
+        peer_ip_address: 192.168.3.238
+      uplink_peers:
+      - C000267-009R601P
+      - C000267-014R602P
+      vlans: 309-310,500,600-601,610
+      local_endpoint_trunk_groups: []
+      endpoint_trunk_groups: []
+  C000267-009S561P:
+    switch:
+      id: 61
+      type: l3leaf
+      platform: 7050TX3-48
+      is_deployed: true
+      mgmt_interface: Management1
+      mgmt_ip: 192.168.0.161/24
+      mpls_lsr: false
+      loopback_ipv4_pool: 192.168.100.0/24
+      uplink_ipv4_pool: 192.168.3.0/24
+      bgp_as: '65001'
+      underlay_routing_protocol: ospf
+      vtep_loopback_ipv4_pool: 192.168.200.0/24
+      inband_ztp_lacp_fallback_delay: 30
+      dc_name: MANILA
+      group: MANILA_SERVICE_LEAFS
+      router_id: 192.168.100.61
+      evpn_role: client
+      mpls_overlay_role: none
+      evpn_route_servers:
+      - C000267-009R601P
+      - C000267-014R602P
+      overlay:
+        peering_address: 192.168.100.61
+        evpn_mpls: false
+      vtep_ip: 192.168.200.61
+      max_parallel_uplinks: 1
+      max_uplink_switches: 2
+      uplinks:
+      - interface: Ethernet1/1/1
+        peer: C000267-009R601P
+        peer_interface: Ethernet4/30/1
+        peer_type: spine
+        peer_is_deployed: true
+        peer_bgp_as: '65001'
+        type: underlay_p2p
+        speed: forced 100g
+        prefix_length: 31
+        ip_address: 192.168.3.241
+        peer_ip_address: 192.168.3.240
+      - interface: Ethernet2/1/1
+        peer: C000267-014R602P
+        peer_interface: Ethernet4/30/1
+        peer_type: spine
+        peer_is_deployed: true
+        peer_bgp_as: '65001'
+        type: underlay_p2p
+        speed: forced 100g
+        prefix_length: 31
+        ip_address: 192.168.3.243
+        peer_ip_address: 192.168.3.242
+      uplink_peers:
+      - C000267-009R601P
+      - C000267-014R602P
+      vlans: 309-310,500,600-601,610
+      local_endpoint_trunk_groups: []
+      endpoint_trunk_groups: []
   C000267-GRDS001P:
     switch:
       id: 1
@@ -4980,122 +5103,6 @@ avd_switch_facts:
         prefix_length: 31
         ip_address: 192.168.3.27
         peer_ip_address: 192.168.3.26
-      uplink_peers:
-      - C000267-009R601P
-      - C000267-014R602P
-      vlans: 600-601,610
-      local_endpoint_trunk_groups: []
-      endpoint_trunk_groups: []
-  C000267-009S560P:
-    switch:
-      id: 60
-      type: l3leaf
-      platform: 7050TX3-48
-      is_deployed: true
-      mgmt_interface: Management1
-      mgmt_ip: 192.168.0.160/24
-      mpls_lsr: false
-      loopback_ipv4_pool: 192.168.100.0/24
-      uplink_ipv4_pool: 192.168.3.0/24
-      bgp_as: '65001'
-      underlay_routing_protocol: ospf
-      vtep_loopback_ipv4_pool: 192.168.200.0/24
-      inband_ztp_lacp_fallback_delay: 30
-      dc_name: MANILA
-      group: MANILA_SERVICE_LEAFS
-      router_id: 192.168.100.60
-      evpn_role: client
-      mpls_overlay_role: none
-      evpn_route_servers:
-      - C000267-009R601P
-      - C000267-014R602P
-      overlay:
-        peering_address: 192.168.100.60
-        evpn_mpls: false
-      vtep_ip: 192.168.200.60
-      max_parallel_uplinks: 1
-      max_uplink_switches: 2
-      uplinks:
-      - interface: Ethernet1/1/1
-        peer: C000267-009R601P
-        peer_interface: Ethernet4/29/1
-        peer_type: spine
-        peer_is_deployed: true
-        peer_bgp_as: '65001'
-        type: underlay_p2p
-        speed: forced 100g
-        prefix_length: 31
-        ip_address: 192.168.3.237
-        peer_ip_address: 192.168.3.236
-      - interface: Ethernet2/1/1
-        peer: C000267-014R602P
-        peer_interface: Ethernet4/29/1
-        peer_type: spine
-        peer_is_deployed: true
-        peer_bgp_as: '65001'
-        type: underlay_p2p
-        speed: forced 100g
-        prefix_length: 31
-        ip_address: 192.168.3.239
-        peer_ip_address: 192.168.3.238
-      uplink_peers:
-      - C000267-009R601P
-      - C000267-014R602P
-      vlans: 600-601,610
-      local_endpoint_trunk_groups: []
-      endpoint_trunk_groups: []
-  C000267-009S561P:
-    switch:
-      id: 61
-      type: l3leaf
-      platform: 7050TX3-48
-      is_deployed: true
-      mgmt_interface: Management1
-      mgmt_ip: 192.168.0.161/24
-      mpls_lsr: false
-      loopback_ipv4_pool: 192.168.100.0/24
-      uplink_ipv4_pool: 192.168.3.0/24
-      bgp_as: '65001'
-      underlay_routing_protocol: ospf
-      vtep_loopback_ipv4_pool: 192.168.200.0/24
-      inband_ztp_lacp_fallback_delay: 30
-      dc_name: MANILA
-      group: MANILA_SERVICE_LEAFS
-      router_id: 192.168.100.61
-      evpn_role: client
-      mpls_overlay_role: none
-      evpn_route_servers:
-      - C000267-009R601P
-      - C000267-014R602P
-      overlay:
-        peering_address: 192.168.100.61
-        evpn_mpls: false
-      vtep_ip: 192.168.200.61
-      max_parallel_uplinks: 1
-      max_uplink_switches: 2
-      uplinks:
-      - interface: Ethernet1/1/1
-        peer: C000267-009R601P
-        peer_interface: Ethernet4/30/1
-        peer_type: spine
-        peer_is_deployed: true
-        peer_bgp_as: '65001'
-        type: underlay_p2p
-        speed: forced 100g
-        prefix_length: 31
-        ip_address: 192.168.3.241
-        peer_ip_address: 192.168.3.240
-      - interface: Ethernet2/1/1
-        peer: C000267-014R602P
-        peer_interface: Ethernet4/30/1
-        peer_type: spine
-        peer_is_deployed: true
-        peer_bgp_as: '65001'
-        type: underlay_p2p
-        speed: forced 100g
-        prefix_length: 31
-        ip_address: 192.168.3.243
-        peer_ip_address: 192.168.3.242
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
@@ -8174,6 +8181,8 @@ avd_switch_facts:
       endpoint_trunk_groups: []
 avd_overlay_peers:
   C000267-009R601P:
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8181,8 +8190,6 @@ avd_overlay_peers:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8236,6 +8243,8 @@ avd_overlay_peers:
   - C000267-020S058P
   - C000267-020S059P
   C000267-014R602P:
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8243,8 +8252,6 @@ avd_overlay_peers:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8299,6 +8306,8 @@ avd_overlay_peers:
   - C000267-020S059P
 avd_topology_peers:
   C000267-009R601P:
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8306,8 +8315,6 @@ avd_topology_peers:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8361,6 +8368,8 @@ avd_topology_peers:
   - C000267-020S058P
   - C000267-020S059P
   C000267-014R602P:
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8368,8 +8377,6 @@ avd_topology_peers:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8431,6 +8438,8 @@ ansible_config_file: /home/cvpadmin/avd-repos/JPMC_MANLIA-main/ansible.cfg
 groups:
   all:
   - CVaaS
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8438,8 +8447,8 @@ groups:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
+  - C000267-009R601P
+  - C000267-014R602P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8492,12 +8501,12 @@ groups:
   - C000267-020S057P
   - C000267-020S058P
   - C000267-020S059P
-  - C000267-009R601P
-  - C000267-014R602P
   ungrouped: []
   CLOUDVISION:
   - CVaaS
   CAMPUS_GLOBAL:
+  - C000267-009S560P
+  - C000267-009S561P
   - C000267-GRDS001P
   - C000267-GRDS002P
   - C000267-GRDS003P
@@ -8505,8 +8514,6 @@ groups:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009S560P
-  - C000267-009S561P
   - C000267-009R601P
   - C000267-014R602P
   - C000267-007S008P
@@ -8989,7 +8996,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__04f53ecf2b0d695803ac6a83cf055451e2429026
+omit: __omit_place_holder__dda01b38ba6c4f365fbc840d7305b0b6ecec3569
 ansible_version:
   string: 2.17.3
   full: 2.17.3
@@ -9004,4 +9011,4 @@ ansible_inventory_sources:
 ansible_skip_tags: []
 ansible_run_tags:
 - build
-ansible_verbosity: 3
+ansible_verbosity: 0

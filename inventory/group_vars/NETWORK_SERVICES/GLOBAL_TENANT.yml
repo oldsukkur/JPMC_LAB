@@ -45,7 +45,7 @@ tenants:
           loopback: 10
           # Loopback ip range, a unique ip is derived from this ranged and assigned
           # to each l3 leaf based on it's unique id.
-          loopback_ip_range: 167.84.63.96/28
+          loopback_ip_range: 167.84.63.0/24
         structured_config:
           ipv6_unicast_routing: true
         # #bgp:
@@ -245,7 +245,7 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: C000267-Manila-Data
-            tags: [ MANILA_SERVICELEAFS ]
+            tags: [ MANILA_SERVICE_LEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.3.129/25
             ip_helpers:
@@ -268,7 +268,7 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: 160479-410MANILA-Voice
-            tags: [ MANILA_SERVICELEAFS ]
+            tags: [ MANILA_SERVICE_LEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.4.105.1/24
             ip_helpers:
@@ -285,7 +285,7 @@ tenants:
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]                
-            #tags: [ MANILA_LEAFS, MANILA_SERVICELEAFS ]
+            #tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             # ip_address_virtual: 10.12.48.1/24
             # ipv6_address_virtuals:
@@ -300,7 +300,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: Tetrahedron_SSID
           #   enabled: true 
-          #   tags: [ MANILA_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICE_LEAFS ]
           #   ip_address_virtual: 10.150.12.1/22
           #   bgp:
           #     structured_config:
@@ -309,7 +309,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: cusotomerx_Conference_SSID
           #   enabled: True
-          #   tags: [ MANILA_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICE_LEAFS ]
           #   ip_address_virtual: 10.150.16.1/22
           #   bgp:
           #     structured_config:
@@ -318,7 +318,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: customerx_VOIP_SSID
           #   enabled: True
-          #   tags: [ MANILA_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICE_LEAFS ]
           #   ip_address_virtual: 10.150.24.1/22
           #   bgp:
           #     structured_config:
@@ -327,7 +327,7 @@ tenants:
           #   profile: INTERNAL_default
           #   name: MistEdge
           #   enabled: true 
-          #   tags: [ MANILA_SERVICELEAFS ]
+          #   tags: [ MANILA_SERVICE_LEAFS ]
           #   ip_address_virtual: 169.85.74.0/29
           #   bgp:
           #     structured_config:
@@ -338,7 +338,7 @@ tenants:
             profile: INTERNAL_default
             # SVI description.
             name: Mistedge
-            tags: [ MANILA_SERVICELEAFS ]
+            tags: [ MANILA_SERVICE_LEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 169.85.74.1/29
             # ip_helpers:
@@ -708,7 +708,7 @@ tenants:
       # These are pure L2 vlans. They do not have a SVI defined in the l3leafs and they will be bridged inside the VXLAN fabric
       # - id: 400
       #   name: MIST_EDGE_CONNECTIVITY
-      #   tags: [ MANILA_SERVICELEAFS ]
+      #   tags: [ MANILA_SERVICE_LEAFS ]
       #   evpn_l2_multicast:
       #     enabled: false
       # - id: 1000

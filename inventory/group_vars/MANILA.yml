@@ -558,3 +558,17 @@ bfd_multihop:
   interval: 3000
   min_rx: 3000
   multiplier: 3
+
+svi_profiles:
+  OVERLAY_SVI:
+    enabled: true
+    # igmp snooping is not enabled in existing configs
+    # igmp_snooping_enabled: true
+    # ip_helpers:
+      # 10.0.10.10:
+        # source_interface: Loopback0
+        # source_vrf: default
+  INTERNAL_default:
+    parent_profile: OVERLAY_SVI
+  IOTBMS_default:
+    parent_profile: OVERLAY_SVI
