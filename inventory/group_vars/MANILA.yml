@@ -344,24 +344,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S032P
+        - name: C000267-014S032P
           filter:
-            tags: [ C000267-009S032P, MANILA_LEAFS ]
+            tags: [ C000267-014S032P, MANILA_LEAFS ]
           id: 32
           mgmt_ip: 192.168.0.132/24
-        - name: C000267-008S033P
+        - name: C000267-014S033P
           filter:
-            tags: [ C000267-008S033P, MANILA_LEAFS ]
+            tags: [ C000267-014S033P, MANILA_LEAFS ]
           id: 33
           mgmt_ip: 192.168.0.133/24
-        - name: C000267-008S034P
+        - name: C000267-014S034P
           filter:
-            tags: [ C000267-008S034P, MANILA_LEAFS ]
+            tags: [ C000267-014S034P, MANILA_LEAFS ]
           id: 34
           mgmt_ip: 192.168.0.134/24
-        - name: C000267-008S035P
+        - name: C000267-014S035P
           filter:
-            tags: [ C000267-008S035P, MANILA_LEAFS ]
+            tags: [ C000267-014S035P, MANILA_LEAFS ]
           id: 35
           mgmt_ip: 192.168.0.135/24
     - group: MANILA_WC_15
