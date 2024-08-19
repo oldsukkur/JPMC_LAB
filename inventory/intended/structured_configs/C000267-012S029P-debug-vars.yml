@@ -144,7 +144,7 @@ tenants:
       profile: INTERNAL_default
       name: 000267-Manila-Data
       tags:
-      - C000267-GNDS003P
+      - C000267-GRDS003P
       ip_address_virtual: 10.67.3.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
@@ -205,10 +205,10 @@ tenants:
           - dot1x
     - id: 306
       profile: INTERNAL_default
-      name: 160479-410MANILA-Voice
+      name: 000267-Manila-Data
       tags:
-      - C160479-003S007A
-      ip_address_virtual: 10.4.3.1/25
+      - C000267-GRDS006P
+      ip_address_virtual: 10.67.6.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -219,17 +219,17 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
           - dot1x
     - id: 307
       profile: INTERNAL_default
-      name: C000267-Manila-Data
+      name: 000267-Manila-Data
       tags:
-      - C160479-003S008A
-      ip_address_virtual: 10.195.6.1/24
+      - C000267-GRDS007P
+      ip_address_virtual: 10.67.7.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -240,17 +240,17 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
           - dot1x
     - id: 308
       profile: INTERNAL_default
-      name: 160479-410MANILA-Voice
+      name: 000267-Manila-Data
       tags:
-      - C160479-003S008A
-      ip_address_virtual: 10.4.104.1/24
+      - C000267-007S008P
+      ip_address_virtual: 10.67.71.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -261,17 +261,17 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
           - dot1x
     - id: 309
       profile: INTERNAL_default
-      name: C000267-Manila-Data
+      name: 000267-Manila-Data
       tags:
-      - MANILA_SERVICE_LEAFS
-      ip_address_virtual: 10.4.3.129/25
+      - C000267-007S009P
+      ip_address_virtual: 10.67.72.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -282,17 +282,17 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
           - dot1x
     - id: 310
       profile: INTERNAL_default
-      name: 160479-410MANILA-Voice
+      name: 000267-Manila-Data
       tags:
-      - MANILA_SERVICE_LEAFS
-      ip_address_virtual: 10.4.105.1/24
+      - C000267-007S010P
+      ip_address_virtual: 10.67.73.1/24
       ip_helpers:
       - ip_helper: 169.86.42.132
       - ip_helper: 169.86.42.100
@@ -303,7 +303,1036 @@ tenants:
       - ip_helper: 169.101.114.67
       - ip_helper: 169.104.25.67
       ipv6_address_virtuals:
-      - fd00:83:0::1/64
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 311
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-007S011P
+      ip_address_virtual: 10.67.74.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 312
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-008S012P
+      ip_address_virtual: 10.67.81.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 313
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-008S013P
+      ip_address_virtual: 10.67.82.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 314
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-008S014P
+      ip_address_virtual: 10.67.83.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 315
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-008S015P
+      ip_address_virtual: 10.67.84.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 316
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-009S016P
+      ip_address_virtual: 10.67.91.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 317
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-009S017P
+      ip_address_virtual: 10.67.92.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 318
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-009S018P
+      ip_address_virtual: 10.67.93.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 319
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-009S019P
+      ip_address_virtual: 10.67.94.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 320
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-010S020P
+      ip_address_virtual: 10.67.101.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 321
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-010S021P
+      ip_address_virtual: 10.67.102.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 322
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-010S022P
+      ip_address_virtual: 10.67.103.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 323
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-010S023P
+      ip_address_virtual: 10.67.104.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 324
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-011S024P
+      ip_address_virtual: 10.67.111.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 325
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-011S025P
+      ip_address_virtual: 10.67.112.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 326
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-011S026P
+      ip_address_virtual: 10.67.113.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 327
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-011S027P
+      ip_address_virtual: 10.67.114.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 328
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-012S028P
+      ip_address_virtual: 10.67.121.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 329
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-012S029P
+      ip_address_virtual: 10.67.122.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 330
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-012S030P
+      ip_address_virtual: 10.67.123.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 331
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-012S031P
+      ip_address_virtual: 10.67.124.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 332
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-014S032P
+      ip_address_virtual: 10.67.141.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 333
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-014S033P
+      ip_address_virtual: 10.67.142.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 334
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-014S034P
+      ip_address_virtual: 10.67.143.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 335
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-014S035P
+      ip_address_virtual: 10.67.144.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 336
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-015S036P
+      ip_address_virtual: 10.67.151.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 337
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-015S037P
+      ip_address_virtual: 10.67.152.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 338
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-015S038P
+      ip_address_virtual: 10.67.153.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 339
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-015S039P
+      ip_address_virtual: 10.67.154.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 340
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-016S040P
+      ip_address_virtual: 10.67.161.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 341
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-016S041P
+      ip_address_virtual: 10.67.162.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 342
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-016S042P
+      ip_address_virtual: 10.67.163.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 343
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-016S043P
+      ip_address_virtual: 10.67.164.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 344
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-017S044P
+      ip_address_virtual: 10.67.171.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 345
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-017S045P
+      ip_address_virtual: 10.67.172.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 346
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-017S046P
+      ip_address_virtual: 10.67.173.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 347
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-017S047P
+      ip_address_virtual: 10.67.174.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 348
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-018S048P
+      ip_address_virtual: 10.67.181.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 349
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-018S049P
+      ip_address_virtual: 10.67.182.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 350
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-018S050P
+      ip_address_virtual: 10.67.183.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 351
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-018S051P
+      ip_address_virtual: 10.67.184.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 352
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-019S052P
+      ip_address_virtual: 10.67.191.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 353
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-019S053P
+      ip_address_virtual: 10.67.192.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 354
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-019S054P
+      ip_address_virtual: 10.67.193.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 355
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-019S055P
+      ip_address_virtual: 10.67.194.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 356
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-020S056P
+      ip_address_virtual: 10.67.201.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 357
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-020S057P
+      ip_address_virtual: 10.67.202.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 358
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-020S058P
+      ip_address_virtual: 10.67.203.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
+      bgp:
+        structured_config:
+          redistribute_routes:
+          - dot1x
+    - id: 359
+      profile: INTERNAL_default
+      name: 000267-Manila-Data
+      tags:
+      - C000267-020S059P
+      ip_address_virtual: 10.67.204.1/24
+      ip_helpers:
+      - ip_helper: 169.86.42.132
+      - ip_helper: 169.86.42.100
+      - ip_helper: 169.127.105.84
+      - ip_helper: 169.98.141.207
+      - ip_helper: 202.40.72.61
+      - ip_helper: 202.40.73.61
+      - ip_helper: 169.101.114.67
+      - ip_helper: 169.104.25.67
+      ipv6_address_virtuals:
+      - fd00:82:0::1/64
       bgp:
         structured_config:
           redistribute_routes:
@@ -1418,7 +2447,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 309-310,500,600-601,610
+        vlans: 500,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S561P:
@@ -1476,7 +2505,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 309-310,500,600-601,610
+        vlans: 500,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS001P:
@@ -1650,7 +2679,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 303,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS004P:
@@ -1824,7 +2853,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 306,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS007P:
@@ -1882,7 +2911,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 307,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009R601P:
@@ -1994,7 +3023,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 308,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S009P:
@@ -2052,7 +3081,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 309,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S010P:
@@ -2110,7 +3139,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 310,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S011P:
@@ -2168,7 +3197,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 311,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S012P:
@@ -2226,7 +3255,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 312,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S013P:
@@ -2284,7 +3313,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 313,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S014P:
@@ -2342,7 +3371,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 314,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S015P:
@@ -2400,7 +3429,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 315,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S016P:
@@ -2458,7 +3487,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 316,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S017P:
@@ -2516,7 +3545,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 317,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S018P:
@@ -2574,7 +3603,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 318,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S019P:
@@ -2632,7 +3661,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 319,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S020P:
@@ -2690,7 +3719,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 320,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S021P:
@@ -2748,7 +3777,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 321,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S022P:
@@ -2806,7 +3835,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 322,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S023P:
@@ -2864,7 +3893,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 323,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S024P:
@@ -2922,7 +3951,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 324,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S025P:
@@ -2980,7 +4009,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 325,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S026P:
@@ -3038,7 +4067,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 326,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S027P:
@@ -3096,7 +4125,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 327,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S028P:
@@ -3154,7 +4183,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 328,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S029P:
@@ -3212,7 +4241,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 329,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S030P:
@@ -3270,7 +4299,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 330,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S031P:
@@ -3328,7 +4357,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 331,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S032P:
@@ -3386,7 +4415,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 332,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S033P:
@@ -3444,7 +4473,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 333,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S034P:
@@ -3502,7 +4531,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 334,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S035P:
@@ -3560,7 +4589,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 335,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S036P:
@@ -3618,7 +4647,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 336,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S037P:
@@ -3676,7 +4705,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 337,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S038P:
@@ -3734,7 +4763,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 338,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S039P:
@@ -3792,7 +4821,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 339,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S040P:
@@ -3850,7 +4879,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 340,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S041P:
@@ -3908,7 +4937,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 341,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S042P:
@@ -3966,7 +4995,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 342,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S043P:
@@ -4024,7 +5053,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 343,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S044P:
@@ -4082,7 +5111,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 344,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S045P:
@@ -4140,7 +5169,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 345,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S046P:
@@ -4198,7 +5227,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 346,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S047P:
@@ -4256,7 +5285,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 347,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S048P:
@@ -4314,7 +5343,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 348,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S049P:
@@ -4372,7 +5401,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 349,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S050P:
@@ -4430,7 +5459,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 350,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S051P:
@@ -4488,7 +5517,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 351,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S052P:
@@ -4546,7 +5575,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 352,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S053P:
@@ -4604,7 +5633,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 353,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S054P:
@@ -4662,7 +5691,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 354,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S055P:
@@ -4720,7 +5749,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 355,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S056P:
@@ -4778,7 +5807,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 356,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S057P:
@@ -4836,7 +5865,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 357,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S058P:
@@ -4894,7 +5923,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 358,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S059P:
@@ -4952,7 +5981,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 359,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
   avd_overlay_peers:
@@ -5261,7 +6290,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 309-310,500,600-601,610
+      vlans: 500,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S561P:
@@ -5319,7 +6348,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 309-310,500,600-601,610
+      vlans: 500,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS001P:
@@ -5493,7 +6522,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 303,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS004P:
@@ -5667,7 +6696,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 306,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS007P:
@@ -5725,7 +6754,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 307,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009R601P:
@@ -5837,7 +6866,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 308,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S009P:
@@ -5895,7 +6924,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 309,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S010P:
@@ -5953,7 +6982,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 310,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S011P:
@@ -6011,7 +7040,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 311,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S012P:
@@ -6069,7 +7098,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 312,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S013P:
@@ -6127,7 +7156,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 313,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S014P:
@@ -6185,7 +7214,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 314,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S015P:
@@ -6243,7 +7272,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 315,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S016P:
@@ -6301,7 +7330,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 316,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S017P:
@@ -6359,7 +7388,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 317,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S018P:
@@ -6417,7 +7446,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 318,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S019P:
@@ -6475,7 +7504,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 319,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S020P:
@@ -6533,7 +7562,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 320,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S021P:
@@ -6591,7 +7620,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 321,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S022P:
@@ -6649,7 +7678,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 322,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S023P:
@@ -6707,7 +7736,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 323,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S024P:
@@ -6765,7 +7794,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 324,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S025P:
@@ -6823,7 +7852,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 325,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S026P:
@@ -6881,7 +7910,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 326,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S027P:
@@ -6939,7 +7968,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 327,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S028P:
@@ -6997,7 +8026,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 328,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S029P:
@@ -7055,7 +8084,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 329,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S030P:
@@ -7113,7 +8142,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 330,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S031P:
@@ -7171,7 +8200,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 331,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S032P:
@@ -7229,7 +8258,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 332,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S033P:
@@ -7287,7 +8316,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 333,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S034P:
@@ -7345,7 +8374,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 334,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S035P:
@@ -7403,7 +8432,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 335,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S036P:
@@ -7461,7 +8490,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 336,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S037P:
@@ -7519,7 +8548,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 337,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S038P:
@@ -7577,7 +8606,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 338,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S039P:
@@ -7635,7 +8664,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 339,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S040P:
@@ -7693,7 +8722,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 340,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S041P:
@@ -7751,7 +8780,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 341,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S042P:
@@ -7809,7 +8838,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 342,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S043P:
@@ -7867,7 +8896,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 343,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S044P:
@@ -7925,7 +8954,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 344,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S045P:
@@ -7983,7 +9012,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 345,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S046P:
@@ -8041,7 +9070,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 346,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S047P:
@@ -8099,7 +9128,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 347,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S048P:
@@ -8157,7 +9186,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 348,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S049P:
@@ -8215,7 +9244,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 349,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S050P:
@@ -8273,7 +9302,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 350,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S051P:
@@ -8331,7 +9360,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 351,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S052P:
@@ -8389,7 +9418,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 352,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S053P:
@@ -8447,7 +9476,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 353,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S054P:
@@ -8505,7 +9534,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 354,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S055P:
@@ -8563,7 +9592,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 355,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S056P:
@@ -8621,7 +9650,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 356,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S057P:
@@ -8679,7 +9708,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 357,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S058P:
@@ -8737,7 +9766,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 358,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S059P:
@@ -8795,7 +9824,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 359,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
 avd_overlay_peers:
@@ -9615,7 +10644,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__4d634d9b844bd64696b5eeddb3ed48360471af29
+omit: __omit_place_holder__2612aa255bcf26c783d0ff00bf4f26155e771572
 ansible_version:
   string: 2.17.3
   full: 2.17.3

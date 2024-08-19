@@ -115,24 +115,6 @@ router_bgp:
     redistribute_routes:
     - learned
     - dot1x
-  - id: 309
-    tenant: MANILA_SUPERSPINES
-    rd: 192.168.100.61:10309
-    route_targets:
-      both:
-      - 10309:10309
-    redistribute_routes:
-    - learned
-    - dot1x
-  - id: 310
-    tenant: MANILA_SUPERSPINES
-    rd: 192.168.100.61:10310
-    route_targets:
-      both:
-      - 10310:10310
-    redistribute_routes:
-    - learned
-    - dot1x
   - id: 500
     tenant: MANILA_SUPERSPINES
     rd: 192.168.100.61:10500
@@ -287,12 +269,6 @@ vlans:
 - id: 601
   name: Guest_Wired
   tenant: MANILA_SUPERSPINES
-- id: 309
-  name: C000267-Manila-Data
-  tenant: MANILA_SUPERSPINES
-- id: 310
-  name: 160479-410MANILA-Voice
-  tenant: MANILA_SUPERSPINES
 - id: 500
   name: Mistedge
   tenant: MANILA_SUPERSPINES
@@ -321,46 +297,6 @@ vlan_interfaces:
   shutdown: false
   ip_address_virtual: 10.120.44.1/22
   vrf: VRF_GUEST
-- name: Vlan309
-  tenant: MANILA_SUPERSPINES
-  tags:
-  - MANILA_SERVICE_LEAFS
-  description: C000267-Manila-Data
-  shutdown: false
-  ipv6_enable: true
-  ip_address_virtual: 10.4.3.129/25
-  ipv6_address_virtuals:
-  - fd00:83:0::1/64
-  vrf: VRF_INTERNAL
-  ip_helpers:
-  - ip_helper: 169.86.42.132
-  - ip_helper: 169.86.42.100
-  - ip_helper: 169.127.105.84
-  - ip_helper: 169.98.141.207
-  - ip_helper: 202.40.72.61
-  - ip_helper: 202.40.73.61
-  - ip_helper: 169.101.114.67
-  - ip_helper: 169.104.25.67
-- name: Vlan310
-  tenant: MANILA_SUPERSPINES
-  tags:
-  - MANILA_SERVICE_LEAFS
-  description: 160479-410MANILA-Voice
-  shutdown: false
-  ipv6_enable: true
-  ip_address_virtual: 10.4.105.1/24
-  ipv6_address_virtuals:
-  - fd00:83:0::1/64
-  vrf: VRF_INTERNAL
-  ip_helpers:
-  - ip_helper: 169.86.42.132
-  - ip_helper: 169.86.42.100
-  - ip_helper: 169.127.105.84
-  - ip_helper: 169.98.141.207
-  - ip_helper: 202.40.72.61
-  - ip_helper: 202.40.73.61
-  - ip_helper: 169.101.114.67
-  - ip_helper: 169.104.25.67
 - name: Vlan500
   tenant: MANILA_SUPERSPINES
   tags:
@@ -392,10 +328,6 @@ vxlan_interface:
         vni: 10600
       - id: 601
         vni: 10601
-      - id: 309
-        vni: 10309
-      - id: 310
-        vni: 10310
       - id: 500
         vni: 10500
       - id: 610

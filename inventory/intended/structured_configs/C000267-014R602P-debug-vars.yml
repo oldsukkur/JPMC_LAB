@@ -799,7 +799,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 309-310,500,600-601,610
+        vlans: 500,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S561P:
@@ -857,7 +857,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 309-310,500,600-601,610
+        vlans: 500,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS001P:
@@ -1031,7 +1031,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 303,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS004P:
@@ -1205,7 +1205,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 306,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS007P:
@@ -1263,7 +1263,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 307,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009R601P:
@@ -1375,7 +1375,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 308,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S009P:
@@ -1433,7 +1433,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 309,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S010P:
@@ -1491,7 +1491,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 310,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S011P:
@@ -1549,7 +1549,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 311,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S012P:
@@ -1607,7 +1607,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 312,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S013P:
@@ -1665,7 +1665,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 313,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S014P:
@@ -1723,7 +1723,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 314,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-008S015P:
@@ -1781,7 +1781,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 315,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S016P:
@@ -1839,7 +1839,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 316,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S017P:
@@ -1897,7 +1897,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 317,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S018P:
@@ -1955,7 +1955,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 318,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S019P:
@@ -2013,7 +2013,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 319,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S020P:
@@ -2071,7 +2071,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 320,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S021P:
@@ -2129,7 +2129,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 321,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S022P:
@@ -2187,7 +2187,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 322,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-010S023P:
@@ -2245,7 +2245,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 323,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S024P:
@@ -2303,7 +2303,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 324,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S025P:
@@ -2361,7 +2361,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 325,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S026P:
@@ -2419,7 +2419,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 326,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-011S027P:
@@ -2477,7 +2477,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 327,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S028P:
@@ -2535,7 +2535,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 328,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S029P:
@@ -2593,7 +2593,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 329,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S030P:
@@ -2651,7 +2651,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 330,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-012S031P:
@@ -2709,7 +2709,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 331,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S032P:
@@ -2767,7 +2767,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 332,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S033P:
@@ -2825,7 +2825,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 333,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S034P:
@@ -2883,7 +2883,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 334,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-014S035P:
@@ -2941,7 +2941,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 335,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S036P:
@@ -2999,7 +2999,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 336,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S037P:
@@ -3057,7 +3057,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 337,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S038P:
@@ -3115,7 +3115,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 338,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-015S039P:
@@ -3173,7 +3173,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 339,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S040P:
@@ -3231,7 +3231,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 340,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S041P:
@@ -3289,7 +3289,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 341,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S042P:
@@ -3347,7 +3347,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 342,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-016S043P:
@@ -3405,7 +3405,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 343,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S044P:
@@ -3463,7 +3463,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 344,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S045P:
@@ -3521,7 +3521,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 345,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S046P:
@@ -3579,7 +3579,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 346,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-017S047P:
@@ -3637,7 +3637,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 347,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S048P:
@@ -3695,7 +3695,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 348,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S049P:
@@ -3753,7 +3753,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 349,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S050P:
@@ -3811,7 +3811,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 350,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-018S051P:
@@ -3869,7 +3869,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 351,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S052P:
@@ -3927,7 +3927,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 352,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S053P:
@@ -3985,7 +3985,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 353,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S054P:
@@ -4043,7 +4043,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 354,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-019S055P:
@@ -4101,7 +4101,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 355,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S056P:
@@ -4159,7 +4159,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 356,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S057P:
@@ -4217,7 +4217,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 357,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S058P:
@@ -4275,7 +4275,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 358,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-020S059P:
@@ -4333,7 +4333,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 600-601,610
+        vlans: 359,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
   avd_overlay_peers:
@@ -4642,7 +4642,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 309-310,500,600-601,610
+      vlans: 500,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S561P:
@@ -4700,7 +4700,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 309-310,500,600-601,610
+      vlans: 500,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS001P:
@@ -4874,7 +4874,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 303,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS004P:
@@ -5048,7 +5048,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 306,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS007P:
@@ -5106,7 +5106,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 307,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009R601P:
@@ -5218,7 +5218,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 308,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S009P:
@@ -5276,7 +5276,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 309,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S010P:
@@ -5334,7 +5334,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 310,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S011P:
@@ -5392,7 +5392,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 311,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S012P:
@@ -5450,7 +5450,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 312,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S013P:
@@ -5508,7 +5508,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 313,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S014P:
@@ -5566,7 +5566,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 314,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-008S015P:
@@ -5624,7 +5624,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 315,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S016P:
@@ -5682,7 +5682,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 316,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S017P:
@@ -5740,7 +5740,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 317,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S018P:
@@ -5798,7 +5798,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 318,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S019P:
@@ -5856,7 +5856,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 319,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S020P:
@@ -5914,7 +5914,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 320,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S021P:
@@ -5972,7 +5972,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 321,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S022P:
@@ -6030,7 +6030,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 322,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-010S023P:
@@ -6088,7 +6088,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 323,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S024P:
@@ -6146,7 +6146,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 324,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S025P:
@@ -6204,7 +6204,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 325,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S026P:
@@ -6262,7 +6262,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 326,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-011S027P:
@@ -6320,7 +6320,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 327,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S028P:
@@ -6378,7 +6378,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 328,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S029P:
@@ -6436,7 +6436,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 329,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S030P:
@@ -6494,7 +6494,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 330,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-012S031P:
@@ -6552,7 +6552,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 331,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S032P:
@@ -6610,7 +6610,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 332,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S033P:
@@ -6668,7 +6668,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 333,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S034P:
@@ -6726,7 +6726,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 334,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-014S035P:
@@ -6784,7 +6784,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 335,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S036P:
@@ -6842,7 +6842,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 336,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S037P:
@@ -6900,7 +6900,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 337,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S038P:
@@ -6958,7 +6958,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 338,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-015S039P:
@@ -7016,7 +7016,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 339,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S040P:
@@ -7074,7 +7074,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 340,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S041P:
@@ -7132,7 +7132,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 341,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S042P:
@@ -7190,7 +7190,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 342,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-016S043P:
@@ -7248,7 +7248,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 343,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S044P:
@@ -7306,7 +7306,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 344,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S045P:
@@ -7364,7 +7364,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 345,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S046P:
@@ -7422,7 +7422,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 346,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-017S047P:
@@ -7480,7 +7480,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 347,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S048P:
@@ -7538,7 +7538,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 348,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S049P:
@@ -7596,7 +7596,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 349,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S050P:
@@ -7654,7 +7654,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 350,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-018S051P:
@@ -7712,7 +7712,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 351,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S052P:
@@ -7770,7 +7770,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 352,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S053P:
@@ -7828,7 +7828,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 353,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S054P:
@@ -7886,7 +7886,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 354,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-019S055P:
@@ -7944,7 +7944,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 355,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S056P:
@@ -8002,7 +8002,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 356,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S057P:
@@ -8060,7 +8060,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 357,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S058P:
@@ -8118,7 +8118,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 358,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-020S059P:
@@ -8176,7 +8176,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 600-601,610
+      vlans: 359,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
 avd_overlay_peers:
@@ -8996,7 +8996,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__4d634d9b844bd64696b5eeddb3ed48360471af29
+omit: __omit_place_holder__2612aa255bcf26c783d0ff00bf4f26155e771572
 ansible_version:
   string: 2.17.3
   full: 2.17.3
