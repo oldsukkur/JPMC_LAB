@@ -102,6 +102,7 @@ tenants:
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
+
           - id: 303
             #vni_override: 65301
             # Get basic settings from this profile defined in MANILA.yml
@@ -126,14 +127,13 @@ tenants:
               structured_config:
                 redistribute_routes: [ dot1x ]
           - id: 304
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: 160479-410MANILA-Voice
-            tags: [ C160479-001S006A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.4.2.1/24
+            name: 000267-Manila-Data
+            tags: [ C000267-GNDS004P ]
+            ip_address_virtual: 10.67.4.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -141,22 +141,21 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
           - id: 305
-            #vni_override: 65301
+            #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
-            tags: [ C160479-003S007A ]
-            # IP anycast gateway to be used in the SVI in every leaf.
-            ip_address_virtual: 10.120.96.1/24
+            name: 000267-Manila-Data
+            tags: [ C000267-GNDS005P ]
+            ip_address_virtual: 10.67.5.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
             - ip_helper: 169.86.42.100
@@ -164,10 +163,10 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
-              - fd00:83:0::1/64
+              - fd00:82:0::1/64
             bgp:
               structured_config:
                 redistribute_routes: [ dot1x ]
