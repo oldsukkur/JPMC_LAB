@@ -32,7 +32,7 @@ all:
           children:
             MANILA:
               children:
-                MANILA_BORDER_LEAF:
+                MANILA_SPINES:
                   hosts:
                     C000267-009R601P:
                       # ansible_host var required for validation role.
@@ -73,9 +73,9 @@ all:
                           ansible_host: 192.168.0.112
                         C000267-008S013P:
                           ansible_host: 192.168.0.113
-                        C000267-008S0014P:
+                        C000267-008S014P:
                           ansible_host: 192.168.0.114
-                        C000267-008S0015P:
+                        C000267-008S015P:
                           ansible_host: 192.168.0.115
                     MANILA_WC_9:
                       hosts:

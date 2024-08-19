@@ -24,13 +24,17 @@ default_igmp_snooping_enabled: false
 default_interfaces: 
   - types: [ spine ]
     platforms: [ default ]
-    downlink_interfaces: [ Ethernet3/1-30/1,Ethernet4/1-30/1 ]
+    downlink_interfaces: [ Ethernet3/1-31/1,Ethernet4/1-31/1 ]
   - types: [ l3leaf ]
     platforms: [ 720XP-48 ]
     uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
     # downlink_interfaces: [ Ethernet1-48 ]
   - types: [ l3leaf ]
     platforms: [ "758" ]
+    uplink_interfaces: [ Ethernet1/1/1,Ethernet2/1/1 ]
+    # downlink_interfaces: [ Ethernet8 ]
+  - types: [ l3leaf ]
+    platforms: [ "7050TX3-48" ]
     uplink_interfaces: [ Ethernet1/1/1,Ethernet2/1/1 ]
     # downlink_interfaces: [ Ethernet8 ]
 platform_settings:
@@ -45,7 +49,7 @@ platform_settings:
 
 # bgp peer groups passwords
 bgp_peer_groups:
-  ipv4_uderlay_peers:
+  ipv4_underlay_peers:
     password: "{{ vault.bgp_peerings.underlay.password }}"
   evpn_overlay_peers:
     password: "{{ vault.bgp_peerings.overlay.password }}"
@@ -64,14 +68,14 @@ bgp_graceful_restart:
   restart_time: 300
 # BGP update wait commands will be disabled for vEOS
 bgp_update_wait_install: true
-
+overlay_routing_protocol: ibgp
 # Spine Switches
 spine:
   defaults:
     platform: EOS
-    bgp_as: "65000.0"
+    bgp_as: "65001"
     loopback_ipv4_pool: 192.168.1.0/24
-    loopback_ipv4_offset: 250
+    # loopback_ipv4_offset: 250
     loopback_ipv6_pool: 2001:db8:abcd:0012::/64
     structured_config:
       router_bgp:
@@ -82,10 +86,10 @@ spine:
 
   nodes:
     - name: C000267-009R601P
-      id: 1
+      id: 251
       mgmt_ip: 192.168.0.200/24
     - name: C000267-014R602P
-      id: 2
+      id: 252
       mgmt_ip: 192.168.0.201/24
 
 # Leaf switch groups
@@ -97,9 +101,9 @@ l3leaf:
     # virtual router mac for VNIs assigned to Leaf switches
     virtual_router_mac_address: 00:1c:73:00:dc:01
     platform: EOS
-    bgp_as: "65000.1-65000.30"
+    bgp_as: "65001"
     uplink_ipv4_pool: 192.168.3.0/24
-    uplink_ipv6_pool: 2001:db8:abcd:0012/64
+    # uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
     uplink_switches: [C000267-014R601P, C000267-014R602P]
@@ -120,7 +124,7 @@ l3leaf:
       - timers bgp 5 15
       - neighbor default send-community
     
-    node_groups:
+  node_groups:
     - group: MANILA_WC_GRD
       filter:
         tags: [ MANILA_LEAFS ]
@@ -172,24 +176,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758 
       nodes:
-        - name: C000267-008S008P
+        - name: C000267-007S008P
           filter:
-            tags: [ C000267-008S008P, MANILA_LEAFS ]
+            tags: [ C000267-007S008P, MANILA_LEAFS ]
           id: 8
           mgmt_ip: 192.168.0.108/24
-        - name: C000267-008S009P
+        - name: C000267-007S009P
           filter:
-            tags: [ C000267-008S009P, MANILA_LEAFS ]
+            tags: [ C000267-007S009P, MANILA_LEAFS ]
           id: 9
           mgmt_ip: 192.168.0.109/24
-        - name: C000267-008S010
+        - name: C000267-007S010P
           filter:
-            tags: [ C000267-008S010, MANILA_LEAFS ]
+            tags: [ C000267-007S010P, MANILA_LEAFS ]
           id: 10
           mgmt_ip: 192.168.0.110/24
-        - name: C000267-008S011
+        - name: C000267-007S011P
           filter:
-            tags: [ C000267-008S011, MANILA_LEAFS ]
+            tags: [ C000267-007S011P, MANILA_LEAFS ]
           id: 11
           mgmt_ip: 192.168.0.111/24
     - group: MANILA_WC_8
@@ -200,24 +204,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758 
       nodes:
-        - name: C000267-008S012
+        - name: C000267-008S012P
           filter:
-            tags: [ C000267-008S012, MANILA_LEAFS ]
+            tags: [ C000267-008S012P, MANILA_LEAFS ]
           id: 12
           mgmt_ip: 192.168.0.112/24
-        - name: C000267-008S013
+        - name: C000267-008S013P
           filter:
-            tags: [ C000267-008S013, MANILA_LEAFS ]
+            tags: [ C000267-008S013P, MANILA_LEAFS ]
           id: 13
           mgmt_ip: 192.168.0.113/24
-        - name: C000267-008S0014
+        - name: C000267-008S014P
           filter:
-            tags: [ C000267-008S0014, MANILA_LEAFS ]
+            tags: [ C000267-008S014P, MANILA_LEAFS ]
           id: 14
           mgmt_ip: 192.168.0.114/24
-        - name: C000267-008S015
+        - name: C000267-008S015P
           filter:
-            tags: [ C000267-008S015, MANILA_LEAFS ]
+            tags: [ C000267-008S015P, MANILA_LEAFS ]
           id: 15
           mgmt_ip: 192.168.0.115/24
     - group: MANILA_WC_9
@@ -233,19 +237,19 @@ l3leaf:
             tags: [ C000267-009S016P, MANILA_LEAFS ]
           id: 16
           mgmt_ip: 192.168.0.116/24
-        - name: C000267-008S017P
+        - name: C000267-009S017P
           filter:
-            tags: [ C000267-008S017P, MANILA_LEAFS ]
+            tags: [ C000267-009S017P, MANILA_LEAFS ]
           id: 17
           mgmt_ip: 192.168.0.117/24
-        - name: C000267-008S018P
+        - name: C000267-009S018P
           filter:
-            tags: [ C000267-008S018P, MANILA_LEAFS ]
+            tags: [ C000267-009S018P, MANILA_LEAFS ]
           id: 18
           mgmt_ip: 192.168.0.118/24
-        - name: C000267-008S019P
+        - name: C000267-009S019P
           filter:
-            tags: [ C000267-008S019P, MANILA_LEAFS ]
+            tags: [ C000267-009S019P, MANILA_LEAFS ]
           id: 19
           mgmt_ip: 192.168.0.119/24
     - group: MANILA_WC_10
@@ -256,24 +260,24 @@ l3leaf:
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S020P
+        - name: C000267-010S020P
           filter:
-            tags: [ C000267-009S020P, MANILA_LEAFS ]
+            tags: [ C000267-010S020P, MANILA_LEAFS ]
           id: 20
           mgmt_ip: 192.168.0.120/24
-        - name: C000267-008S021P
+        - name: C000267-010S021P
           filter:
-            tags: [ C000267-008S021P, MANILA_LEAFS ]
+            tags: [ C000267-010S021P, MANILA_LEAFS ]
           id: 21
           mgmt_ip: 192.168.0.121/24
-        - name: C000267-008S022P
+        - name: C000267-010S022P
           filter:
-            tags: [ C000267-008S022P, MANILA_LEAFS ]
+            tags: [ C000267-010S022P, MANILA_LEAFS ]
           id: 22
           mgmt_ip: 192.168.0.122/24
-        - name: C000267-008S023P
+        - name: C000267-010S023P
           filter:
-            tags: [ C000267-008S023P, MANILA_LEAFS ]
+            tags: [ C000267-010S023P, MANILA_LEAFS ]
           id: 23
           mgmt_ip: 192.168.0.123/24
     - group: MANILA_WC_11
@@ -531,9 +535,9 @@ l3leaf:
     - group: MANILA_SERVICE_LEAFS
       filter:
         tags: [ MANILA_LEAFS ]
-      vtep_loopback_ipv4_pool: 167.84.63.80/24               
+      # vtep_loopback_ipv4_pool: 167.84.63.80/24               
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 720XP-48 
+      platform: 7050TX3-48 
       nodes:
         - name: C000267-009S560P
           filter:
@@ -544,36 +548,8 @@ l3leaf:
           filter:
             tags: [ C000267-009S561P, MANILA_LEAFS ]
           id: 61
-          mgmt_ip: 92.168.0.161/24
+          mgmt_ip: 192.168.0.161/24
     # TODO should service leaf become its own "type"?
-    - group: SERVICELEAF_FL3
-      filter:
-        tags: [ MANILA_BORDER_LEAF ]
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      uplink_interfaces: [ Ethernet53/1, Ethernet54/1 ]
-      mlag_interfaces: [ Ethernet49/1, Ethernet50/1 ]
-      mlag: true
-      mlag_dual_primary_detection: true
-      vtep_loopback: Loopback1
-      nodes:
-        - name: C160479-003S562A
-          id: 5
-          mgmt_ip: 169.82.66.133/29
-        - name: C160479-003S563A
-          id: 6
-          mgmt_ip: 169.82.66.134/29
-      # 750XP does not support Multi-VTEP mlag
-      structured_config:
-        vxlan_interface:
-          Vxlan1:
-            vxlan:
-              source_interface: Loopback1
-              mlag_source_interface: null
-        router_bgp:
-          session_trackers:
-            - name: TRACKER
-              recovery_delay: 500
-
 # update mtu for real deployment -> 9214
 p2p_uplinks_mtu: 1500
 

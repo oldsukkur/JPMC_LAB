@@ -29,7 +29,7 @@ l3leaf:
         tags:
           - MANILA_SERVICES
       nodes:
-        - name: C000267-009R601P:
+        - name: C000267-009R601P
           id: 1
           mgmt_ip: 192.168.0.102/24
           uplink_switch_interfaces: [Ethernet1, Ethernet1]
