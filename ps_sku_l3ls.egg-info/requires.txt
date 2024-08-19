@@ -1,0 +1,8 @@
+pyavd-cli>=0.1.5
+pre-commit~=3.7.1
+pip-tools~=7.4.1
+mkdocs~=1.5.3
+mkdocs-material~=9.5.6
+
+[:platform_system != "Windows"]
+ansible-lint~=24.6.0
