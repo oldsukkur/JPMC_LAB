@@ -27,7 +27,7 @@ l3leaf:
     - group: MANILA_BORDER_LEAF
       filter:
         tags:
-          - MANILA_SERVICES
+          - MANILA_SERVICE_LEAFS
       nodes:
         - name: C000267-009R601P
           id: 1

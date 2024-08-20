@@ -24,20 +24,20 @@ tenants:
         bfd: true
         maximum_routes: 0
         send_community: all
-    pim_rp_addresses:
-    - rps: [169.82.66.226]
-      nodes: [ C000267-009R601P, C000267-014R602P ]
-      groups: [ 224.0.0.0/4 ]
-    - rps: [169.82.66.226]
-      nodes: [ C000267-009R601P, C000267-014R602P ]
-      groups: [ 239.1.0.0/16 ] 
     vrfs:
       # VRF definitions inside the tenant.
       - name: VRF_INTERNAL
         # VRF VNI definition.
         vrf_vni: 101
         evpn_l3_multicast:
-          enabled: true        
+          enabled: true
+        pim_rp_addresses:
+          - rps: [169.82.66.226]
+            nodes: [ C000267-009R601P, C000267-014R602P ]
+            groups: [ 224.0.0.0/4 ]
+          - rps: [169.82.66.226]
+            nodes: [ C000267-009R601P, C000267-014R602P ]
+            groups: [ 239.1.0.0/16 ] 
         # Enable VTEP Network diagnostics
         # This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.
         vtep_diagnostic:
@@ -1563,7 +1563,7 @@ tenants:
             profile: IOTBMS_default
             name: BMS_SEGMENT_520
             enabled: true
-            tags: [ C160479-003S007A ]
+            tags: [ MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.142.197.1/25
             bgp:
               structured_config:
@@ -1572,7 +1572,7 @@ tenants:
             profile: IOTBMS_default
             name: BMS_SEGMENT_521
             enabled: true
-            tags: [ C160479-003S007A ]
+            tags: [ MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.142.197.129/25
             bgp:
               structured_config:

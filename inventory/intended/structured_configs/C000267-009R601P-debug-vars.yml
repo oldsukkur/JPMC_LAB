@@ -706,14 +706,14 @@ l3leaf:
       filter:
         tags:
         - C000267-009S560P
-        - MANILA_LEAFS
+        - MANILA_SERVICE_LEAFS
       id: 60
       mgmt_ip: 192.168.0.160/24
     - name: C000267-009S561P
       filter:
         tags:
         - C000267-009S561P
-        - MANILA_LEAFS
+        - MANILA_SERVICE_LEAFS
       id: 61
       mgmt_ip: 192.168.0.161/24
 p2p_uplinks_mtu: 1500
@@ -799,7 +799,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 500,600-601,610
+        vlans: 500,520-521,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-009S561P:
@@ -857,7 +857,7 @@ ansible_facts:
         uplink_peers:
         - C000267-009R601P
         - C000267-014R602P
-        vlans: 500,600-601,610
+        vlans: 500,520-521,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-GRDS001P:
@@ -4642,7 +4642,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 500,600-601,610
+      vlans: 500,520-521,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-009S561P:
@@ -4700,7 +4700,7 @@ avd_switch_facts:
       uplink_peers:
       - C000267-009R601P
       - C000267-014R602P
-      vlans: 500,600-601,610
+      vlans: 500,520-521,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-GRDS001P:
@@ -8996,7 +8996,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__2612aa255bcf26c783d0ff00bf4f26155e771572
+omit: __omit_place_holder__96713ab0156efca64ffde6aa17578603e538dfbd
 ansible_version:
   string: 2.17.3
   full: 2.17.3

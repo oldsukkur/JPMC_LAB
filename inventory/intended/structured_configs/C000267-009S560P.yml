@@ -124,6 +124,24 @@ router_bgp:
     redistribute_routes:
     - learned
     - dot1x
+  - id: 520
+    tenant: MANILA_SUPERSPINES
+    rd: 192.168.100.60:10520
+    route_targets:
+      both:
+      - 10520:10520
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 521
+    tenant: MANILA_SUPERSPINES
+    rd: 192.168.100.60:10521
+    route_targets:
+      both:
+      - 10521:10521
+    redistribute_routes:
+    - learned
+    - dot1x
   - id: 610
     tenant: MANILA_SUPERSPINES
     rd: 192.168.100.60:10610
@@ -272,6 +290,12 @@ vlans:
 - id: 500
   name: Mistedge
   tenant: MANILA_SUPERSPINES
+- id: 520
+  name: BMS_SEGMENT_520
+  tenant: MANILA_SUPERSPINES
+- id: 521
+  name: BMS_SEGMENT_521
+  tenant: MANILA_SUPERSPINES
 - id: 610
   name: IOT_WIRELESS
   tenant: MANILA_SUPERSPINES
@@ -308,6 +332,22 @@ vlan_interfaces:
   ipv6_address_virtuals:
   - fd00:83:0::1/64
   vrf: VRF_INTERNAL
+- name: Vlan520
+  tenant: MANILA_SUPERSPINES
+  tags:
+  - MANILA_SERVICE_LEAFS
+  description: BMS_SEGMENT_520
+  shutdown: false
+  ip_address_virtual: 10.142.197.1/25
+  vrf: VRF_IOTBMS
+- name: Vlan521
+  tenant: MANILA_SUPERSPINES
+  tags:
+  - MANILA_SERVICE_LEAFS
+  description: BMS_SEGMENT_521
+  shutdown: false
+  ip_address_virtual: 10.142.197.129/25
+  vrf: VRF_IOTBMS
 - name: Vlan610
   tenant: MANILA_SUPERSPINES
   tags:
@@ -330,6 +370,10 @@ vxlan_interface:
         vni: 10601
       - id: 500
         vni: 10500
+      - id: 520
+        vni: 10520
+      - id: 521
+        vni: 10521
       - id: 610
         vni: 10610
       vrfs:
