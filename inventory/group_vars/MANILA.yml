@@ -21,7 +21,7 @@ evpn_overlay_bgp_rtc: true
 
 # Disable igmp snooping default
 default_igmp_snooping_enabled: false
-default_interfaces: 
+default_interfaces:
   - types: [ spine ]
     platforms: [ default ]
     downlink_interfaces: [ Ethernet3/1-31/1,Ethernet4/1-31/1 ]
@@ -123,7 +123,7 @@ l3leaf:
     bgp_defaults:
       - timers bgp 5 15
       - neighbor default send-community
-    
+
   node_groups:
     - group: MANILA_WC_GRD
       filter:
@@ -131,7 +131,7 @@ l3leaf:
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 720XP-48 
+      platform: 720XP-48
       nodes:
         - name: C000267-GRDS001P
           filter:
@@ -174,7 +174,7 @@ l3leaf:
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 758 
+      platform: 758
       nodes:
         - name: C000267-007S008P
           filter:
@@ -202,7 +202,7 @@ l3leaf:
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 758 
+      platform: 758
       nodes:
         - name: C000267-008S012P
           filter:
@@ -307,14 +307,14 @@ l3leaf:
           filter:
             tags: [ C000267-011S027P, MANILA_LEAFS ]
           id: 27
-          mgmt_ip: 192.168.0.127/24 
+          mgmt_ip: 192.168.0.127/24
     - group: MANILA_WC_12
       filter:
         tags: [ MANILA_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 758 
+      platform: 758
       nodes:
         - name: C000267-012S028P
           filter:
@@ -419,14 +419,14 @@ l3leaf:
           filter:
             tags: [ C000267-016S043P, MANILA_LEAFS ]
           id: 43
-          mgmt_ip: 192.168.0.143/24  
+          mgmt_ip: 192.168.0.143/24
     - group: MANILA_WC_17
       filter:
         tags: [ MANILA_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 720XP-48 
+      platform: 720XP-48
       nodes:
         - name: C000267-017S044P
           filter:
@@ -475,7 +475,7 @@ l3leaf:
           filter:
             tags: [ C000267-018S051P, MANILA_LEAFS ]
           id: 51
-          mgmt_ip: 192.168.0.151/24  
+          mgmt_ip: 192.168.0.151/24
     - group: MANILA_WC_19
       filter:
         tags: [ MANILA_LEAFS ]
@@ -531,13 +531,13 @@ l3leaf:
           filter:
             tags: [ C000267-020S059P, MANILA_LEAFS ]
           id: 59
-          mgmt_ip: 192.168.0.159/24          
+          mgmt_ip: 192.168.0.159/24
     - group: MANILA_SERVICE_LEAFS
       filter:
         tags: [ MANILA_LEAFS ]
-      # vtep_loopback_ipv4_pool: 167.84.63.80/24               
+      # vtep_loopback_ipv4_pool: 167.84.63.80/24
       uplink_switches: [ C000267-009R601P, C000267-014R602P ]
-      platform: 7050TX3-48 
+      platform: 7050TX3-48
       nodes:
         - name: C000267-009S560P
           filter:

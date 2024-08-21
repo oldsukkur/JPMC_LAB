@@ -42,7 +42,7 @@ all:
                 MANILA_LEAFS:
                   children:
                     MANILA_WC_GRD:
-                      hosts:  
+                      hosts:
                         C000267-GRDS001P:
                           ansible_host: 192.168.0.101
                         C000267-GRDS002P:
@@ -60,7 +60,7 @@ all:
                     MANILA_WC_7:
                       hosts:
                         C000267-007S008P:
-                         ansible_host: 192.168.0.108
+                          ansible_host: 192.168.0.108
                         C000267-007S009P:
                           ansible_host: 192.168.0.109
                         C000267-007S010P:
@@ -188,7 +188,7 @@ all:
                         C000267-020S059P:
                           ansible_host: 192.168.0.159
                     MANILA_SERVICE_LEAFS:
-                      hosts: 
+                      hosts:
                         C000267-009S560P:
                           ansible_host: 192.168.0.160
                         C000267-009S561P:
@@ -211,47 +211,46 @@ all:
 
         MANILA_ENDPOINTS:
           children:
-           MANILA_LEAFS:
+            MANILA_LEAFS:
         MANILA_WC_GRD_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_GRD:
+            MANILA_WC_GRD:
         MANILA_WC_F07_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_F7:
+            MANILA_WC_F7:
         MANILA_WC_F08_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_F8:
+            MANILA_WC_F8:
         MANILA_WC_F09_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_F9:
+            MANILA_WC_F9:
         MANILA_WC_F10_CONNECTED_ENDPOINTS:
           children:
-           MANILA_WC_F10:
+            MANILA_WC_F10:
         MANILA_WC_F11_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F11:
+          children:
+            MANILA_WC_F11:
         MANILA_WC_F12_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F12:
+          children:
+            MANILA_WC_F12:
         MANILA_WC_F14_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F14:
+          children:
+            MANILA_WC_F14:
         MANILA_WC_F15_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F15:
+          children:
+            MANILA_WC_F15:
         MANILA_WC_F16_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F16:
+          children:
+            MANILA_WC_F16:
         MANILA_WC_F17_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F17:
+          children:
+            MANILA_WC_F17:
         MANILA_WC_F18_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F18:
+          children:
+            MANILA_WC_F18:
         MANILA_WC_F19_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F19:
+          children:
+            MANILA_WC_F19:
         MANILA_WC_F20_CONNECTED_ENDPOINTS:
-         children:
-           MANILA_WC_F20:
-
+          children:
+            MANILA_WC_F20:

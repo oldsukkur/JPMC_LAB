@@ -1,0 +1,20 @@
+# uncomment to avoid uploading intended configurations in the repository
+inventory/intended
+
+# uncomment in production environment if password file is used.
+vault_passwd
+
+# macOS metadata
+.DS_Store
+
+# IDEs
+.idea
+.vscode
+
+# python stuff
+.venv
+__pycahe__
+.ansible
+*.egg-info
+.local
+.cache

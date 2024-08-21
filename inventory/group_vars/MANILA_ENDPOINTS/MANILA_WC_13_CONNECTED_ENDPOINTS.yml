@@ -10,4 +10,3 @@
 #        port_channel:
 #          description: PortChannel10
 #         mode: active
-

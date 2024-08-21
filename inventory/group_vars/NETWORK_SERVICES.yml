@@ -6,7 +6,7 @@ tenants:
     # Number used to generate the VNI of each VLAN by adding the VLAN number in this tenant.
     # Force change
     mac_vrf_vni_base: 10000
-    evpn_l3_multicast: 
+    evpn_l3_multicast:
       enabled: true
       evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
     bgp_peer_groups:
@@ -37,7 +37,7 @@ tenants:
             groups: [ 224.0.0.0/4 ]
           - rps: [169.82.66.226]
             nodes: [ C000267-009R601P, C000267-014R602P ]
-            groups: [ 239.1.0.0/16 ] 
+            groups: [ 239.1.0.0/16 ]
         # Enable VTEP Network diagnostics
         # This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.
         vtep_diagnostic:
@@ -72,7 +72,7 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
               - fd00:82:0::1/64
@@ -96,7 +96,7 @@ tenants:
             - ip_helper: 169.98.141.207
             - ip_helper: 202.40.72.61
             - ip_helper: 202.40.73.61
-            - ip_helper: 169.101.114.67  
+            - ip_helper: 169.101.114.67
             - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
               - fd00:82:0::1/64
@@ -284,7 +284,7 @@ tenants:
               - fd00:82:0::1/64
             bgp:
               structured_config:
-                redistribute_routes: [ dot1x ] 
+                redistribute_routes: [ dot1x ]
           - id: 311
             #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
@@ -1319,7 +1319,7 @@ tenants:
               - fd00:82:0::1/64
             bgp:
               structured_config:
-                redistribute_routes: [ dot1x ] 
+                redistribute_routes: [ dot1x ]
           - id: 356
             #vni_override: 60301
             # Get basic settings from this profile defined in MANILA.yml
@@ -1428,13 +1428,13 @@ tenants:
             # - ip_helper: 169.98.141.207
             # - ip_helper: 202.40.72.61
             # - ip_helper: 202.40.73.61
-            # - ip_helper: 169.101.114.67  
+            # - ip_helper: 169.101.114.67
             # - ip_helper: 169.104.25.67
             ipv6_address_virtuals:
               - fd00:83:0::1/64
             bgp:
               structured_config:
-                redistribute_routes: [ dot1x ]    
+                redistribute_routes: [ dot1x ]
         l3_interfaces:
           # Need to break these out into individual configs to accomodate ipv6 addresses which aren't modeled in l3_interfaces
           # BorderSpine 1 to ASR01 - VLAN 100
@@ -1444,7 +1444,7 @@ tenants:
             ip_addresses: [10.12.46.26/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_INTERNAL
             pim:
-              enabled: true 
+              enabled: true
             structured_config:
               ipv6_enable: true
               ipv6_address: 2000:10:2:4::1/127
@@ -1457,7 +1457,7 @@ tenants:
             ip_addresses: [10.12.46.8/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_INTERNAL
             pim:
-              enabled: true 
+              enabled: true
             structured_config:
               ipv6_enable: true
               ipv6_address: 2000:10:2:1::1/127
@@ -1470,7 +1470,7 @@ tenants:
             ip_addresses: [10.12.46.0/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_INTERNAL
             pim:
-              enabled: true 
+              enabled: true
             structured_config:
               ipv6_enable: true
               ipv6_address: 2000:10:2:10::1/127
@@ -1483,7 +1483,7 @@ tenants:
             ip_addresses: [10.12.46.16/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_INTERNAL
             pim:
-              enabled: true 
+              enabled: true
             structured_config:
               ipv6_enable: true
               ipv6_address: 2000:10:2:7::1/127
@@ -1541,13 +1541,13 @@ tenants:
           #   peer_group: SD_WAN_EDGE
           # 10.2.19.0:
           #   nodes: [ C000267-014R602P ]
-          #   peer_group: sd_wan_edge    
+          #   peer_group: sd_wan_edge
       - name: VRF_IOTBMS
         vrf_vni: 201
         vtep_diagnostic:
           loopback: 20
-          loopback_ip_range: 167.84.63.112/24            
-        evpn_l3_multicast: 
+          loopback_ip_range: 167.84.63.112/24
+        evpn_l3_multicast:
           enabled: false
         svis:
           - id: 610
@@ -1609,7 +1609,7 @@ tenants:
               flow_tracker:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR02 - VLAN 200
-          - interfaces: [ Ethernet4/48/1.200 ] 
+          - interfaces: [ Ethernet4/48/1.200 ]
             nodes: [ C000267-014R602P ]
             ip_addresses: [10.12.46.18/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_IOT
@@ -1666,19 +1666,19 @@ tenants:
           #   peer_group: SD_WAN_EDGE
           # 10.2.20.0:
           #   nodes: [ C000267-014R602P ]
-          #   peer_group: sd_wan_edge    
+          #   peer_group: sd_wan_edge
       - name: VRF_GUEST
         vrf_vni: 301
         vtep_diagnostic:
           loopback: 30
-          loopback_ip_range: 167.84.141.160/24           
-        evpn_l3_multicast: 
+          loopback_ip_range: 167.84.141.160/24
+        evpn_l3_multicast:
           enabled: false
-        svis: 
+        svis:
           - id: 600
             name: Guest_Wireless
             profile: INTERNAL_default
-            enabled: true 
+            enabled: true
             tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
             ip_address_virtual: 10.120.40.1/22
             bgp:
@@ -1782,7 +1782,7 @@ tenants:
           #   peer_group: SD_WAN_EDGE
           # 10.2.21.0:
           #   nodes: [ C000267-014R602P ]
-          #   peer_group: sd_wan_edge    
+          #   peer_group: sd_wan_edge
 
     # l2vlans:
       # These are pure L2 vlans. They do not have a SVI defined in the l3leafs and they will be bridged inside the VXLAN fabric
@@ -1809,4 +1809,4 @@ tenants:
         #     description: "Anycast RP"
         #     enabled: <bool; default=True>
 
-            
+
