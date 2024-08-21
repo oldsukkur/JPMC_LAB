@@ -5,6 +5,7 @@ PYTHON?=$(shell which python3)
 VENV_PATH:=.venv
 VENV_BIN_PATH:=$(VENV_PATH)/bin
 VENV_PYTHON:=$(VENV_BIN_PATH)/python
+ANSIBLE_VAULT_PASSWORD_FILE ?= ./.vault_passwd
 
 
 REQUIREMENTS:=requirements.txt
