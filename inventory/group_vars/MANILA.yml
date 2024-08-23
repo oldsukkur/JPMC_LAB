@@ -577,7 +577,7 @@ service_leaf:
     uplink_ipv4_pool: 192.168.3.0/24
     # uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
-    vtep_loopback_ipv4_pool: 192.168.200.0/24
+    vtep_loopback_ipv4_pool: 192.168.210.0/24
     uplink_switches: [C000267-014R601P, C000267-014R602P]
     uplink_interface_speed: forced 100g
     mlag: true
