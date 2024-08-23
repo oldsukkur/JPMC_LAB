@@ -108,7 +108,7 @@ spine:
     loopback_ipv4_pool: 192.168.1.0/24
     # loopback_ipv4_offset: 250
     loopback_ipv6_pool: 2001:db8:abcd:0012::/64
-    vtep_loopback_ipv4_pool: 192.168.201.0/24
+    vtep_loopback_ipv4_pool: 192.168.203.0/24
     structured_config:
       router_bgp:
         as_notation: "asdot"

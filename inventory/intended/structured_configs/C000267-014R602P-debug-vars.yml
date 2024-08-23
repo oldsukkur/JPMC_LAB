@@ -239,7 +239,7 @@ spine:
     bgp_as: '65001'
     loopback_ipv4_pool: 192.168.1.0/24
     loopback_ipv6_pool: 2001:db8:abcd:0012::/64
-    vtep_loopback_ipv4_pool: 192.168.201.0/24
+    vtep_loopback_ipv4_pool: 192.168.203.0/24
     structured_config:
       router_bgp:
         as_notation: asdot
@@ -1311,6 +1311,64 @@ ansible_facts:
         - C000267-014R602P
         - C000267-009R601P
         vlans: 307,600-601,610
+        local_endpoint_trunk_groups: []
+        endpoint_trunk_groups: []
+    C000267-009R601P:
+      switch:
+        id: 251
+        type: spine
+        platform: 7304-x3
+        is_deployed: true
+        mgmt_interface: Management1
+        mgmt_ip: 192.168.0.200/24
+        mpls_lsr: false
+        loopback_ipv4_pool: 192.168.1.0/24
+        bgp_as: '65001'
+        underlay_routing_protocol: ospf
+        vtep_loopback_ipv4_pool: 192.168.203.0/24
+        inband_ztp_lacp_fallback_delay: 30
+        dc_name: MANILA
+        router_id: 192.168.1.251
+        evpn_role: server
+        mpls_overlay_role: none
+        overlay:
+          peering_address: 192.168.1.251
+          evpn_mpls: false
+        vtep_ip: 192.168.203.251
+        max_parallel_uplinks: 1
+        max_uplink_switches: 0
+        uplinks: []
+        uplink_peers: []
+        vlans: ''
+        local_endpoint_trunk_groups: []
+        endpoint_trunk_groups: []
+    C000267-014R602P:
+      switch:
+        id: 252
+        type: spine
+        platform: 7304-x3
+        is_deployed: true
+        mgmt_interface: Management1
+        mgmt_ip: 192.168.0.201/24
+        mpls_lsr: false
+        loopback_ipv4_pool: 192.168.1.0/24
+        bgp_as: '65001'
+        underlay_routing_protocol: ospf
+        vtep_loopback_ipv4_pool: 192.168.203.0/24
+        inband_ztp_lacp_fallback_delay: 30
+        dc_name: MANILA
+        router_id: 192.168.1.252
+        evpn_role: server
+        mpls_overlay_role: none
+        overlay:
+          peering_address: 192.168.1.252
+          evpn_mpls: false
+        vtep_ip: 192.168.203.252
+        max_parallel_uplinks: 1
+        max_uplink_switches: 0
+        uplinks: []
+        uplink_peers: []
+        vlans: ''
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
     C000267-007S008P:
@@ -4465,64 +4523,6 @@ ansible_facts:
         vlans: 500,520-521,600-601,610
         local_endpoint_trunk_groups: []
         endpoint_trunk_groups: []
-    C000267-009R601P:
-      switch:
-        id: 251
-        type: spine
-        platform: 7304-x3
-        is_deployed: true
-        mgmt_interface: Management1
-        mgmt_ip: 192.168.0.200/24
-        mpls_lsr: false
-        loopback_ipv4_pool: 192.168.1.0/24
-        bgp_as: '65001'
-        underlay_routing_protocol: ospf
-        vtep_loopback_ipv4_pool: 192.168.201.0/24
-        inband_ztp_lacp_fallback_delay: 30
-        dc_name: MANILA
-        router_id: 192.168.1.251
-        evpn_role: server
-        mpls_overlay_role: none
-        overlay:
-          peering_address: 192.168.1.251
-          evpn_mpls: false
-        vtep_ip: 192.168.201.251
-        max_parallel_uplinks: 1
-        max_uplink_switches: 0
-        uplinks: []
-        uplink_peers: []
-        vlans: ''
-        local_endpoint_trunk_groups: []
-        endpoint_trunk_groups: []
-    C000267-014R602P:
-      switch:
-        id: 252
-        type: spine
-        platform: 7304-x3
-        is_deployed: true
-        mgmt_interface: Management1
-        mgmt_ip: 192.168.0.201/24
-        mpls_lsr: false
-        loopback_ipv4_pool: 192.168.1.0/24
-        bgp_as: '65001'
-        underlay_routing_protocol: ospf
-        vtep_loopback_ipv4_pool: 192.168.201.0/24
-        inband_ztp_lacp_fallback_delay: 30
-        dc_name: MANILA
-        router_id: 192.168.1.252
-        evpn_role: server
-        mpls_overlay_role: none
-        overlay:
-          peering_address: 192.168.1.252
-          evpn_mpls: false
-        vtep_ip: 192.168.201.252
-        max_parallel_uplinks: 1
-        max_uplink_switches: 0
-        uplinks: []
-        uplink_peers: []
-        vlans: ''
-        local_endpoint_trunk_groups: []
-        endpoint_trunk_groups: []
   avd_overlay_peers:
     C000267-009R601P:
     - C000267-GRDS001P
@@ -5178,6 +5178,64 @@ avd_switch_facts:
       - C000267-014R602P
       - C000267-009R601P
       vlans: 307,600-601,610
+      local_endpoint_trunk_groups: []
+      endpoint_trunk_groups: []
+  C000267-009R601P:
+    switch:
+      id: 251
+      type: spine
+      platform: 7304-x3
+      is_deployed: true
+      mgmt_interface: Management1
+      mgmt_ip: 192.168.0.200/24
+      mpls_lsr: false
+      loopback_ipv4_pool: 192.168.1.0/24
+      bgp_as: '65001'
+      underlay_routing_protocol: ospf
+      vtep_loopback_ipv4_pool: 192.168.203.0/24
+      inband_ztp_lacp_fallback_delay: 30
+      dc_name: MANILA
+      router_id: 192.168.1.251
+      evpn_role: server
+      mpls_overlay_role: none
+      overlay:
+        peering_address: 192.168.1.251
+        evpn_mpls: false
+      vtep_ip: 192.168.203.251
+      max_parallel_uplinks: 1
+      max_uplink_switches: 0
+      uplinks: []
+      uplink_peers: []
+      vlans: ''
+      local_endpoint_trunk_groups: []
+      endpoint_trunk_groups: []
+  C000267-014R602P:
+    switch:
+      id: 252
+      type: spine
+      platform: 7304-x3
+      is_deployed: true
+      mgmt_interface: Management1
+      mgmt_ip: 192.168.0.201/24
+      mpls_lsr: false
+      loopback_ipv4_pool: 192.168.1.0/24
+      bgp_as: '65001'
+      underlay_routing_protocol: ospf
+      vtep_loopback_ipv4_pool: 192.168.203.0/24
+      inband_ztp_lacp_fallback_delay: 30
+      dc_name: MANILA
+      router_id: 192.168.1.252
+      evpn_role: server
+      mpls_overlay_role: none
+      overlay:
+        peering_address: 192.168.1.252
+        evpn_mpls: false
+      vtep_ip: 192.168.203.252
+      max_parallel_uplinks: 1
+      max_uplink_switches: 0
+      uplinks: []
+      uplink_peers: []
+      vlans: ''
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
   C000267-007S008P:
@@ -8332,64 +8390,6 @@ avd_switch_facts:
       vlans: 500,520-521,600-601,610
       local_endpoint_trunk_groups: []
       endpoint_trunk_groups: []
-  C000267-009R601P:
-    switch:
-      id: 251
-      type: spine
-      platform: 7304-x3
-      is_deployed: true
-      mgmt_interface: Management1
-      mgmt_ip: 192.168.0.200/24
-      mpls_lsr: false
-      loopback_ipv4_pool: 192.168.1.0/24
-      bgp_as: '65001'
-      underlay_routing_protocol: ospf
-      vtep_loopback_ipv4_pool: 192.168.201.0/24
-      inband_ztp_lacp_fallback_delay: 30
-      dc_name: MANILA
-      router_id: 192.168.1.251
-      evpn_role: server
-      mpls_overlay_role: none
-      overlay:
-        peering_address: 192.168.1.251
-        evpn_mpls: false
-      vtep_ip: 192.168.201.251
-      max_parallel_uplinks: 1
-      max_uplink_switches: 0
-      uplinks: []
-      uplink_peers: []
-      vlans: ''
-      local_endpoint_trunk_groups: []
-      endpoint_trunk_groups: []
-  C000267-014R602P:
-    switch:
-      id: 252
-      type: spine
-      platform: 7304-x3
-      is_deployed: true
-      mgmt_interface: Management1
-      mgmt_ip: 192.168.0.201/24
-      mpls_lsr: false
-      loopback_ipv4_pool: 192.168.1.0/24
-      bgp_as: '65001'
-      underlay_routing_protocol: ospf
-      vtep_loopback_ipv4_pool: 192.168.201.0/24
-      inband_ztp_lacp_fallback_delay: 30
-      dc_name: MANILA
-      router_id: 192.168.1.252
-      evpn_role: server
-      mpls_overlay_role: none
-      overlay:
-        peering_address: 192.168.1.252
-        evpn_mpls: false
-      vtep_ip: 192.168.201.252
-      max_parallel_uplinks: 1
-      max_uplink_switches: 0
-      uplinks: []
-      uplink_peers: []
-      vlans: ''
-      local_endpoint_trunk_groups: []
-      endpoint_trunk_groups: []
 avd_overlay_peers:
   C000267-009R601P:
   - C000267-GRDS001P
@@ -8657,8 +8657,6 @@ groups:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
-  - C000267-009R601P
-  - C000267-014R602P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8713,6 +8711,8 @@ groups:
   - C000267-020S059P
   - C000267-009S560P
   - C000267-009S561P
+  - C000267-009R601P
+  - C000267-014R602P
   ungrouped: []
   CLOUDVISION:
   - CVaaS
@@ -8725,6 +8725,8 @@ groups:
   - C000267-GRDS005P
   - C000267-GRDS006P
   - C000267-GRDS007P
+  - C000267-009R601P
+  - C000267-014R602P
   - C000267-007S008P
   - C000267-007S009P
   - C000267-007S010P
@@ -8779,8 +8781,6 @@ groups:
   - C000267-020S059P
   - C000267-009S560P
   - C000267-009S561P
-  - C000267-009R601P
-  - C000267-014R602P
   CAMPUS_ASIA:
   - C000267-009R601P
   - C000267-014R602P
@@ -9209,7 +9209,7 @@ groups:
   MANILA_WC_F19: []
   MANILA_WC_F20_CONNECTED_ENDPOINTS: []
   MANILA_WC_F20: []
-omit: __omit_place_holder__c45215d958b8d6a7726d59bed41c3c205542a1b1
+omit: __omit_place_holder__e73086b8028b9e454a06075df04711076de7079d
 ansible_version:
   string: 2.17.3
   full: 2.17.3
