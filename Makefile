@@ -6,6 +6,7 @@ VENV_PATH:=.venv
 VENV_BIN_PATH:=$(VENV_PATH)/bin
 VENV_PYTHON:=$(VENV_BIN_PATH)/python
 ANSIBLE_VAULT_PASSWORD_FILE ?= ./.vault_passwd
+FABRIC_NAME ?= CAMPUS_GLOBAL
 
 
 REQUIREMENTS:=requirements.txt
@@ -36,7 +37,7 @@ build: ## Run ansible playbook to build fabric configuration
 
 .PHONY: build-pyavd
 build-pyavd: ## Run pyavd build
-	$(VENV_BIN_PATH)/pyavd-build -i inventory/inventory.yml -o inventory/intended -l all,!CVP -f FABRIC $(LIMIT_ARGS) -v
+	$(VENV_BIN_PATH)/pyavd-build -i inventory/inventory.yml -o inventory/intended -l all,!CVP -f $(FABRIC_NAME) $(LIMIT_ARGS) -v
 
 .PHONY: provision
 provision: ## Run ansible playbook to deploy fabric configuration files to CVP
