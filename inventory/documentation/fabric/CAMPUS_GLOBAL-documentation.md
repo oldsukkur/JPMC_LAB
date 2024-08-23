@@ -25,13 +25,13 @@
 | MANILA | l3leaf | C000267-008S013P | 192.168.0.113/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-008S014P | 192.168.0.114/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-008S015P | 192.168.0.115/24 | 758 | Provisioned | - |
-| MANILA | spine | C000267-009R601P | 192.168.0.200/24 | EOS | Provisioned | - |
+| MANILA | spine | C000267-009R601P | 192.168.0.200/24 | 7304-x3 | Provisioned | - |
 | MANILA | l3leaf | C000267-009S016P | 192.168.0.116/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-009S017P | 192.168.0.117/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-009S018P | 192.168.0.118/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-009S019P | 192.168.0.119/24 | 758 | Provisioned | - |
-| MANILA | l3leaf | C000267-009S560P | 192.168.0.160/24 | 7050TX3-48 | Provisioned | - |
-| MANILA | l3leaf | C000267-009S561P | 192.168.0.161/24 | 7050TX3-48 | Provisioned | - |
+| MANILA | service_leaf | C000267-009S560P | 192.168.0.160/24 | 7050TX3-48 | Provisioned | - |
+| MANILA | service_leaf | C000267-009S561P | 192.168.0.161/24 | 7050TX3-48 | Provisioned | - |
 | MANILA | l3leaf | C000267-010S020P | 192.168.0.120/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-010S021P | 192.168.0.121/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-010S022P | 192.168.0.122/24 | 758 | Provisioned | - |
@@ -44,7 +44,7 @@
 | MANILA | l3leaf | C000267-012S029P | 192.168.0.129/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-012S030P | 192.168.0.130/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-012S031P | 192.168.0.131/24 | 758 | Provisioned | - |
-| MANILA | spine | C000267-014R602P | 192.168.0.201/24 | EOS | Provisioned | - |
+| MANILA | spine | C000267-014R602P | 192.168.0.201/24 | 7304-x3 | Provisioned | - |
 | MANILA | l3leaf | C000267-014S032P | 192.168.0.132/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-014S033P | 192.168.0.133/24 | 758 | Provisioned | - |
 | MANILA | l3leaf | C000267-014S034P | 192.168.0.134/24 | 758 | Provisioned | - |
@@ -159,14 +159,16 @@
 | spine | C000267-009R601P | Ethernet4/26/1 | l3leaf | C000267-020S057P | Ethernet1/1/1 |
 | spine | C000267-009R601P | Ethernet4/27/1 | l3leaf | C000267-020S058P | Ethernet1/1/1 |
 | spine | C000267-009R601P | Ethernet4/28/1 | l3leaf | C000267-020S059P | Ethernet1/1/1 |
-| spine | C000267-009R601P | Ethernet4/29/1 | l3leaf | C000267-009S560P | Ethernet1/1/1 |
-| spine | C000267-009R601P | Ethernet4/30/1 | l3leaf | C000267-009S561P | Ethernet1/1/1 |
+| spine | C000267-009R601P | Ethernet4/29/1 | service_leaf | C000267-009S560P | Ethernet1/1/1 |
+| spine | C000267-009R601P | Ethernet4/30/1 | service_leaf | C000267-009S561P | Ethernet1/1/1 |
 | l3leaf | C000267-009S016P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/16/1 |
 | l3leaf | C000267-009S017P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/17/1 |
 | l3leaf | C000267-009S018P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/18/1 |
 | l3leaf | C000267-009S019P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/19/1 |
-| l3leaf | C000267-009S560P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet4/29/1 |
-| l3leaf | C000267-009S561P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet4/30/1 |
+| service_leaf | C000267-009S560P | Ethernet1/1/2 | mlag_peer | C000267-009S561P | Ethernet1/1/2 |
+| service_leaf | C000267-009S560P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet4/29/1 |
+| service_leaf | C000267-009S560P | Ethernet2/1/2 | mlag_peer | C000267-009S561P | Ethernet2/1/2 |
+| service_leaf | C000267-009S561P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet4/30/1 |
 | l3leaf | C000267-010S020P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/20/1 |
 | l3leaf | C000267-010S021P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/21/1 |
 | l3leaf | C000267-010S022P | Ethernet2/1/1 | spine | C000267-014R602P | Ethernet3/22/1 |
@@ -430,6 +432,7 @@
 | VTEP Loopback Pool | Available Addresses | Assigned addresses | Assigned Address % |
 | --------------------- | ------------------- | ------------------ | ------------------ |
 | 192.168.200.0/24 | 256 | 61 | 23.83 % |
+| 192.168.201.0/24 | 256 | 2 | 0.79 % |
 
 ### VTEP Loopback Node allocation
 
@@ -443,12 +446,13 @@
 | MANILA | C000267-008S013P | 192.168.200.13/32 |
 | MANILA | C000267-008S014P | 192.168.200.14/32 |
 | MANILA | C000267-008S015P | 192.168.200.15/32 |
+| MANILA | C000267-009R601P | 192.168.201.251/32 |
 | MANILA | C000267-009S016P | 192.168.200.16/32 |
 | MANILA | C000267-009S017P | 192.168.200.17/32 |
 | MANILA | C000267-009S018P | 192.168.200.18/32 |
 | MANILA | C000267-009S019P | 192.168.200.19/32 |
 | MANILA | C000267-009S560P | 192.168.200.60/32 |
-| MANILA | C000267-009S561P | 192.168.200.61/32 |
+| MANILA | C000267-009S561P | 192.168.200.60/32 |
 | MANILA | C000267-010S020P | 192.168.200.20/32 |
 | MANILA | C000267-010S021P | 192.168.200.21/32 |
 | MANILA | C000267-010S022P | 192.168.200.22/32 |
@@ -461,6 +465,7 @@
 | MANILA | C000267-012S029P | 192.168.200.29/32 |
 | MANILA | C000267-012S030P | 192.168.200.30/32 |
 | MANILA | C000267-012S031P | 192.168.200.31/32 |
+| MANILA | C000267-014R602P | 192.168.201.252/32 |
 | MANILA | C000267-014S032P | 192.168.200.32/32 |
 | MANILA | C000267-014S033P | 192.168.200.33/32 |
 | MANILA | C000267-014S034P | 192.168.200.34/32 |

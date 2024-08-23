@@ -1,0 +1,639 @@
+hostname: C000267-009S560P
+is_deployed: true
+router_bgp:
+  as: '65001'
+  router_id: 192.168.100.60
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  bgp_defaults:
+  - timers bgp 5 15
+  - neighbor default send-community
+  bgp:
+    default:
+      ipv4_unicast: false
+  maximum_paths:
+    paths: 128
+    ecmp: 128
+  updates:
+    wait_install: true
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  peer_groups:
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    update_source: Loopback0
+    bfd: true
+    password: $1c$U41I+zV057R0l38LbPqKww==
+    send_community: all
+    maximum_routes: 0
+    remote_as: '65001'
+  - name: MLAG-IPv4-UNDERLAY-PEER
+    type: ipv4
+    remote_as: '65001'
+    next_hop_self: true
+    description: C000267-009S561P
+    password: $1c$U41I+zV057S2PuXZVQiX2g==
+    maximum_routes: 12000
+    send_community: all
+    route_map_in: RM-MLAG-PEER-IN
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+      route_map_in: RM-EVPN-SOO-IN
+      route_map_out: RM-EVPN-SOO-OUT
+  address_family_ipv4:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+    - name: MLAG-IPv4-UNDERLAY-PEER
+      activate: true
+  address_family_rtc:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  neighbors:
+  - ip_address: 192.168.1.251
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: C000267-009R601P
+    description: C000267-009R601P
+  - ip_address: 192.168.1.252
+    peer_group: EVPN-OVERLAY-PEERS
+    peer: C000267-014R602P
+    description: C000267-014R602P
+  vrfs:
+  - name: VRF_GUEST
+    router_id: 192.168.100.60
+    rd: 192.168.100.60:301
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - 301:301
+      export:
+      - address_family: evpn
+        route_targets:
+        - 301:301
+    redistribute_routes:
+    - source_protocol: connected
+    neighbors:
+    - ip_address: 192.168.2.247
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+    updates:
+      wait_install: true
+  - name: VRF_INTERNAL
+    router_id: 192.168.100.60
+    rd: 192.168.100.60:101
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - 101:101
+      export:
+      - address_family: evpn
+        route_targets:
+        - 101:101
+    redistribute_routes:
+    - source_protocol: connected
+    neighbors:
+    - ip_address: 192.168.2.247
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+    updates:
+      wait_install: true
+  - name: VRF_IOTBMS
+    router_id: 192.168.100.60
+    rd: 192.168.100.60:201
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - 201:201
+      export:
+      - address_family: evpn
+        route_targets:
+        - 201:201
+    redistribute_routes:
+    - source_protocol: connected
+    neighbors:
+    - ip_address: 192.168.2.247
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+    updates:
+      wait_install: true
+  vlans:
+  - id: 600
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10600
+    route_targets:
+      both:
+      - 10600:10600
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 601
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10601
+    route_targets:
+      both:
+      - 10601:10601
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 500
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10500
+    route_targets:
+      both:
+      - 10500:10500
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 520
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10520
+    route_targets:
+      both:
+      - 10520:10520
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 521
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10521
+    route_targets:
+      both:
+      - 10521:10521
+    redistribute_routes:
+    - learned
+    - dot1x
+  - id: 610
+    tenant: JPMC-CAMPUS
+    rd: 192.168.100.60:10610
+    route_targets:
+      both:
+      - 10610:10610
+    redistribute_routes:
+    - learned
+    - dot1x
+  as_notation: asdot
+service_routing_protocols_model: multi-agent
+ip_routing: true
+daemon_terminattr:
+  cvaddrs:
+  - 192.168.0.5:9910
+  cvauth:
+    method: token
+    token_file: /tmp/token
+  cvvrf: MGMT
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+  ingestexclude: /Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+  disable_aaa: false
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 3500
+    ending: 4000
+spanning_tree:
+  mode: mstp
+  mst_instances:
+  - id: '0'
+    priority: 4096
+  no_spanning_tree_vlan: 4093-4094
+local_users:
+- name: admin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+- name: cvpadmin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+clock:
+  timezone: US/Central
+vrfs:
+- name: MGMT
+  ip_routing: false
+- name: VRF_GUEST
+  tenant: JPMC-CAMPUS
+  ip_routing: true
+- name: VRF_INTERNAL
+  tenant: JPMC-CAMPUS
+  ip_routing: true
+  ipv6_routing: true
+- name: VRF_IOTBMS
+  tenant: JPMC-CAMPUS
+  ip_routing: true
+management_interfaces:
+- name: Management1
+  description: oob_management
+  shutdown: false
+  vrf: MGMT
+  ip_address: 192.168.0.160/24
+  gateway: null
+  type: oob
+mac_address_table:
+  aging_time: 1800
+management_api_http:
+  enable_vrfs:
+  - name: MGMT
+    access_group: CVP-ACL
+  enable_https: true
+  enable_http: false
+ntp:
+  servers:
+  - name: 0.pool.ntp.org
+    vrf: default
+    preferred: true
+vlans:
+- id: 4093
+  tenant: system
+  name: LEAF_PEER_L3
+  trunk_groups:
+  - LEAF_PEER_L3
+- id: 4094
+  tenant: system
+  name: MLAG_PEER
+  trunk_groups:
+  - MLAG
+- id: 600
+  name: Guest_Wireless
+  tenant: JPMC-CAMPUS
+- id: 601
+  name: Guest_Wired
+  tenant: JPMC-CAMPUS
+- id: 3300
+  name: MLAG_iBGP_VRF_GUEST
+  trunk_groups:
+  - LEAF_PEER_L3
+  tenant: JPMC-CAMPUS
+- id: 500
+  name: Mistedge
+  tenant: JPMC-CAMPUS
+- id: 3100
+  name: MLAG_iBGP_VRF_INTERNAL
+  trunk_groups:
+  - LEAF_PEER_L3
+  tenant: JPMC-CAMPUS
+- id: 520
+  name: BMS_SEGMENT_520
+  tenant: JPMC-CAMPUS
+- id: 521
+  name: BMS_SEGMENT_521
+  tenant: JPMC-CAMPUS
+- id: 610
+  name: IOT_WIRELESS
+  tenant: JPMC-CAMPUS
+- id: 3200
+  name: MLAG_iBGP_VRF_IOTBMS
+  trunk_groups:
+  - LEAF_PEER_L3
+  tenant: JPMC-CAMPUS
+vlan_interfaces:
+- name: Vlan4093
+  description: MLAG_PEER_L3_PEERING
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.2.246/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+- name: Vlan4094
+  description: MLAG_PEER
+  shutdown: false
+  no_autostate: true
+  mtu: 1500
+  ip_address: 192.168.2.118/31
+- name: Vlan600
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: Guest_Wireless
+  shutdown: false
+  ip_address_virtual: 10.120.40.1/22
+  vrf: VRF_GUEST
+- name: Vlan601
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: Guest_Wired
+  shutdown: false
+  ip_address_virtual: 10.120.44.1/22
+  vrf: VRF_GUEST
+- name: Vlan3300
+  tenant: JPMC-CAMPUS
+  type: underlay_peering
+  shutdown: false
+  description: 'MLAG_PEER_L3_iBGP: vrf VRF_GUEST'
+  vrf: VRF_GUEST
+  mtu: 1500
+  ip_address: 192.168.2.246/31
+- name: Vlan500
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_SERVICE_LEAFS
+  description: Mistedge
+  shutdown: false
+  ipv6_enable: true
+  ip_address_virtual: 169.85.74.1/29
+  ipv6_address_virtuals:
+  - fd00:83:0::1/64
+  vrf: VRF_INTERNAL
+- name: Vlan3100
+  tenant: JPMC-CAMPUS
+  type: underlay_peering
+  shutdown: false
+  description: 'MLAG_PEER_L3_iBGP: vrf VRF_INTERNAL'
+  vrf: VRF_INTERNAL
+  mtu: 1500
+  ip_address: 192.168.2.246/31
+- name: Vlan520
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_SERVICE_LEAFS
+  description: BMS_SEGMENT_520
+  shutdown: false
+  ip_address_virtual: 10.142.197.1/25
+  vrf: VRF_IOTBMS
+- name: Vlan521
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_SERVICE_LEAFS
+  description: BMS_SEGMENT_521
+  shutdown: false
+  ip_address_virtual: 10.142.197.129/25
+  vrf: VRF_IOTBMS
+- name: Vlan610
+  tenant: JPMC-CAMPUS
+  tags:
+  - MANILA_LEAFS
+  - MANILA_SERVICE_LEAFS
+  description: IOT_WIRELESS
+  shutdown: false
+  ip_address_virtual: 10.150.0.1/24
+  vrf: VRF_IOTBMS
+- name: Vlan3200
+  tenant: JPMC-CAMPUS
+  type: underlay_peering
+  shutdown: false
+  description: 'MLAG_PEER_L3_iBGP: vrf VRF_IOTBMS'
+  vrf: VRF_IOTBMS
+  mtu: 1500
+  ip_address: 192.168.2.246/31
+port_channel_interfaces:
+- name: Port-Channel112
+  description: MLAG_PEER_C000267-009S561P_Po112
+  type: switched
+  shutdown: false
+  mode: trunk
+  trunk_groups:
+  - LEAF_PEER_L3
+  - MLAG
+ethernet_interfaces:
+- name: Ethernet1/1/2
+  peer: C000267-009S561P
+  peer_interface: Ethernet1/1/2
+  peer_type: mlag_peer
+  description: MLAG_PEER_C000267-009S561P_Ethernet1/1/2
+  type: port-channel-member
+  shutdown: false
+  channel_group:
+    id: 112
+    mode: active
+- name: Ethernet2/1/2
+  peer: C000267-009S561P
+  peer_interface: Ethernet2/1/2
+  peer_type: mlag_peer
+  description: MLAG_PEER_C000267-009S561P_Ethernet2/1/2
+  type: port-channel-member
+  shutdown: false
+  channel_group:
+    id: 112
+    mode: active
+- name: Ethernet1/1/1
+  peer: C000267-009R601P
+  peer_interface: Ethernet4/29/1
+  peer_type: spine
+  description: P2P_LINK_TO_C000267-009R601P_Ethernet4/29/1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.3.237/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+- name: Ethernet2/1/1
+  peer: C000267-014R602P
+  peer_interface: Ethernet4/29/1
+  peer_type: spine
+  description: P2P_LINK_TO_C000267-014R602P_Ethernet4/29/1
+  speed: forced 100g
+  shutdown: false
+  mtu: 1500
+  type: routed
+  ip_address: 192.168.3.239/31
+  ospf_network_point_to_point: true
+  ospf_area: 0.0.0.0
+mlag_configuration:
+  domain_id: MANILA_SRV_LEAFS
+  local_interface: Vlan4094
+  peer_address: 192.168.2.119
+  peer_link: Port-Channel112
+loopback_interfaces:
+- name: Loopback0
+  description: EVPN_Overlay_Peering
+  shutdown: false
+  ip_address: 192.168.100.60/32
+  ospf_area: 0.0.0.0
+- name: Loopback1
+  description: VTEP_VXLAN_Tunnel_Source
+  shutdown: false
+  ip_address: 192.168.200.60/32
+  ospf_area: 0.0.0.0
+- name: Loopback30
+  description: VRF_GUEST_VTEP_DIAGNOSTICS
+  shutdown: false
+  vrf: VRF_GUEST
+  ip_address: 167.84.141.60/32
+- name: Loopback10
+  description: VRF_INTERNAL_VTEP_DIAGNOSTICS
+  shutdown: false
+  vrf: VRF_INTERNAL
+  ip_address: 167.84.63.60/32
+- name: Loopback20
+  description: VRF_IOTBMS_VTEP_DIAGNOSTICS
+  shutdown: false
+  vrf: VRF_IOTBMS
+  ip_address: 167.84.63.60/32
+router_ospf:
+  process_ids:
+  - id: 100
+    passive_interface_default: true
+    router_id: 192.168.100.60
+    max_lsa: 12000
+    no_passive_interfaces:
+    - Ethernet1/1/1
+    - Ethernet2/1/1
+    - Vlan4093
+    bfd_enable: false
+ip_extcommunity_lists:
+- name: ECL-EVPN-SOO
+  entries:
+  - type: permit
+    extcommunities: soo 192.168.200.60:1
+router_bfd:
+  multihop:
+    interval: 3000
+    min_rx: 3000
+    multiplier: 3
+route_maps:
+- name: RM-EVPN-SOO-IN
+  sequence_numbers:
+  - sequence: 10
+    type: deny
+    match:
+    - extcommunity ECL-EVPN-SOO
+  - sequence: 20
+    type: permit
+- name: RM-EVPN-SOO-OUT
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    set:
+    - extcommunity soo 192.168.200.60:1 additive
+- name: RM-MLAG-PEER-IN
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    set:
+    - origin incomplete
+    description: Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
+ip_igmp_snooping:
+  globally_enabled: false
+ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+vxlan_interface:
+  Vxlan1:
+    description: C000267-009S560P_VTEP
+    vxlan:
+      udp_port: 4789
+      source_interface: Loopback1
+      virtual_router_encapsulation_mac_address: mlag-system-id
+      vlans:
+      - id: 600
+        vni: 10600
+      - id: 601
+        vni: 10601
+      - id: 500
+        vni: 10500
+      - id: 520
+        vni: 10520
+      - id: 521
+        vni: 10521
+      - id: 610
+        vni: 10610
+      vrfs:
+      - name: VRF_GUEST
+        vni: 301
+      - name: VRF_INTERNAL
+        vni: 101
+      - name: VRF_IOTBMS
+        vni: 201
+virtual_source_nat_vrfs:
+- name: VRF_GUEST
+  ip_address: 167.84.141.60
+- name: VRF_INTERNAL
+  ip_address: 167.84.63.60
+- name: VRF_IOTBMS
+  ip_address: 167.84.63.60
+metadata:
+  platform: 7050TX3-48
+dhcp_relay:
+  tunnel_requests_disabled: true
+ipv6_unicast_routing: true
+enable_password:
+  hash_algorithm: sha512
+  key: $6$tPb.0ryluOpDGa9X$o29dqtH/bSdvachSlPNe2QbXNZXo2b/xHNCECdXrGJ0z91yrZdDDwczHmzDyVZtq6IeG23cTGD24Tfi0Nyh/R.
+interface_defaults:
+  mtu: 1500
+  ethernet:
+    shutdown: true
+arp:
+  aging:
+    timeout_default: 1500
+switchport_default:
+  mode: routed
+management_console:
+  idle_timeout: 100
+errdisable:
+  recovery:
+    interval: 30
+load_interval:
+  default: 5
+terminal:
+  length: 60
+ip_icmp_redirect: false
+ip_name_servers:
+- ip_address: 10.255.0.2
+management_ssh:
+  access_groups:
+  - name: SNMP-ACL
+    vrf: MGMT
+  idle_timeout: 5
+  enable: true
+  vrfs:
+  - name: MGMT
+    enable: true
+ip_tacacs_source_interfaces:
+- name: Management1
+  vrf: MGMT
+aaa_authentication:
+  login:
+    default: local
+    console: local
+  policies:
+    on_failure_log: true
+    on_success_log: true
+aaa_authorization:
+  exec:
+    default: local
+  config_commands: true
+  serial_console: true
+  commands:
+    all_default: local
+standard_access_lists:
+- name: SNMP-ACL
+  sequence_numbers:
+  - sequence: 10
+    action: permit 0.0.0.0/0
+- name: CVP-ACL
+  sequence_numbers:
+  - sequence: 10
+    action: permit 0.0.0.0/0
+management_security:
+  password:
+    encryption_key_common: true
+banners:
+  login: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    !!                                                                        !!
+
+    !! IF THE COMPANY HAS NOT AUTHORISED YOUR ACCESS TO THIS SYSTEM YOU       !!
+
+    !! WILL COMMIT A CRIMINAL OFFENCE IF YOU DO NOT IMMEDIATELY DISCONNECT.   !!
+
+    !!                                                                        !!
+
+    !! UNAUTHORISED ACCESS IS STRICTLY FORBIDDEN AND A DISCIPLINARY OFFENCE.  !!
+
+    !!                                                                        !!
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+    EOF
+
+    '
+event_monitor:
+  enabled: true

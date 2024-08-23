@@ -23,7 +23,7 @@ evpn_overlay_bgp_rtc: true
 default_igmp_snooping_enabled: false
 default_interfaces:
   - types: [ spine ]
-    platforms: [ default ]
+    platforms: [ 7304-x3 ]
     downlink_interfaces: [ Ethernet3/1-31/1,Ethernet4/1-31/1 ]
   - types: [ l3leaf ]
     platforms: [ 720XP-48 ]
@@ -33,9 +33,10 @@ default_interfaces:
     platforms: [ "758" ]
     uplink_interfaces: [ Ethernet1/1/1,Ethernet2/1/1 ]
     # downlink_interfaces: [ Ethernet8 ]
-  - types: [ l3leaf ]
+  - types: [ service_leaf ]
     platforms: [ "7050TX3-48" ]
     uplink_interfaces: [ Ethernet1/1/1,Ethernet2/1/1 ]
+    mlag_interfaces: [ Ethernet1/1/2,Ethernet2/1/2 ]
     # downlink_interfaces: [ Ethernet8 ]
 platform_settings:
   - platforms: ['default']
@@ -45,7 +46,36 @@ platform_settings:
     trident_forwarding_table_partition: "flexible exact-match 16384 l2-shared 98304 l3-shared 131072"
   - platforms: ['758']
     trident_forwarding_table_partition: "flexible exact-match 16000 l2-shared 24000 l3-shared 24000"
+node_type_keys:
+  - key: l3leaf
+    type: l3leaf
+    connected_endpoints: true
+    default_evpn_role: client
+    default_ptp_priority1: 30
+    mlag_support: true
+    network_services:
+      l2: true
+      l3: true
+    vtep: true
+      
+  - key: spine
+    type: spine
+    # super-spines are route reflectors
+    default_evpn_role: server
+    # super-spines are also fabric borders, need L3 interfaces
+    network_services:
+      l3: true
+    vtep: true
 
+  - key: service_leaf
+    type: service_leaf
+    default_evpn_role: client
+    mlag_support: true
+    # super-spines are also fabric borders, need L3 interfaces
+    network_services:
+      l3: true
+      l2: true
+    vtep: true
 
 # bgp peer groups passwords
 bgp_peer_groups:
@@ -70,26 +100,32 @@ bgp_graceful_restart:
 bgp_update_wait_install: true
 overlay_routing_protocol: ibgp
 # Spine Switches
+new_network_services_bgp_vrf_config: true
 spine:
   defaults:
-    platform: EOS
+    platform: 7304-x3
     bgp_as: "65001"
     loopback_ipv4_pool: 192.168.1.0/24
     # loopback_ipv4_offset: 250
     loopback_ipv6_pool: 2001:db8:abcd:0012::/64
+    vtep_loopback_ipv4_pool: 192.168.201.0/24
     structured_config:
       router_bgp:
         as_notation: "asdot"
     bgp_defaults:
       - timers bgp 5 15
       - neighbor default send-community
-
   nodes:
     - name: C000267-009R601P
       id: 251
+      filter:
+        tags: [ C000267-009R601P, MANILA_SPINES ]
+        always_include_vrfs_in_tenants: [ all ]
       mgmt_ip: 192.168.0.200/24
     - name: C000267-014R602P
       id: 252
+      filter:
+        tags: [ C000267-014R602P, MANILA_SPINES ]
       mgmt_ip: 192.168.0.201/24
 
 # Leaf switch groups
@@ -532,7 +568,35 @@ l3leaf:
             tags: [ C000267-020S059P, MANILA_LEAFS ]
           id: 59
           mgmt_ip: 192.168.0.159/24
-    - group: MANILA_SERVICE_LEAFS
+service_leaf:
+  defaults:
+    # virtual router mac for VNIs assigned to Leaf switches
+    virtual_router_mac_address: 00:1c:73:00:dc:01
+    platform: EOS
+    bgp_as: "65001"
+    uplink_ipv4_pool: 192.168.3.0/24
+    # uplink_ipv6_pool: 2001:db8:abcd:0012/64
+    loopback_ipv4_pool: 192.168.100.0/24
+    vtep_loopback_ipv4_pool: 192.168.200.0/24
+    uplink_switches: [C000267-014R601P, C000267-014R602P]
+    uplink_interface_speed: forced 100g
+    mlag: true
+    mlag_peer_ipv4_pool: 192.168.2.0/25
+    # iBGP Peering between MLAG peers
+    mlag_peer_l3_ipv4_pool: 192.168.2.128/25
+    spanning_tree_priority: 4096
+    spanning_tree_mode: mstp
+    inband_mgmt_interface: Loopback0
+    structured_config:
+      router_bgp:
+        as_notation: "asdot"
+      dhcp_relay:
+        tunnel_requests_disabled: true
+    bgp_defaults:
+      - timers bgp 5 15
+      - neighbor default send-community
+  node_groups:
+    - group: MANILA_SRV_LEAFS
       filter:
         tags: [ MANILA_LEAFS ]
       # vtep_loopback_ipv4_pool: 167.84.63.80/24
@@ -541,7 +605,7 @@ l3leaf:
       nodes:
         - name: C000267-009S560P
           filter:
-            tags: [ C000267-009S560P, MANILA_SERVICE_LEAFS  ]
+            tags: [ C000267-009S560P, MANILA_SERVICE_LEAFS ]
           id: 60
           mgmt_ip: 192.168.0.160/24
         - name: C000267-009S561P

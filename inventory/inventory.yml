@@ -188,7 +188,7 @@ all:
                           ansible_host: 192.168.0.158
                         C000267-020S059P:
                           ansible_host: 192.168.0.159
-                    MANILA_SERVICE_LEAFS:
+                    MANILA_SRV_LEAFS:
                       hosts:
                         C000267-009S560P:
                           ansible_host: 192.168.0.160
@@ -208,7 +208,6 @@ all:
           children:
             MANILA_LEAFS:
             MANILA_BORDERSPINES:
-            MANILA_SERVICE_LEAFS:
 
         MANILA_ENDPOINTS:
           children:

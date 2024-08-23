@@ -1,9 +1,6 @@
 ---
 type: spine
-
 spanning_tree:
-  mode: none
-
-# BGP update wait commands will be disabled for vEOS
+  mode: mstp
 bgp_update_wait_for_convergence: true
 #ip_offset_20: 0
