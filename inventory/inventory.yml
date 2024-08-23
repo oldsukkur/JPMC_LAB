@@ -58,7 +58,7 @@ all:
                           ansible_host: 192.168.0.106
                         C000267-GRDS007P:
                           ansible_host: 192.168.0.107
-                    MANILA_WC_7:
+                    MANILA_WC_07:
                       hosts:
                         C000267-007S008P:
                           ansible_host: 192.168.0.108
@@ -212,45 +212,4 @@ all:
         MANILA_ENDPOINTS:
           children:
             MANILA_LEAFS:
-        MANILA_WC_GRD_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_GRD:
-        MANILA_WC_F07_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F7:
-        MANILA_WC_F08_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F8:
-        MANILA_WC_F09_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F9:
-        MANILA_WC_F10_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F10:
-        MANILA_WC_F11_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F11:
-        MANILA_WC_F12_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F12:
-        MANILA_WC_F14_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F14:
-        MANILA_WC_F15_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F15:
-        MANILA_WC_F16_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F16:
-        MANILA_WC_F17_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F17:
-        MANILA_WC_F18_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F18:
-        MANILA_WC_F19_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F19:
-        MANILA_WC_F20_CONNECTED_ENDPOINTS:
-          children:
-            MANILA_WC_F20:
+        

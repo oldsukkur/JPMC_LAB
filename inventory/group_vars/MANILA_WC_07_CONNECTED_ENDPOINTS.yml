@@ -1,0 +1,37 @@
+---
+network_ports:
+  - switches:
+      - C000267-007S008P
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x
+
+  - switches:
+      - C000267-007S009P
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x
+
+  - switches:
+      - C000267-007S010P
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x
+
+  - switches:
+      - C000267-007S011P
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x
+
+#servers:
+#  - name: Host1
+#    rack: RackA
+#    adapters:
+#      - endpoint_ports: [Ethernet1, Ethernet2]
+#        switch_ports: [Ethernet4, Ethernet4]
+#        switches: [DC1-CL1, DC1-CL2]
+#        profile: TRUNK_10G_Compute
+#        port_channel:
+#          description: PortChannel10
+#         mode: active

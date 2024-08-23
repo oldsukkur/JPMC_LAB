@@ -1,0 +1,114 @@
+---
+port_profiles:
+  - profile: endpoint_access_dot1x
+    description: Endpoint access port (Dot1x enabled)
+    native_vlan: 301
+    mode: trunk phone
+    mtu: 1500
+    dot1x:
+      port_control: auto
+      reauthentication: true 
+      pae:
+        mode: authenticator
+      host_mode:
+        mode: multi-host
+        multi_host_authenticated: true 
+      mac_based_authentication:
+        enabled: true
+        host_mode_common: true 
+      timeout:
+        tx_period: 10
+      authentication_failure:
+        action: allow
+        allow_vlan: 601
+    spanning_tree_bpduguard: true
+    storm_control:
+      broadcast:
+        level: 1
+    # Need POE settings, and storm control, etc when decided
+  - profile: wifi_access_point
+    description: Access Point port
+    mode: access
+    spanning_tree_bpduguard: true
+    storm_control:
+      broadcast:
+        level: 1
+  - profile: trunk_port
+    description: Trunk Port All VLANs
+    mode: trunk
+    storm_control:
+      broadcast:
+        level: 10
+  - profile: access_port
+    description: Access Port
+    mode: access
+    storm_control:
+      broadcast:
+        level: 10  
+  - profile: test_port
+    description: TEST_PORT FOR DATA AND VOICE
+    native_vlan: 301
+    mode: trunk phone
+    mtu: 1500
+    spanning_tree_bpduguard: true
+    storm_control:
+      broadcast:
+        level: 1
+    # Need POE settings, and storm control, etc when decided
+  - profile: bms_five_twenty
+    description: BMS_PORT
+    mode: access
+    vlans: "520"
+    # spanning_tree_bpduguard: true
+    # storm_control:
+    #   broadcast:
+    #     level: 10
+    dot1x:
+      port_control: auto
+      reauthentication: true 
+      pae:
+        mode: authenticator
+      host_mode:
+        mode: multi-host
+        multi_host_authenticated: true 
+      mac_based_authentication:
+        enabled: true
+        host_mode_common: true 
+      timeout:
+        tx_period: 10
+      authentication_failure:
+        action: allow
+        allow_vlan: 601
+    spanning_tree_bpduguard: true
+    storm_control:
+      broadcast:
+        level: 1
+  - profile: bms_five_twentyone
+    description: BMS_PORT
+    mode: access
+    vlans: "521"
+    # spanning_tree_bpduguard: true
+    # storm_control:
+    #   broadcast:
+    #     level: 10
+    dot1x:
+      port_control: auto
+      reauthentication: true 
+      pae:
+        mode: authenticator
+      host_mode:
+        mode: multi-host
+        multi_host_authenticated: true 
+      mac_based_authentication:
+        enabled: true
+        host_mode_common: true 
+      timeout:
+        tx_period: 10
+      authentication_failure:
+        action: allow
+        allow_vlan: 601
+    spanning_tree_bpduguard: true
+    storm_control:
+      broadcast:
+        level: 1
+  ################################## Addeing southbound for vlan 520 and 521###############

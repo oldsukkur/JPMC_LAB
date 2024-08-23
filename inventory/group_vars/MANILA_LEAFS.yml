@@ -1,5 +1,23 @@
 ---
 type: l3leaf
+dot1x:
+  system_auth_control: true
+
+management_api_gnmi:
+  transport:
+    grpc:
+      - name: default
+        vrf: default
+
+interface_defaults:
+  mtu: 9214
+
+ip_dhcp_relay:
+  information_option: true
+
+raw_eos_cli: |-
+  aaa unresponsive action traffic allow
+
 
 # uncomment if dchp relay is enabled in the vteps.
 # custom_structured_configuration_dhcp_relay:

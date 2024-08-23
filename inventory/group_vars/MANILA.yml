@@ -204,7 +204,7 @@ l3leaf:
             tags: [ C000267-GRDS007P, MANILA_LEAFS ]
           id: 7
           mgmt_ip: 192.168.0.107/24
-    - group: MANILA_WC_7
+    - group: MANILA_WC_07
       filter:
         tags: [ MANILA_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
