@@ -1,8 +1,9 @@
 # uncomment to avoid uploading intended configurations in the repository
 inventory/intended
+inventory/documentation/devices
 
 # uncomment in production environment if password file is used.
-vault_passwd
+.vault_passwd
 
 # macOS metadata
 .DS_Store

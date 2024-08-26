@@ -8,6 +8,8 @@ dc_name: MANILA
 # mgmt_gateway: 10.255.0.1 //commented for ACT
 
 underlay_routing_protocol: OSPF
+evpn_multicast: true
+underlay_multicast: true
 
 # Point to Point Network Summary range, assigned as /31 for each
 # uplink interfaces
@@ -19,8 +21,6 @@ evpn_vlan_aware_bundles: false
 # Enable RT membership
 evpn_overlay_bgp_rtc: true
 
-# Disable igmp snooping default
-default_igmp_snooping_enabled: false
 default_interfaces:
   - types: [ spine ]
     platforms: [ 7304-x3 ]

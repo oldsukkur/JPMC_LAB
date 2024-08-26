@@ -206,8 +206,8 @@ all:
 
         NETWORK_SERVICES:
           children:
+            MANILA_SPINES:
             MANILA_LEAFS:
-            MANILA_BORDERSPINES:
 
         MANILA_ENDPOINTS:
           children:

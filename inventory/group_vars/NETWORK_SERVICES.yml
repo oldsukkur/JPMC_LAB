@@ -6,9 +6,16 @@ tenants:
     # Number used to generate the VNI of each VLAN by adding the VLAN number in this tenant.
     # Force change
     mac_vrf_vni_base: 10000
-    # evpn_l3_multicast:
-      # enabled: true
-      # evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
+    evpn_l3_multicast:
+      enabled: true
+      evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
+    pim_rp_addresses:
+      - rps: [169.82.66.226]
+        nodes: [ C000267-009R601P, C000267-014R602P ]
+        groups: [ 224.0.0.0/4 ]
+      - rps: [169.82.66.226]
+        nodes: [ C000267-009R601P, C000267-014R602P ]
+        groups: [ 239.1.0.0/16 ]
     vrfs:
       # VRF definitions inside the tenant.
       - name: VRF_INTERNAL
@@ -16,17 +23,12 @@ tenants:
         vrf_vni: 101
         evpn_l3_multicast:
           enabled: true
-        # evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
-        pim_rp_addresses:
-          - rps: [169.82.66.226]
-            nodes: [ C000267-009R601P, C000267-014R602P ]
-            groups: [ 224.0.0.0/4 ]
-          - rps: [169.82.66.226]
-            nodes: [ C000267-009R601P, C000267-014R602P ]
-            groups: [ 239.1.0.0/16 ]
+
         bgp_peer_groups:
           - name: SD_WAN_EDGE
             nodes: [ C000267-009R601P, C000267-014R602P ]
+            address_family_ipv4:
+              activate: true
             type: ipv4
             remote_as: 65201
             bfd: true
@@ -34,6 +36,8 @@ tenants:
             send_community: all
           - name: SD_WAN_EDGE_IPV6
             nodes: [ C000267-009R601P, C000267-014R602P ]
+            address_family_ipv6:
+              activate: true
             type: ipv6
             remote_as: 65201
             bfd: true
