@@ -2,6 +2,10 @@
 type: l3leaf
 dot1x:
   system_auth_control: true
+  aaa:
+    unresponsive:
+      action:
+        traffic_allow: true
 
 management_api_gnmi:
   transport:
@@ -14,10 +18,6 @@ interface_defaults:
 
 ip_dhcp_relay:
   information_option: true
-
-raw_eos_cli: |-
-  aaa unresponsive action traffic allow
-
 
 # uncomment if dchp relay is enabled in the vteps.
 # custom_structured_configuration_dhcp_relay:
