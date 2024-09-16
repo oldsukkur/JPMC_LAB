@@ -4,3 +4,15 @@ spanning_tree:
   mode: mstp
 bgp_update_wait_for_convergence: true
 #ip_offset_20: 0
+
+flow_tracking:
+  sampled:
+    sample: 1024
+    trackers:
+      - name: ftr_sampled
+        exporters:
+          - name: prtg_sampled
+            collector: 
+              host: 10.0.10.11
+            local_interface: Loopback0
+    shutdown: False

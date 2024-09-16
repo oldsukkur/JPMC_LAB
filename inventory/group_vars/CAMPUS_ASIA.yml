@@ -1,5 +1,6 @@
 ---
 # DNS servers. In ACT, reachable via default.
+dns_domain: net.amer.jpmchase.net
 # Cannot use eos_designs `name_servers` because mgmt_interface_vrf is MGMT
 custom_structured_configuration_ip_name_servers:
   - ip_address: 10.255.0.2
@@ -21,6 +22,18 @@ custom_structured_configuration_management_ssh:
   vrfs:
     - name: MGMT
       enable: true
+radius_server:
+  hosts:
+    - host: 202.40.72.190 
+      key: 1546380F0B3F3F757A60
+    - host: 202.40.73.252
+      key: 1546380F0B3F3F757A60
+sflow:
+  sample: 1024
+  destinations:
+    - destination: 127.0.0.1
+  source_interface: Loopback0
+  run: true
 
 # custom_structured_configuration_aaa_accounting:
 #   exec:

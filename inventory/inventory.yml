@@ -37,9 +37,9 @@ all:
                   hosts:
                     C000267-009R601P:
                       # ansible_host var required for validation role.
-                      ansible_host: 192.168.0.200
+                      ansible_host: 192.168.0.251
                     C000267-014R602P:
-                      ansible_host: 192.168.0.201
+                      ansible_host: 192.168.0.252
                 MANILA_LEAFS:
                   children:
                     MANILA_WC_GRD:

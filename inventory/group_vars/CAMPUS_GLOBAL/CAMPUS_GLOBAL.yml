@@ -46,8 +46,8 @@ custom_structured_configuration_errdisable:
 custom_structured_configuration_load_interval:
   default: 5
 
-custom_structured_configuration_terminal:
-  length: 60
+# custom_structured_configuration_terminal:
+#  length: 60
 
 custom_structured_configuration_ip_icmp_redirect: false
 
@@ -159,7 +159,7 @@ timezone: US/Central
 
 custom_structured_configuration_event_monitor:
   enabled: true
-
+p2p_uplinks_mtu: 9214
 # custom_structured_configuration_logging:
 #   buffered:
 #     size: 8000  # messages
@@ -218,3 +218,7 @@ custom_structured_configuration_event_monitor:
 #           authentication_level: priv
 #   traps:
 #     enable: true
+evpn_hostflap_detection:
+
+  # If set to false it will disable EVPN host-flap detection.
+  enabled: True

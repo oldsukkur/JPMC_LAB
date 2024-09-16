@@ -17,6 +17,9 @@ underlay_multicast: true
 
 # Enable vlan aware bundles
 evpn_vlan_aware_bundles: false
+# Default gateway used for the management interface
+mgmt_gateway: 192.168.0.1
+
 
 # Enable RT membership
 evpn_overlay_bgp_rtc: true
@@ -81,6 +84,8 @@ node_type_keys:
 bgp_peer_groups:
   ipv4_underlay_peers:
     password: "{{ vault.bgp_peerings.underlay.password }}"
+    structured_config:
+      session_tracker: TRACKER
   evpn_overlay_peers:
     password: "{{ vault.bgp_peerings.overlay.password }}"
   mlag_ipv4_underlay_peer:
@@ -143,7 +148,7 @@ l3leaf:
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
     uplink_switches: [C000267-014R601P, C000267-014R602P]
-    uplink_interface_speed: forced 100g
+    # uplink_interface_speed: forced 100g
     mlag: false
     mlag_peer_ipv4_pool: 192.168.2.0/25
     # iBGP Peering between MLAG peers
@@ -579,7 +584,7 @@ service_leaf:
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.210.0/24
     uplink_switches: [C000267-014R601P, C000267-014R602P]
-    uplink_interface_speed: forced 100g
+    # uplink_interface_speed: forced 100g
     mlag: true
     mlag_peer_ipv4_pool: 192.168.2.0/25
     # iBGP Peering between MLAG peers
@@ -615,7 +620,6 @@ service_leaf:
           mgmt_ip: 192.168.0.161/24
     # TODO should service leaf become its own "type"?
 # update mtu for real deployment -> 9214
-p2p_uplinks_mtu: 1500
 
 # Adjust default bfd values
 bfd_multihop:
