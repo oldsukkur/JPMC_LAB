@@ -11,10 +11,10 @@ tenants:
       evpn_underlay_l3_multicast_group_ipv4_pool: 239.255.3.0/20
     pim_rp_addresses:
       - rps: [169.82.66.226]
-        nodes: [ C000267-009R601P, C000267-014R602P ]
+        nodes: [ C000140-009R601P, C000140-014R602P ]
         groups: [ 224.0.0.0/4 ]
       - rps: [169.82.66.226]
-        nodes: [ C000267-009R601P, C000267-014R602P ]
+        nodes: [ C000140-009R601P, C000140-014R602P ]
         groups: [ 239.1.0.0/16 ]
     vrfs:
       # VRF definitions inside the tenant.
@@ -26,7 +26,7 @@ tenants:
 
         bgp_peer_groups:
           - name: SD_WAN_EDGE
-            nodes: [ C000267-009R601P, C000267-014R602P ]
+            nodes: [ C000140-009R601P, C000140-014R602P ]
             address_family_ipv4:
               activate: true
             type: ipv4
@@ -35,7 +35,7 @@ tenants:
             maximum_routes: 0
             send_community: all
           - name: SD_WAN_EDGE_IPV6
-            nodes: [ C000267-009R601P, C000267-014R602P ]
+            nodes: [ C000140-009R601P, C000140-014R602P ]
             address_family_ipv6:
               activate: true
             type: ipv6
@@ -63,12 +63,12 @@ tenants:
           - id: 301
             #vni_override: 60301
 
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
+            name: C000140-Manila-Data
 
-            tags: [ C000267-GRDS001P ]
+            tags: [ C000140-GRDS001P ]
             ip_address_virtual: 10.67.1.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -86,12 +86,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 302
             #vni_override: 80301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
-            name: C000267-Manila-Data
+            name: C000140-Manila-Data
 
-            tags: [ C000267-GRDS002P ]
+            tags: [ C000140-GRDS002P ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.67.2.1/24
             ip_helpers:
@@ -110,12 +110,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 303
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-GRDS003P ]
+            tags: [ C000140-GRDS003P ]
             ip_address_virtual: 10.67.3.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -133,11 +133,11 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 304
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
-            tags: [ C000267-GRDS004P ]
+            tags: [ C000140-GRDS004P ]
             ip_address_virtual: 10.67.4.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -155,11 +155,11 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 305
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
-            tags: [ C000267-GRDS005P ]
+            tags: [ C000140-GRDS005P ]
             ip_address_virtual: 10.67.5.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -177,12 +177,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 306
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-GRDS006P ]
+            tags: [ C000140-GRDS006P ]
             ip_address_virtual: 10.67.6.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -200,12 +200,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 307
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-GRDS007P ]
+            tags: [ C000140-GRDS007P ]
             ip_address_virtual: 10.67.7.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -223,12 +223,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 308
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-007S008P ]
+            tags: [ C000140-007S008P ]
             ip_address_virtual: 10.67.71.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -246,12 +246,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 309
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-007S009P ]
+            tags: [ C000140-007S009P ]
             ip_address_virtual: 10.67.72.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -269,12 +269,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 310
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-007S010P ]
+            tags: [ C000140-007S010P ]
             ip_address_virtual: 10.67.73.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -292,12 +292,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 311
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-007S011P ]
+            tags: [ C000140-007S011P ]
             ip_address_virtual: 10.67.74.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -315,12 +315,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 312
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-008S012P ]
+            tags: [ C000140-008S012P ]
             ip_address_virtual: 10.67.81.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -338,12 +338,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 313
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-008S013P ]
+            tags: [ C000140-008S013P ]
             ip_address_virtual: 10.67.82.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -361,12 +361,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 314
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-008S014P ]
+            tags: [ C000140-008S014P ]
             ip_address_virtual: 10.67.83.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -384,12 +384,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 315
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-008S015P ]
+            tags: [ C000140-008S015P ]
             ip_address_virtual: 10.67.84.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -407,12 +407,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 316
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-009S016P ]
+            tags: [ C000140-009S016P ]
             ip_address_virtual: 10.67.91.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -430,12 +430,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 317
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-009S017P ]
+            tags: [ C000140-009S017P ]
             ip_address_virtual: 10.67.92.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -453,12 +453,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 318
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-009S018P ]
+            tags: [ C000140-009S018P ]
             ip_address_virtual: 10.67.93.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -476,12 +476,12 @@ tenants:
                 redistribute_routes:  [ dot1x ]
           - id: 319
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-009S019P ]
+            tags: [ C000140-009S019P ]
             ip_address_virtual: 10.67.94.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -499,12 +499,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 320
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-010S020P ]
+            tags: [ C000140-010S020P ]
             ip_address_virtual: 10.67.101.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -522,12 +522,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 321
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-010S021P ]
+            tags: [ C000140-010S021P ]
             ip_address_virtual: 10.67.102.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -545,12 +545,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 322
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-010S022P ]
+            tags: [ C000140-010S022P ]
             ip_address_virtual: 10.67.103.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -568,12 +568,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 323
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-010S023P ]
+            tags: [ C000140-010S023P ]
             ip_address_virtual: 10.67.104.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -591,12 +591,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 324
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-011S024P ]
+            tags: [ C000140-011S024P ]
             ip_address_virtual: 10.67.111.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -614,12 +614,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 325
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-011S025P ]
+            tags: [ C000140-011S025P ]
             ip_address_virtual: 10.67.112.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -637,12 +637,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 326
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-011S026P ]
+            tags: [ C000140-011S026P ]
             ip_address_virtual: 10.67.113.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -660,12 +660,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 327
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-011S027P ]
+            tags: [ C000140-011S027P ]
             ip_address_virtual: 10.67.114.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -683,12 +683,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 328
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-012S028P ]
+            tags: [ C000140-012S028P ]
             ip_address_virtual: 10.67.121.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -706,12 +706,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 329
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-012S029P ]
+            tags: [ C000140-012S029P ]
             ip_address_virtual: 10.67.122.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -729,12 +729,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 330
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-012S030P ]
+            tags: [ C000140-012S030P ]
             ip_address_virtual: 10.67.123.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -752,12 +752,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 331
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-012S031P ]
+            tags: [ C000140-012S031P ]
             ip_address_virtual: 10.67.124.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -775,12 +775,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 332
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-014S032P ]
+            tags: [ C000140-014S032P ]
             ip_address_virtual: 10.67.141.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -798,12 +798,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 333
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-014S033P ]
+            tags: [ C000140-014S033P ]
             ip_address_virtual: 10.67.142.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -821,12 +821,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 334
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-014S034P ]
+            tags: [ C000140-014S034P ]
             ip_address_virtual: 10.67.143.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -844,12 +844,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 335
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-014S035P ]
+            tags: [ C000140-014S035P ]
             ip_address_virtual: 10.67.144.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -867,12 +867,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 336
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-015S036P ]
+            tags: [ C000140-015S036P ]
             ip_address_virtual: 10.67.151.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -890,12 +890,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 337
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-015S037P ]
+            tags: [ C000140-015S037P ]
             ip_address_virtual: 10.67.152.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -913,12 +913,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 338
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-015S038P ]
+            tags: [ C000140-015S038P ]
             ip_address_virtual: 10.67.153.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -936,12 +936,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 339
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-015S039P ]
+            tags: [ C000140-015S039P ]
             ip_address_virtual: 10.67.154.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -959,12 +959,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 340
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-016S040P ]
+            tags: [ C000140-016S040P ]
             ip_address_virtual: 10.67.161.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -982,12 +982,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 341
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-016S041P ]
+            tags: [ C000140-016S041P ]
             ip_address_virtual: 10.67.162.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1005,12 +1005,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 342
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-016S042P ]
+            tags: [ C000140-016S042P ]
             ip_address_virtual: 10.67.163.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1028,12 +1028,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 343
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-016S043P ]
+            tags: [ C000140-016S043P ]
             ip_address_virtual: 10.67.164.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1051,12 +1051,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 344
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-017S044P ]
+            tags: [ C000140-017S044P ]
             ip_address_virtual: 10.67.171.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1074,12 +1074,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 345
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-017S045P ]
+            tags: [ C000140-017S045P ]
             ip_address_virtual: 10.67.172.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1097,12 +1097,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 346
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-017S046P ]
+            tags: [ C000140-017S046P ]
             ip_address_virtual: 10.67.173.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1120,12 +1120,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 347
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-017S047P ]
+            tags: [ C000140-017S047P ]
             ip_address_virtual: 10.67.174.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1143,12 +1143,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 348
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-018S048P ]
+            tags: [ C000140-018S048P ]
             ip_address_virtual: 10.67.181.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1166,12 +1166,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 349
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-018S049P ]
+            tags: [ C000140-018S049P ]
             ip_address_virtual: 10.67.182.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1189,12 +1189,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 350
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-018S050P ]
+            tags: [ C000140-018S050P ]
             ip_address_virtual: 10.67.183.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1212,12 +1212,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 351
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-018S051P ]
+            tags: [ C000140-018S051P ]
             ip_address_virtual: 10.67.184.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1235,12 +1235,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 352
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-019S052P ]
+            tags: [ C000140-019S052P ]
             ip_address_virtual: 10.67.191.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1258,12 +1258,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 353
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-019S053P ]
+            tags: [ C000140-019S053P ]
             ip_address_virtual: 10.67.192.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1281,12 +1281,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 354
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-019S054P ]
+            tags: [ C000140-019S054P ]
             ip_address_virtual: 10.67.193.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1304,12 +1304,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 355
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-019S055P ]
+            tags: [ C000140-019S055P ]
             ip_address_virtual: 10.67.194.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1327,12 +1327,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 356
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-020S056P ]
+            tags: [ C000140-020S056P ]
             ip_address_virtual: 10.67.201.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1350,12 +1350,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 357
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-020S057P ]
+            tags: [ C000140-020S057P ]
             ip_address_virtual: 10.67.202.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1373,12 +1373,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 358
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-020S058P ]
+            tags: [ C000140-020S058P ]
             ip_address_virtual: 10.67.203.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1396,12 +1396,12 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 359
             #vni_override: 60301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: 000267-Manila-Data
 
-            tags: [ C000267-020S059P ]
+            tags: [ C000140-020S059P ]
             ip_address_virtual: 10.67.204.1/24
             ip_helpers:
             - ip_helper: 169.86.42.132
@@ -1419,11 +1419,11 @@ tenants:
                 redistribute_routes: [ dot1x ]
           - id: 500
             #vni_override: 65301
-            # Get basic settings from this profile defined in MANILA.yml
+            # Get basic settings from this profile defined in LAB.yml
             profile: INTERNAL_default
             # SVI description.
             name: Mistedge
-            tags: [ MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_SERVICE_LEAFS ]
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 169.85.74.1/29
             # ip_helpers:
@@ -1445,7 +1445,7 @@ tenants:
           # BorderSpine 1 to ASR01 - VLAN 100
           - interfaces: [Ethernet3/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.26/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_INTERNAL
             pim:
@@ -1458,7 +1458,7 @@ tenants:
           # BorderSpine 2 to ASR01 - VLAN 100
           - interfaces: [Ethernet3/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C000267-014R602P]
+            nodes: [C000140-014R602P]
             ip_addresses: [10.12.46.8/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_INTERNAL
             pim:
@@ -1471,7 +1471,7 @@ tenants:
           # BorderSpine 1 to ASR02 - VLAN 100
           - interfaces: [Ethernet4/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.0/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_INTERNAL
             pim:
@@ -1484,7 +1484,7 @@ tenants:
           # BorderSpine 2 to ASR02 - VLAN 100
           - interfaces: [Ethernet4/48/1.100]
             encapsulation_dot1q_vlan: [100]
-            nodes: [C000267-014R602P]
+            nodes: [C000140-014R602P]
             ip_addresses: [10.12.46.16/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_INTERNAL
             pim:
@@ -1496,56 +1496,56 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           - ip_address: "2000:10:2:4::"
-            nodes: [ C000267-009R601P ]
-            description: C000267-CSG5000A
+            nodes: [ C000140-009R601P ]
+            description: C000140-CSG5000A
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:10::"
-            nodes: [ C000267-009R601P ]
-            description: C000267-CSG5000B
+            nodes: [ C000140-009R601P ]
+            description: C000140-CSG5000B
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:16:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:22:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:1::"
-            nodes: [ C000267-014R602P ]
-            description: C000267-CSG5000A
+            nodes: [ C000140-014R602P ]
+            description: C000140-CSG5000A
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:7::"
-            nodes: [ C000267-014R602P ]
-            description: C000267-CSG5000B
+            nodes: [ C000140-014R602P ]
+            description: C000140-CSG5000B
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:13:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:19:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: 10.12.46.27
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.1
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.16.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.22.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.9
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.17
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.13.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.19.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: sd_wan_edge
       - name: VRF_IOTBMS
         vrf_vni: 201
@@ -1559,7 +1559,7 @@ tenants:
             profile: IOTBMS_default
             name: IOT_WIRELESS
             enabled: true
-            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_LEAFS, LAB_SERVICE_LEAFS ]
             ip_address_virtual: 10.150.0.1/24
             bgp:
               structured_config:
@@ -1568,7 +1568,7 @@ tenants:
             profile: IOTBMS_default
             name: BMS_SEGMENT_520
             enabled: true
-            tags: [ MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_SERVICE_LEAFS ]
             ip_address_virtual: 10.142.197.1/25
             bgp:
               structured_config:
@@ -1577,7 +1577,7 @@ tenants:
             profile: IOTBMS_default
             name: BMS_SEGMENT_521
             enabled: true
-            tags: [ MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_SERVICE_LEAFS ]
             ip_address_virtual: 10.142.197.129/25
             bgp:
               structured_config:
@@ -1585,7 +1585,7 @@ tenants:
         l3_interfaces:
           # BorderSpine 1 to ASR01 - VLAN 200
           - interfaces: [Ethernet3/48/1.200]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.24/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_IOT
             structured_config:
@@ -1595,7 +1595,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR01 - VLAN 200
           - interfaces: [Ethernet3/48/1.200]
-            nodes: [C000267-014R602P]
+            nodes: [C000140-014R602P]
             ip_addresses: [10.12.46.10/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/1/5_VRF_IOT
             structured_config:
@@ -1605,7 +1605,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 1 to ASR02 - VLAN 200
           - interfaces: [Ethernet4/48/1.200]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.2/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/0/1_VRF_IOT
             structured_config:
@@ -1615,7 +1615,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR02 - VLAN 200
           - interfaces: [ Ethernet4/48/1.200 ]
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             ip_addresses: [10.12.46.18/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_IOT
             structured_config:
@@ -1625,52 +1625,52 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           - ip_address: "2000:10:2:5::"
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:11::"
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:17:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:23:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:2::"
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:8::"
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:14:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:20:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: 10.12.46.25
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.3
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.17.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.23.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.11
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.19
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.14.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.20.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: sd_wan_edge
       - name: VRF_GUEST
         vrf_vni: 301
@@ -1684,7 +1684,7 @@ tenants:
             name: Guest_Wireless
             profile: INTERNAL_default
             enabled: true
-            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_LEAFS, LAB_SERVICE_LEAFS ]
             ip_address_virtual: 10.120.40.1/22
             bgp:
               structured_config:
@@ -1693,7 +1693,7 @@ tenants:
             name: Guest_Wired
             profile: INTERNAL_default
             enabled: true
-            tags: [ MANILA_LEAFS, MANILA_SERVICE_LEAFS ]
+            tags: [ LAB_LEAFS, LAB_SERVICE_LEAFS ]
             ip_address_virtual: 10.120.44.1/22
             bgp:
               structured_config:
@@ -1701,7 +1701,7 @@ tenants:
         l3_interfaces:
           # BorderSpine 1 to ASR01 - VLAN 300
           - interfaces: [Ethernet3/48/1.300]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.28/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
             structured_config:
@@ -1711,7 +1711,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR01 - VLAN 300
           - interfaces: [Ethernet3/48/1.300]
-            nodes: [C000267-014R602P]
+            nodes: [C000140-014R602P]
             ip_addresses: [10.12.46.12/31]
             description: P2P_LINK_TO_C160479-003R629A_Gi0/0/1_VRF_GUEST
             structured_config:
@@ -1721,7 +1721,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 1 to ASR02 - VLAN 300
           - interfaces: [Ethernet4/48/1.300]
-            nodes: [C000267-009R601P]
+            nodes: [C000140-009R601P]
             ip_addresses: [10.12.46.4/31]
             description: P2P_LINK_TO__C160479-003R630A_Gi0/1/5_VRF_GUEST
             structured_config:
@@ -1731,7 +1731,7 @@ tenants:
                 sampled: ftr_sampled
           # BorderSpine 2 to ASR02 - VLAN 300
           - interfaces: [Ethernet4/48/1.300]
-            nodes: [C000267-014R602P]
+            nodes: [C000140-014R602P]
             ip_addresses: [10.12.46.20/31]
             description: P2P_LINK_TO_C160479-003R630A_Gi0/1/5_VRF_GUEST
             structured_config:
@@ -1741,59 +1741,59 @@ tenants:
                 sampled: ftr_sampled
         bgp_peers:
           - ip_address: "2000:10:2:6::"
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:12::"
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:18:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:24:::
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:3::"
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           - ip_address: "2000:10:2:9::"
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:15:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           # 2000:10:2:21:::
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE_IPV6
           - ip_address: 10.12.46.29
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.5
-            nodes: [ C000267-009R601P ]
+            nodes: [ C000140-009R601P ]
             peer_group: SD_WAN_EDGE
           # 10.2.18.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.24.0:
-          #   nodes: [ C000267-009R601P ]
+          #   nodes: [ C000140-009R601P ]
           #   peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.13
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           - ip_address: 10.12.46.21
-            nodes: [ C000267-014R602P ]
+            nodes: [ C000140-014R602P ]
             peer_group: SD_WAN_EDGE
           # 10.2.15.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: SD_WAN_EDGE
           # 10.2.21.0:
-          #   nodes: [ C000267-014R602P ]
+          #   nodes: [ C000140-014R602P ]
           #   peer_group: sd_wan_edge
 
     # l2vlans:
       # These are pure L2 vlans. They do not have a SVI defined in the l3leafs and they will be bridged inside the VXLAN fabric
       # - id: 400
       #   name: MIST_EDGE_CONNECTIVITY
-      #   tags: [ MANILA_SERVICE_LEAFS ]
+      #   tags: [ LAB_SERVICE_LEAFS ]
       #   evpn_l2_multicast:
       #     enabled: false
       # - id: 1000
@@ -1808,7 +1808,7 @@ tenants:
 # List of Loopback interfaces.
         # This will create Loopback interfaces inside the VRF.
         # Loopbacks:
-        #   - node: "C000267-009R601P"
+        #   - node: "C000140-009R601P"
         #     loopback: 99
         #     ip_address: 10.10.99.99
         #     description: "Anycast RP"

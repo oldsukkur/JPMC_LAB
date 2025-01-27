@@ -1,43 +1,43 @@
 ---
 network_ports:
   - switches:
-      - C000267-GRDS001P
+      - C000140-GRDS001P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS002P
+      - C000140-GRDS002P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS003P
+      - C000140-GRDS003P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS004P
+      - C000140-GRDS004P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS005P
+      - C000140-GRDS005P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS006P
+      - C000140-GRDS006P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - C000267-GRDS007P
+      - C000140-GRDS007P
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x

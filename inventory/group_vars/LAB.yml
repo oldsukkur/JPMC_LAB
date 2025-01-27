@@ -3,7 +3,7 @@
 # SOME CHANGES COULD BE DISRUPTIVE.
 
 fabric_name: CAMPUS_GLOBAL
-dc_name: MANILA
+dc_name: LAB
 
 # mgmt_gateway: 10.255.0.1 //commented for ACT
 
@@ -121,16 +121,16 @@ spine:
       - timers bgp 5 15
       - neighbor default send-community
   nodes:
-    - name: C000267-009R601P
+    - name: C000140-009R601P
       id: 251
       filter:
-        tags: [ C000267-009R601P, MANILA_SPINES ]
+        tags: [ C000140-009R601P, LAB_SPINES ]
         always_include_vrfs_in_tenants: [ all ]
       mgmt_ip: 192.168.0.200/24
-    - name: C000267-014R602P
+    - name: C000140-014R602P
       id: 252
       filter:
-        tags: [ C000267-014R602P, MANILA_SPINES ]
+        tags: [ C000140-014R602P, LAB_SPINES ]
       mgmt_ip: 192.168.0.201/24
 
 # Leaf switch groups
@@ -147,7 +147,7 @@ l3leaf:
     # uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
-    uplink_switches: [C000267-014R601P, C000267-014R602P]
+    uplink_switches: [C000140-014R601P, C000140-014R602P]
     # uplink_interface_speed: forced 100g
     mlag: false
     mlag_peer_ipv4_pool: 192.168.2.0/25
@@ -166,411 +166,411 @@ l3leaf:
       - neighbor default send-community
 
   node_groups:
-    - group: MANILA_WC_GRD
+    - group: LAB_WC_GRD
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 720XP-48
       nodes:
-        - name: C000267-GRDS001P
+        - name: C000140-GRDS001P
           filter:
-            tags: [ C000267-GRDS001P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS001P, LAB_LEAFS ]
           id: 1
           mgmt_ip: 192.168.0.101/24
-        - name: C000267-GRDS002P
+        - name: C000140-GRDS002P
           filter:
-            tags: [ C000267-GRDS002P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS002P, LAB_LEAFS ]
           id: 2
           mgmt_ip: 192.168.0.102/24
-        - name: C000267-GRDS003P
+        - name: C000140-GRDS003P
           filter:
-            tags: [ C000267-GRDS003P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS003P, LAB_LEAFS ]
           id: 3
           mgmt_ip: 192.168.0.103/24
-        - name: C000267-GRDS004P
+        - name: C000140-GRDS004P
           filter:
-            tags: [ C000267-GRDS004P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS004P, LAB_LEAFS ]
           id: 4
           mgmt_ip: 192.168.0.104/24
-        - name: C000267-GRDS005P
+        - name: C000140-GRDS005P
           filter:
-            tags: [ C000267-GRDS005P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS005P, LAB_LEAFS ]
           id: 5
           mgmt_ip: 192.168.0.105/24
-        - name: C000267-GRDS006P
+        - name: C000140-GRDS006P
           filter:
-            tags: [ C000267-GRDS006P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS006P, LAB_LEAFS ]
           id: 6
           mgmt_ip: 192.168.0.106/24
-        - name: C000267-GRDS007P
+        - name: C000140-GRDS007P
           filter:
-            tags: [ C000267-GRDS007P, MANILA_LEAFS ]
+            tags: [ C000140-GRDS007P, LAB_LEAFS ]
           id: 7
           mgmt_ip: 192.168.0.107/24
-    - group: MANILA_WC_07
+    - group: LAB_WC_07
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-007S008P
+        - name: C000140-007S008P
           filter:
-            tags: [ C000267-007S008P, MANILA_LEAFS ]
+            tags: [ C000140-007S008P, LAB_LEAFS ]
           id: 8
           mgmt_ip: 192.168.0.108/24
-        - name: C000267-007S009P
+        - name: C000140-007S009P
           filter:
-            tags: [ C000267-007S009P, MANILA_LEAFS ]
+            tags: [ C000140-007S009P, LAB_LEAFS ]
           id: 9
           mgmt_ip: 192.168.0.109/24
-        - name: C000267-007S010P
+        - name: C000140-007S010P
           filter:
-            tags: [ C000267-007S010P, MANILA_LEAFS ]
+            tags: [ C000140-007S010P, LAB_LEAFS ]
           id: 10
           mgmt_ip: 192.168.0.110/24
-        - name: C000267-007S011P
+        - name: C000140-007S011P
           filter:
-            tags: [ C000267-007S011P, MANILA_LEAFS ]
+            tags: [ C000140-007S011P, LAB_LEAFS ]
           id: 11
           mgmt_ip: 192.168.0.111/24
-    - group: MANILA_WC_8
+    - group: LAB_WC_8
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-008S012P
+        - name: C000140-008S012P
           filter:
-            tags: [ C000267-008S012P, MANILA_LEAFS ]
+            tags: [ C000140-008S012P, LAB_LEAFS ]
           id: 12
           mgmt_ip: 192.168.0.112/24
-        - name: C000267-008S013P
+        - name: C000140-008S013P
           filter:
-            tags: [ C000267-008S013P, MANILA_LEAFS ]
+            tags: [ C000140-008S013P, LAB_LEAFS ]
           id: 13
           mgmt_ip: 192.168.0.113/24
-        - name: C000267-008S014P
+        - name: C000140-008S014P
           filter:
-            tags: [ C000267-008S014P, MANILA_LEAFS ]
+            tags: [ C000140-008S014P, LAB_LEAFS ]
           id: 14
           mgmt_ip: 192.168.0.114/24
-        - name: C000267-008S015P
+        - name: C000140-008S015P
           filter:
-            tags: [ C000267-008S015P, MANILA_LEAFS ]
+            tags: [ C000140-008S015P, LAB_LEAFS ]
           id: 15
           mgmt_ip: 192.168.0.115/24
-    - group: MANILA_WC_9
+    - group: LAB_WC_9
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-009S016P
+        - name: C000140-009S016P
           filter:
-            tags: [ C000267-009S016P, MANILA_LEAFS ]
+            tags: [ C000140-009S016P, LAB_LEAFS ]
           id: 16
           mgmt_ip: 192.168.0.116/24
-        - name: C000267-009S017P
+        - name: C000140-009S017P
           filter:
-            tags: [ C000267-009S017P, MANILA_LEAFS ]
+            tags: [ C000140-009S017P, LAB_LEAFS ]
           id: 17
           mgmt_ip: 192.168.0.117/24
-        - name: C000267-009S018P
+        - name: C000140-009S018P
           filter:
-            tags: [ C000267-009S018P, MANILA_LEAFS ]
+            tags: [ C000140-009S018P, LAB_LEAFS ]
           id: 18
           mgmt_ip: 192.168.0.118/24
-        - name: C000267-009S019P
+        - name: C000140-009S019P
           filter:
-            tags: [ C000267-009S019P, MANILA_LEAFS ]
+            tags: [ C000140-009S019P, LAB_LEAFS ]
           id: 19
           mgmt_ip: 192.168.0.119/24
-    - group: MANILA_WC_10
+    - group: LAB_WC_10
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-010S020P
+        - name: C000140-010S020P
           filter:
-            tags: [ C000267-010S020P, MANILA_LEAFS ]
+            tags: [ C000140-010S020P, LAB_LEAFS ]
           id: 20
           mgmt_ip: 192.168.0.120/24
-        - name: C000267-010S021P
+        - name: C000140-010S021P
           filter:
-            tags: [ C000267-010S021P, MANILA_LEAFS ]
+            tags: [ C000140-010S021P, LAB_LEAFS ]
           id: 21
           mgmt_ip: 192.168.0.121/24
-        - name: C000267-010S022P
+        - name: C000140-010S022P
           filter:
-            tags: [ C000267-010S022P, MANILA_LEAFS ]
+            tags: [ C000140-010S022P, LAB_LEAFS ]
           id: 22
           mgmt_ip: 192.168.0.122/24
-        - name: C000267-010S023P
+        - name: C000140-010S023P
           filter:
-            tags: [ C000267-010S023P, MANILA_LEAFS ]
+            tags: [ C000140-010S023P, LAB_LEAFS ]
           id: 23
           mgmt_ip: 192.168.0.123/24
-    - group: MANILA_WC_11
+    - group: LAB_WC_11
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-011S024P
+        - name: C000140-011S024P
           filter:
-            tags: [ C000267-011S024P, MANILA_LEAFS ]
+            tags: [ C000140-011S024P, LAB_LEAFS ]
           id: 24
           mgmt_ip: 192.168.0.124/24
-        - name: C000267-011S025P
+        - name: C000140-011S025P
           filter:
-            tags: [ C000267-011S025P, MANILA_LEAFS ]
+            tags: [ C000140-011S025P, LAB_LEAFS ]
           id: 25
           mgmt_ip: 192.168.0.125/24
-        - name: C000267-011S026P
+        - name: C000140-011S026P
           filter:
-            tags: [ C000267-011S026P, MANILA_LEAFS ]
+            tags: [ C000140-011S026P, LAB_LEAFS ]
           id: 26
           mgmt_ip: 192.168.0.126/24
-        - name: C000267-011S027P
+        - name: C000140-011S027P
           filter:
-            tags: [ C000267-011S027P, MANILA_LEAFS ]
+            tags: [ C000140-011S027P, LAB_LEAFS ]
           id: 27
           mgmt_ip: 192.168.0.127/24
-    - group: MANILA_WC_12
+    - group: LAB_WC_12
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-012S028P
+        - name: C000140-012S028P
           filter:
-            tags: [ C000267-012S028P, MANILA_LEAFS ]
+            tags: [ C000140-012S028P, LAB_LEAFS ]
           id: 28
           mgmt_ip: 192.168.0.128/24
-        - name: C000267-012S029P
+        - name: C000140-012S029P
           filter:
-            tags: [ C000267-012S029P, MANILA_LEAFS ]
+            tags: [ C000140-012S029P, LAB_LEAFS ]
           id: 29
           mgmt_ip: 192.168.0.129/24
-        - name: C000267-012S030P
+        - name: C000140-012S030P
           filter:
-            tags: [ C000267-012S030P, MANILA_LEAFS ]
+            tags: [ C000140-012S030P, LAB_LEAFS ]
           id: 30
           mgmt_ip: 192.168.0.130/24
-        - name: C000267-012S031P
+        - name: C000140-012S031P
           filter:
-            tags: [ C000267-012S031P, MANILA_LEAFS ]
+            tags: [ C000140-012S031P, LAB_LEAFS ]
           id: 31
           mgmt_ip: 192.168.0.131/24
-    - group: MANILA_WC_14
+    - group: LAB_WC_14
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-014S032P
+        - name: C000140-014S032P
           filter:
-            tags: [ C000267-014S032P, MANILA_LEAFS ]
+            tags: [ C000140-014S032P, LAB_LEAFS ]
           id: 32
           mgmt_ip: 192.168.0.132/24
-        - name: C000267-014S033P
+        - name: C000140-014S033P
           filter:
-            tags: [ C000267-014S033P, MANILA_LEAFS ]
+            tags: [ C000140-014S033P, LAB_LEAFS ]
           id: 33
           mgmt_ip: 192.168.0.133/24
-        - name: C000267-014S034P
+        - name: C000140-014S034P
           filter:
-            tags: [ C000267-014S034P, MANILA_LEAFS ]
+            tags: [ C000140-014S034P, LAB_LEAFS ]
           id: 34
           mgmt_ip: 192.168.0.134/24
-        - name: C000267-014S035P
+        - name: C000140-014S035P
           filter:
-            tags: [ C000267-014S035P, MANILA_LEAFS ]
+            tags: [ C000140-014S035P, LAB_LEAFS ]
           id: 35
           mgmt_ip: 192.168.0.135/24
-    - group: MANILA_WC_15
+    - group: LAB_WC_15
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-015S036P
+        - name: C000140-015S036P
           filter:
-            tags: [ C000267-015S036P, MANILA_LEAFS ]
+            tags: [ C000140-015S036P, LAB_LEAFS ]
           id: 36
           mgmt_ip: 192.168.0.136/24
-        - name: C000267-015S037P
+        - name: C000140-015S037P
           filter:
-            tags: [ C000267-015S037P, MANILA_LEAFS ]
+            tags: [ C000140-015S037P, LAB_LEAFS ]
           id: 37
           mgmt_ip: 192.168.0.137/24
-        - name: C000267-015S038P
+        - name: C000140-015S038P
           filter:
-            tags: [ C000267-015S038P, MANILA_LEAFS ]
+            tags: [ C000140-015S038P, LAB_LEAFS ]
           id: 38
           mgmt_ip: 192.168.0.138/24
-        - name: C000267-015S039P
+        - name: C000140-015S039P
           filter:
-            tags: [ C000267-015S039P, MANILA_LEAFS ]
+            tags: [ C000140-015S039P, LAB_LEAFS ]
           id: 39
           mgmt_ip: 192.168.0.139/24
-    - group: MANILA_WC_16
+    - group: LAB_WC_16
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-016S040P
+        - name: C000140-016S040P
           filter:
-            tags: [ C000267-016S040P, MANILA_LEAFS ]
+            tags: [ C000140-016S040P, LAB_LEAFS ]
           id: 40
           mgmt_ip: 192.168.0.140/24
-        - name: C000267-016S041P
+        - name: C000140-016S041P
           filter:
-            tags: [ C000267-016S041P, MANILA_LEAFS ]
+            tags: [ C000140-016S041P, LAB_LEAFS ]
           id: 41
           mgmt_ip: 192.168.0.141/24
-        - name: C000267-016S042P
+        - name: C000140-016S042P
           filter:
-            tags: [ C000267-016S042P, MANILA_LEAFS ]
+            tags: [ C000140-016S042P, LAB_LEAFS ]
           id: 42
           mgmt_ip: 192.168.0.142/24
-        - name: C000267-016S043P
+        - name: C000140-016S043P
           filter:
-            tags: [ C000267-016S043P, MANILA_LEAFS ]
+            tags: [ C000140-016S043P, LAB_LEAFS ]
           id: 43
           mgmt_ip: 192.168.0.143/24
-    - group: MANILA_WC_17
+    - group: LAB_WC_17
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 720XP-48
       nodes:
-        - name: C000267-017S044P
+        - name: C000140-017S044P
           filter:
-            tags: [ C000267-017S044P, MANILA_LEAFS ]
+            tags: [ C000140-017S044P, LAB_LEAFS ]
           id: 44
           mgmt_ip: 192.168.0.144/24
-        - name: C000267-017S045P
+        - name: C000140-017S045P
           filter:
-            tags: [ C000267-017S045P, MANILA_LEAFS ]
+            tags: [ C000140-017S045P, LAB_LEAFS ]
           id: 45
           mgmt_ip: 192.168.0.145/24
-        - name: C000267-017S046P
+        - name: C000140-017S046P
           filter:
-            tags: [ C000267-017S046P, MANILA_LEAFS ]
+            tags: [ C000140-017S046P, LAB_LEAFS ]
           id: 46
           mgmt_ip: 192.168.0.146/24
-        - name: C000267-017S047P
+        - name: C000140-017S047P
           filter:
-            tags: [ C000267-017S047P, MANILA_LEAFS ]
+            tags: [ C000140-017S047P, LAB_LEAFS ]
           id: 47
           mgmt_ip: 192.168.0.147/24
-    - group: MANILA_WC_18
+    - group: LAB_WC_18
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 720XP-48
       nodes:
-        - name: C000267-018S048P
+        - name: C000140-018S048P
           filter:
-            tags: [ C000267-018S048P, MANILA_LEAFS ]
+            tags: [ C000140-018S048P, LAB_LEAFS ]
           id: 48
           mgmt_ip: 192.168.0.148/24
-        - name: C000267-018S049P
+        - name: C000140-018S049P
           filter:
-            tags: [ C000267-018S049P, MANILA_LEAFS ]
+            tags: [ C000140-018S049P, LAB_LEAFS ]
           id: 49
           mgmt_ip: 192.168.0.149/24
-        - name: C000267-018S050P
+        - name: C000140-018S050P
           filter:
-            tags: [ C000267-018S050P, MANILA_LEAFS ]
+            tags: [ C000140-018S050P, LAB_LEAFS ]
           id: 50
           mgmt_ip: 192.168.0.150/24
-        - name: C000267-018S051P
+        - name: C000140-018S051P
           filter:
-            tags: [ C000267-018S051P, MANILA_LEAFS ]
+            tags: [ C000140-018S051P, LAB_LEAFS ]
           id: 51
           mgmt_ip: 192.168.0.151/24
-    - group: MANILA_WC_19
+    - group: LAB_WC_19
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-019S052P
+        - name: C000140-019S052P
           filter:
-            tags: [ C000267-019S052P, MANILA_LEAFS ]
+            tags: [ C000140-019S052P, LAB_LEAFS ]
           id: 52
           mgmt_ip: 192.168.0.152/24
-        - name: C000267-019S053P
+        - name: C000140-019S053P
           filter:
-            tags: [ C000267-019S053P, MANILA_LEAFS ]
+            tags: [ C000140-019S053P, LAB_LEAFS ]
           id: 53
           mgmt_ip: 192.168.0.153/24
-        - name: C000267-019S054P
+        - name: C000140-019S054P
           filter:
-            tags: [ C000267-019S054P, MANILA_LEAFS ]
+            tags: [ C000140-019S054P, LAB_LEAFS ]
           id: 54
           mgmt_ip: 192.168.0.154/24
-        - name: C000267-019S055P
+        - name: C000140-019S055P
           filter:
-            tags: [ C000267-019S055P, MANILA_LEAFS ]
+            tags: [ C000140-019S055P, LAB_LEAFS ]
           id: 55
           mgmt_ip: 192.168.0.155/24
-    - group: MANILA_WC_20
+    - group: LAB_WC_20
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 758
       nodes:
-        - name: C000267-020S056P
+        - name: C000140-020S056P
           filter:
-            tags: [ C000267-020S056P, MANILA_LEAFS ]
+            tags: [ C000140-020S056P, LAB_LEAFS ]
           id: 56
           mgmt_ip: 192.168.0.156/24
-        - name: C000267-020S057P
+        - name: C000140-020S057P
           filter:
-            tags: [ C000267-020S057P, MANILA_LEAFS ]
+            tags: [ C000140-020S057P, LAB_LEAFS ]
           id: 57
           mgmt_ip: 192.168.0.157/24
-        - name: C000267-020S058P
+        - name: C000140-020S058P
           filter:
-            tags: [ C000267-020S058P, MANILA_LEAFS ]
+            tags: [ C000140-020S058P, LAB_LEAFS ]
           id: 58
           mgmt_ip: 192.168.0.158/24
-        - name: C000267-020S059P
+        - name: C000140-020S059P
           filter:
-            tags: [ C000267-020S059P, MANILA_LEAFS ]
+            tags: [ C000140-020S059P, LAB_LEAFS ]
           id: 59
           mgmt_ip: 192.168.0.159/24
 service_leaf:
@@ -583,7 +583,7 @@ service_leaf:
     # uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.210.0/24
-    uplink_switches: [C000267-014R601P, C000267-014R602P]
+    uplink_switches: [C000140-014R601P, C000140-014R602P]
     # uplink_interface_speed: forced 100g
     mlag: true
     mlag_peer_ipv4_pool: 192.168.2.0/25
@@ -601,21 +601,21 @@ service_leaf:
       - timers bgp 5 15
       - neighbor default send-community
   node_groups:
-    - group: MANILA_SRV_LEAFS
+    - group: LAB_SRV_LEAFS
       filter:
-        tags: [ MANILA_LEAFS ]
+        tags: [ LAB_LEAFS ]
       # vtep_loopback_ipv4_pool: 167.84.63.80/24
-      uplink_switches: [ C000267-009R601P, C000267-014R602P ]
+      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
       platform: 7050TX3-48
       nodes:
-        - name: C000267-009S560P
+        - name: C000140-009S560P
           filter:
-            tags: [ C000267-009S560P, MANILA_SERVICE_LEAFS ]
+            tags: [ C000140-009S560P, LAB_SERVICE_LEAFS ]
           id: 60
           mgmt_ip: 192.168.0.160/24
-        - name: C000267-009S561P
+        - name: C000140-009S561P
           filter:
-            tags: [ C000267-009S561P, MANILA_SERVICE_LEAFS ]
+            tags: [ C000140-009S561P, LAB_SERVICE_LEAFS ]
           id: 61
           mgmt_ip: 192.168.0.161/24
     # TODO should service leaf become its own "type"?
