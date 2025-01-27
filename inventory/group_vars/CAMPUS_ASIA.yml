@@ -1,6 +1,6 @@
 ---
 # DNS servers. In ACT, reachable via default.
-dns_domain: net.amer.jpmchase.net
+dns_domain: gielab.jpmchase.net
 # Cannot use eos_designs `name_servers` because mgmt_interface_vrf is MGMT
 custom_structured_configuration_ip_name_servers:
   - ip_address: 10.255.0.2

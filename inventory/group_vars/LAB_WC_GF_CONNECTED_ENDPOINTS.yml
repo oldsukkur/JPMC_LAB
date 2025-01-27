@@ -6,41 +6,7 @@ network_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
-  - switches:
-      - C000140-GRDS002P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
-
-  - switches:
-      - C000140-GRDS003P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
-
-  - switches:
-      - C000140-GRDS004P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
-
-  - switches:
-      - C000140-GRDS005P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
-
-  - switches:
-      - C000140-GRDS006P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
-
-  - switches:
-      - C000140-GRDS007P
-    switch_ports:
-      - Ethernet1-48
-    profile: endpoint_access_dot1x
+  
 
 #servers:
 #  - name: Host1
