@@ -1,7 +1,7 @@
 ---
 network_ports:
   - switches:
-      - C000140-GRDS001P
+      - C000140-CCS-720XP
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x

@@ -114,13 +114,13 @@ port_profiles:
 
 network_ports:
   - switches:
-      - C000140-GRDS001P
+      - C000140-CCS-720XP
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
 
   - switches:
-      - - C000140-007S008P
+      - C000140-CCS-758
     switch_ports:
       - Ethernet3/1-48
       - Ethernet4/1-48
@@ -130,6 +130,5 @@ network_ports:
     profile: endpoint_access_dot1x
 
 
-     
 
   ################################## Addeing southbound for vlan 520 and 521###############

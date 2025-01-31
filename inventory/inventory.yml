@@ -35,27 +35,27 @@ all:
               children:
                 LAB_SPINES:
                   hosts:
-                    C000140-009R601P:
+                    C000140-DCS-7304X3:
                       # ansible_host var required for validation role.
                       ansible_host: 192.168.0.251
-                    C000140-014R602P:
-                      ansible_host: 192.168.0.252
+                    # C000140-014R602P:
+                    #   ansible_host: 192.168.0.252
                 LAB_LEAFS:
                   children:
                     LAB_WC_GRD:
                       hosts:
-                        C000140-GRDS001P:
+                        C000140-CCS-720XP:
                           ansible_host: 192.168.0.101
                     LAB_WC_07:
                       hosts:
-                        C000140-007S008P:
+                        C000140-CCS-758:
                           ansible_host: 192.168.0.108
-                    LAB_SRV_LEAFS:
-                      hosts:
-                        C000140-009S560P:
-                          ansible_host: 192.168.0.160
-                        C000140-009S561P:
-                          ansible_host: 192.168.0.161
+                    # LAB_SRV_LEAFS:
+                    #   hosts:
+                    #     C000140-009S560P:
+                    #       ansible_host: 192.168.0.160
+                    #     C000140-009S561P:
+                    #       ansible_host: 192.168.0.161
           vars:
             ansible_connection: httpapi
             ansible_network_os: eos

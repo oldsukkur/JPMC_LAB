@@ -1,85 +1,303 @@
 Node Type,Node,Node Interface,Peer Type,Peer Node,Peer Interface,Node Interface Enabled
-l3leaf,C000140-007S008P,Ethernet1/1/1,spine,C000140-009R601P,Ethernet3/2/1,True
-l3leaf,C000140-007S008P,Ethernet2/1/1,spine,C000140-014R602P,Ethernet3/2/1,True
-spine,C000140-009R601P,Ethernet3/1/1,l3leaf,C000140-GRDS001P,Ethernet53/1,True
-spine,C000140-009R601P,Ethernet3/2/1,l3leaf,C000140-007S008P,Ethernet1/1/1,True
-spine,C000140-009R601P,Ethernet3/48/1,l3_interface,,,True
-spine,C000140-009R601P,Ethernet3/48/1.100,l3_interface,,,True
-spine,C000140-009R601P,Ethernet3/48/1.200,l3_interface,,,True
-spine,C000140-009R601P,Ethernet3/48/1.300,l3_interface,,,True
-spine,C000140-009R601P,Ethernet4/29/1,service_leaf,C000140-009S560P,Ethernet1/1/1,True
-spine,C000140-009R601P,Ethernet4/30/1,service_leaf,C000140-009S561P,Ethernet1/1/1,True
-spine,C000140-009R601P,Ethernet4/48/1,l3_interface,,,True
-spine,C000140-009R601P,Ethernet4/48/1.100,l3_interface,,,True
-spine,C000140-009R601P,Ethernet4/48/1.200,l3_interface,,,True
-spine,C000140-009R601P,Ethernet4/48/1.300,l3_interface,,,True
-service_leaf,C000140-009S560P,Ethernet1/1/1,spine,C000140-009R601P,Ethernet4/29/1,True
-service_leaf,C000140-009S560P,Ethernet1/1/2,mlag_peer,C000140-009S561P,Ethernet1/1/2,True
-service_leaf,C000140-009S560P,Ethernet2/1/1,spine,C000140-014R602P,Ethernet4/29/1,True
-service_leaf,C000140-009S560P,Ethernet2/1/2,mlag_peer,C000140-009S561P,Ethernet2/1/2,True
-service_leaf,C000140-009S561P,Ethernet1/1/1,spine,C000140-009R601P,Ethernet4/30/1,True
-service_leaf,C000140-009S561P,Ethernet1/1/2,mlag_peer,C000140-009S560P,Ethernet1/1/2,True
-service_leaf,C000140-009S561P,Ethernet2/1/1,spine,C000140-014R602P,Ethernet4/30/1,True
-service_leaf,C000140-009S561P,Ethernet2/1/2,mlag_peer,C000140-009S560P,Ethernet2/1/2,True
-spine,C000140-014R602P,Ethernet3/1/1,l3leaf,C000140-GRDS001P,Ethernet54/1,True
-spine,C000140-014R602P,Ethernet3/2/1,l3leaf,C000140-007S008P,Ethernet2/1/1,True
-spine,C000140-014R602P,Ethernet3/48/1,l3_interface,,,True
-spine,C000140-014R602P,Ethernet3/48/1.100,l3_interface,,,True
-spine,C000140-014R602P,Ethernet3/48/1.200,l3_interface,,,True
-spine,C000140-014R602P,Ethernet3/48/1.300,l3_interface,,,True
-spine,C000140-014R602P,Ethernet4/29/1,service_leaf,C000140-009S560P,Ethernet2/1/1,True
-spine,C000140-014R602P,Ethernet4/30/1,service_leaf,C000140-009S561P,Ethernet2/1/1,True
-spine,C000140-014R602P,Ethernet4/48/1,l3_interface,,,True
-spine,C000140-014R602P,Ethernet4/48/1.100,l3_interface,,,True
-spine,C000140-014R602P,Ethernet4/48/1.200,l3_interface,,,True
-spine,C000140-014R602P,Ethernet4/48/1.300,l3_interface,,,True
-l3leaf,C000140-GRDS001P,Ethernet1,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet2,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet3,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet4,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet5,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet6,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet7,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet8,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet9,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet10,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet11,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet12,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet13,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet14,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet15,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet16,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet17,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet18,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet19,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet20,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet21,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet22,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet23,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet24,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet25,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet26,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet27,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet28,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet29,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet30,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet31,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet32,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet33,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet34,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet35,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet36,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet37,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet38,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet39,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet40,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet41,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet42,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet43,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet44,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet45,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet46,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet47,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet48,network_port,Endpoint access port (Dot1x enabled),,True
-l3leaf,C000140-GRDS001P,Ethernet53/1,spine,C000140-009R601P,Ethernet3/1/1,True
-l3leaf,C000140-GRDS001P,Ethernet54/1,spine,C000140-014R602P,Ethernet3/1/1,True
+l3leaf,C000140-CCS-720XP,Ethernet1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet48,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-720XP,Ethernet53/1,spine,C000140-DCS-7304X3,Ethernet3/1/1,True
+l3leaf,C000140-CCS-758,Ethernet1/1/1,spine,C000140-DCS-7304X3,Ethernet3/2/1,True
+l3leaf,C000140-CCS-758,Ethernet3/1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet3/48,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet4/48,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet5/48,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet6/48,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/1,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/2,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/3,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/4,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/5,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/6,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/7,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/8,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/9,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/10,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/11,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/12,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/13,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/14,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/15,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/16,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/17,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/18,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/19,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/20,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/21,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/22,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/23,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/24,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/25,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/26,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/27,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/28,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/29,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/30,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/31,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/32,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/33,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/34,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/35,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/36,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/37,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/38,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/39,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/40,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/41,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/42,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/43,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/44,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/45,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/46,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/47,network_port,Endpoint access port (Dot1x enabled),,True
+l3leaf,C000140-CCS-758,Ethernet7/48,network_port,Endpoint access port (Dot1x enabled),,True
+spine,C000140-DCS-7304X3,Ethernet3/1/1,l3leaf,C000140-CCS-720XP,Ethernet53/1,True
+spine,C000140-DCS-7304X3,Ethernet3/2/1,l3leaf,C000140-CCS-758,Ethernet1/1/1,True
+spine,C000140-DCS-7304X3,Ethernet3/32/1,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet3/32/1.100,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet3/48/1,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet3/48/1.200,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet3/48/1.300,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet4/32/1,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet4/32/1.100,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet4/48/1,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet4/48/1.200,l3_interface,,,True
+spine,C000140-DCS-7304X3,Ethernet4/48/1.300,l3_interface,,,True

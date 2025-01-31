@@ -121,17 +121,17 @@ spine:
       - timers bgp 5 15
       - neighbor default send-community
   nodes:
-    - name: C000140-009R601P
+    - name: C000140-DCS-7304X3
       id: 251
       filter:
-        tags: [ C000140-009R601P, LAB_SPINES ]
+        tags: [ C000140-DCS-7304X3, LAB_SPINES ]
         always_include_vrfs_in_tenants: [ all ]
       mgmt_ip: 192.168.0.200/24
-    - name: C000140-014R602P
-      id: 252
-      filter:
-        tags: [ C000140-014R602P, LAB_SPINES ]
-      mgmt_ip: 192.168.0.201/24
+    # - name: C000140-014R602P
+    #   id: 252
+    #   filter:
+    #     tags: [ C000140-014R602P, LAB_SPINES ]
+    #   mgmt_ip: 192.168.0.201/24
 
 # Leaf switch groups
 # A maximum of two nodes can form a leaf group
@@ -147,7 +147,7 @@ l3leaf:
     # uplink_ipv6_pool: 2001:db8:abcd:0012/64
     loopback_ipv4_pool: 192.168.100.0/24
     vtep_loopback_ipv4_pool: 192.168.200.0/24
-    uplink_switches: [C000140-014R601P, C000140-014R602P]
+    uplink_switches: [ C000140-DCS-7304X3 ]
     # uplink_interface_speed: forced 100g
     mlag: false
     mlag_peer_ipv4_pool: 192.168.2.0/25
@@ -171,12 +171,12 @@ l3leaf:
         tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
+      uplink_switches: [ C000140-DCS-7304X3 ]
       platform: 720XP-48
       nodes:
-        - name: C000140-GRDS001P
+        - name: C000140-CCS-720XP
           filter:
-            tags: [ C000140-GRDS001P, LAB_LEAFS ]
+            tags: [ C000140-CCS-720XP, LAB_LEAFS ]
           id: 1
           mgmt_ip: 192.168.0.101/24
     - group: LAB_WC_07
@@ -184,59 +184,59 @@ l3leaf:
         tags: [ LAB_LEAFS ]
       #loopback_ipv4_pool: 192.168.100.0/24
       # vtep loopback pool will not actually be used as we set Loopback0 as vtep sourceabove
-      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
+      uplink_switches: [ C000140-DCS-7304X3 ]
       platform: 758
       nodes:
-        - name: C000140-007S008P
+        - name: C000140-CCS-758
           filter:
-            tags: [ C000140-007S008P, LAB_LEAFS ]
+            tags: [ C000140-CCS-758, LAB_LEAFS ]
           id: 2
           mgmt_ip: 192.168.0.108/24
-service_leaf:
-  defaults:
-    # virtual router mac for VNIs assigned to Leaf switches
-    virtual_router_mac_address: 00:1c:73:00:dc:01
-    platform: EOS
-    bgp_as: "65001"
-    uplink_ipv4_pool: 192.168.3.0/24
-    # uplink_ipv6_pool: 2001:db8:abcd:0012/64
-    loopback_ipv4_pool: 192.168.100.0/24
-    vtep_loopback_ipv4_pool: 192.168.210.0/24
-    uplink_switches: [C000140-014R601P, C000140-014R602P]
-    # uplink_interface_speed: forced 100g
-    mlag: true
-    mlag_peer_ipv4_pool: 192.168.2.0/25
-    # iBGP Peering between MLAG peers
-    mlag_peer_l3_ipv4_pool: 192.168.2.128/25
-    spanning_tree_priority: 4096
-    spanning_tree_mode: mstp
-    inband_mgmt_interface: Loopback0
-    structured_config:
-      router_bgp:
-        as_notation: "asdot"
-      dhcp_relay:
-        tunnel_requests_disabled: true
-    bgp_defaults:
-      - timers bgp 5 15
-      - neighbor default send-community
-  node_groups:
-    - group: LAB_SRV_LEAFS
-      filter:
-        tags: [ LAB_LEAFS ]
-      # vtep_loopback_ipv4_pool: 167.84.63.80/24
-      uplink_switches: [ C000140-009R601P, C000140-014R602P ]
-      platform: 7050TX3-48
-      nodes:
-        - name: C000140-009S560P
-          filter:
-            tags: [ C000140-009S560P, LAB_SERVICE_LEAFS ]
-          id: 60
-          mgmt_ip: 192.168.0.160/24
-        - name: C000140-009S561P
-          filter:
-            tags: [ C000140-009S561P, LAB_SERVICE_LEAFS ]
-          id: 61
-          mgmt_ip: 192.168.0.161/24
+# service_leaf:
+#   defaults:
+#     # virtual router mac for VNIs assigned to Leaf switches
+#     virtual_router_mac_address: 00:1c:73:00:dc:01
+#     platform: EOS
+#     bgp_as: "65001"
+#     uplink_ipv4_pool: 192.168.3.0/24
+#     # uplink_ipv6_pool: 2001:db8:abcd:0012/64
+#     loopback_ipv4_pool: 192.168.100.0/24
+#     vtep_loopback_ipv4_pool: 192.168.210.0/24
+#     uplink_switches: [C000140-014R601P, C000140-014R602P]
+#     # uplink_interface_speed: forced 100g
+#     mlag: true
+#     mlag_peer_ipv4_pool: 192.168.2.0/25
+#     # iBGP Peering between MLAG peers
+#     mlag_peer_l3_ipv4_pool: 192.168.2.128/25
+#     spanning_tree_priority: 4096
+#     spanning_tree_mode: mstp
+#     inband_mgmt_interface: Loopback0
+#     structured_config:
+#       router_bgp:
+#         as_notation: "asdot"
+#       dhcp_relay:
+#         tunnel_requests_disabled: true
+#     bgp_defaults:
+#       - timers bgp 5 15
+#       - neighbor default send-community
+#   node_groups:
+#     - group: LAB_SRV_LEAFS
+#       filter:
+#         tags: [ LAB_LEAFS ]
+#       # vtep_loopback_ipv4_pool: 167.84.63.80/24
+#       uplink_switches: [ C000140-DCS-7304X3, C000140-014R602P ]
+#       platform: 7050TX3-48
+#       nodes:
+#         - name: C000140-009S560P
+#           filter:
+#             tags: [ C000140-009S560P, LAB_SERVICE_LEAFS ]
+#           id: 60
+#           mgmt_ip: 192.168.0.160/24
+#         - name: C000140-009S561P
+#           filter:
+#             tags: [ C000140-009S561P, LAB_SERVICE_LEAFS ]
+#           id: 61
+#           mgmt_ip: 192.168.0.161/24
     # TODO should service leaf become its own "type"?
 # update mtu for real deployment -> 9214
 
