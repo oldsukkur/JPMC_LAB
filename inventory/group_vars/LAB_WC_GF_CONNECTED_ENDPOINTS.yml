@@ -1,10 +1,15 @@
 ---
 network_ports:
   - switches:
-      - C000140-CCS-720XP
+      - C000140-001S001A
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
+  - switches:
+      - C000140-001S002A
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x  
 
   
 

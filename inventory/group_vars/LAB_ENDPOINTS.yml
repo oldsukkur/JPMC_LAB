@@ -114,13 +114,19 @@ port_profiles:
 
 network_ports:
   - switches:
-      - C000140-CCS-720XP
+      - C000140-001S001A
     switch_ports:
       - Ethernet1-48
     profile: endpoint_access_dot1x
+  
+  - switches:
+      - C000140-001S002A
+    switch_ports:
+      - Ethernet1-48
+    profile: endpoint_access_dot1x  
 
   - switches:
-      - C000140-CCS-758
+      - C000140-001S003A
     switch_ports:
       - Ethernet3/1-48
       - Ethernet4/1-48
@@ -128,6 +134,16 @@ network_ports:
       - Ethernet6/1-48
       - Ethernet7/1-48
     profile: endpoint_access_dot1x
+
+  - switches:
+      - C000140-001S004A
+    switch_ports:
+      - Ethernet3/1-48
+      - Ethernet4/1-48
+      - Ethernet5/1-48
+      - Ethernet6/1-48
+      - Ethernet7/1-48
+    profile: endpoint_access_dot1x  
 
 
 
