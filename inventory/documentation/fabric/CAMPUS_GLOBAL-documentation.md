@@ -41,14 +41,14 @@
 | spine | C000140-001R601A | Ethernet3/2/1 | l3leaf | C000140-001S002A | Ethernet53/1 |
 | spine | C000140-001R601A | Ethernet3/3/1 | l3leaf | C000140-001S003A | Ethernet1/1/1 |
 | spine | C000140-001R601A | Ethernet3/4/1 | l3leaf | C000140-001S004A | Ethernet1/1/1 |
-| spine | C000140-001R601A | Ethernet4/29/1 | service_leaf | C000140-001S560A | Ethernet1/1/1 |
-| spine | C000140-001R601A | Ethernet4/30/1 | service_leaf | C000140-001S561A | Ethernet1/1/1 |
+| spine | C000140-001R601A | Ethernet3/5/1 | service_leaf | C000140-001S560A | Ethernet1/1/1 |
+| spine | C000140-001R601A | Ethernet3/6/1 | service_leaf | C000140-001S561A | Ethernet1/1/1 |
 | spine | C000140-001R602A | Ethernet3/1/1 | l3leaf | C000140-001S001A | Ethernet54/1 |
 | spine | C000140-001R602A | Ethernet3/2/1 | l3leaf | C000140-001S002A | Ethernet54/1 |
 | spine | C000140-001R602A | Ethernet3/3/1 | l3leaf | C000140-001S003A | Ethernet2/1/1 |
 | spine | C000140-001R602A | Ethernet3/4/1 | l3leaf | C000140-001S004A | Ethernet2/1/1 |
-| spine | C000140-001R602A | Ethernet4/29/1 | service_leaf | C000140-001S560A | Ethernet2/1/1 |
-| spine | C000140-001R602A | Ethernet4/30/1 | service_leaf | C000140-001S561A | Ethernet2/1/1 |
+| spine | C000140-001R602A | Ethernet3/5/1 | service_leaf | C000140-001S560A | Ethernet2/1/1 |
+| spine | C000140-001R602A | Ethernet3/6/1 | service_leaf | C000140-001S561A | Ethernet2/1/1 |
 | service_leaf | C000140-001S560A | Ethernet1/1/2 | mlag_peer | C000140-001S561A | Ethernet1/1/2 |
 | service_leaf | C000140-001S560A | Ethernet2/1/2 | mlag_peer | C000140-001S561A | Ethernet2/1/2 |
 
@@ -68,14 +68,14 @@
 | C000140-001R601A | Ethernet3/2/1 | 192.168.3.4/31 | C000140-001S002A | Ethernet53/1 | 192.168.3.5/31 |
 | C000140-001R601A | Ethernet3/3/1 | 192.168.3.8/31 | C000140-001S003A | Ethernet1/1/1 | 192.168.3.9/31 |
 | C000140-001R601A | Ethernet3/4/1 | 192.168.3.12/31 | C000140-001S004A | Ethernet1/1/1 | 192.168.3.13/31 |
-| C000140-001R601A | Ethernet4/29/1 | 192.168.3.236/31 | C000140-001S560A | Ethernet1/1/1 | 192.168.3.237/31 |
-| C000140-001R601A | Ethernet4/30/1 | 192.168.3.240/31 | C000140-001S561A | Ethernet1/1/1 | 192.168.3.241/31 |
+| C000140-001R601A | Ethernet3/5/1 | 192.168.3.16/31 | C000140-001S560A | Ethernet1/1/1 | 192.168.3.17/31 |
+| C000140-001R601A | Ethernet3/6/1 | 192.168.3.20/31 | C000140-001S561A | Ethernet1/1/1 | 192.168.3.21/31 |
 | C000140-001R602A | Ethernet3/1/1 | 192.168.3.2/31 | C000140-001S001A | Ethernet54/1 | 192.168.3.3/31 |
 | C000140-001R602A | Ethernet3/2/1 | 192.168.3.6/31 | C000140-001S002A | Ethernet54/1 | 192.168.3.7/31 |
 | C000140-001R602A | Ethernet3/3/1 | 192.168.3.10/31 | C000140-001S003A | Ethernet2/1/1 | 192.168.3.11/31 |
 | C000140-001R602A | Ethernet3/4/1 | 192.168.3.14/31 | C000140-001S004A | Ethernet2/1/1 | 192.168.3.15/31 |
-| C000140-001R602A | Ethernet4/29/1 | 192.168.3.238/31 | C000140-001S560A | Ethernet2/1/1 | 192.168.3.239/31 |
-| C000140-001R602A | Ethernet4/30/1 | 192.168.3.242/31 | C000140-001S561A | Ethernet2/1/1 | 192.168.3.243/31 |
+| C000140-001R602A | Ethernet3/5/1 | 192.168.3.18/31 | C000140-001S560A | Ethernet2/1/1 | 192.168.3.19/31 |
+| C000140-001R602A | Ethernet3/6/1 | 192.168.3.22/31 | C000140-001S561A | Ethernet2/1/1 | 192.168.3.23/31 |
 
 ### Loopback Interfaces (BGP EVPN Peering)
 
@@ -94,8 +94,8 @@
 | LAB | C000140-001S002A | 192.168.100.2/32 |
 | LAB | C000140-001S003A | 192.168.100.3/32 |
 | LAB | C000140-001S004A | 192.168.100.4/32 |
-| LAB | C000140-001S560A | 192.168.100.60/32 |
-| LAB | C000140-001S561A | 192.168.100.61/32 |
+| LAB | C000140-001S560A | 192.168.100.5/32 |
+| LAB | C000140-001S561A | 192.168.100.6/32 |
 
 ### VTEP Loopback VXLAN Tunnel Source Interfaces (VTEPs Only)
 
@@ -115,5 +115,5 @@
 | LAB | C000140-001S002A | 192.168.200.2/32 |
 | LAB | C000140-001S003A | 192.168.200.3/32 |
 | LAB | C000140-001S004A | 192.168.200.4/32 |
-| LAB | C000140-001S560A | 192.168.210.60/32 |
-| LAB | C000140-001S561A | 192.168.210.60/32 |
+| LAB | C000140-001S560A | 192.168.210.5/32 |
+| LAB | C000140-001S561A | 192.168.210.5/32 |

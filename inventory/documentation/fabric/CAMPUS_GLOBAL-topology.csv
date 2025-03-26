@@ -3,12 +3,12 @@ spine,C000140-001R601A,Ethernet3/1/1,l3leaf,C000140-001S001A,Ethernet53/1,True
 spine,C000140-001R601A,Ethernet3/2/1,l3leaf,C000140-001S002A,Ethernet53/1,True
 spine,C000140-001R601A,Ethernet3/3/1,l3leaf,C000140-001S003A,Ethernet1/1/1,True
 spine,C000140-001R601A,Ethernet3/4/1,l3leaf,C000140-001S004A,Ethernet1/1/1,True
+spine,C000140-001R601A,Ethernet3/5/1,service_leaf,C000140-001S560A,Ethernet1/1/1,True
+spine,C000140-001R601A,Ethernet3/6/1,service_leaf,C000140-001S561A,Ethernet1/1/1,True
 spine,C000140-001R601A,Ethernet3/32/1,l3_interface,,,True
 spine,C000140-001R601A,Ethernet3/32/1.100,l3_interface,,,True
 spine,C000140-001R601A,Ethernet3/32/1.200,l3_interface,,,True
 spine,C000140-001R601A,Ethernet3/32/1.300,l3_interface,,,True
-spine,C000140-001R601A,Ethernet4/29/1,service_leaf,C000140-001S560A,Ethernet1/1/1,True
-spine,C000140-001R601A,Ethernet4/30/1,service_leaf,C000140-001S561A,Ethernet1/1/1,True
 spine,C000140-001R601A,Ethernet4/32/1,l3_interface,,,True
 spine,C000140-001R601A,Ethernet4/32/1.100,l3_interface,,,True
 spine,C000140-001R601A,Ethernet4/32/1.200,l3_interface,,,True
@@ -17,12 +17,12 @@ spine,C000140-001R602A,Ethernet3/1/1,l3leaf,C000140-001S001A,Ethernet54/1,True
 spine,C000140-001R602A,Ethernet3/2/1,l3leaf,C000140-001S002A,Ethernet54/1,True
 spine,C000140-001R602A,Ethernet3/3/1,l3leaf,C000140-001S003A,Ethernet2/1/1,True
 spine,C000140-001R602A,Ethernet3/4/1,l3leaf,C000140-001S004A,Ethernet2/1/1,True
+spine,C000140-001R602A,Ethernet3/5/1,service_leaf,C000140-001S560A,Ethernet2/1/1,True
+spine,C000140-001R602A,Ethernet3/6/1,service_leaf,C000140-001S561A,Ethernet2/1/1,True
 spine,C000140-001R602A,Ethernet3/32/1,l3_interface,,,True
 spine,C000140-001R602A,Ethernet3/32/1.100,l3_interface,,,True
 spine,C000140-001R602A,Ethernet3/32/1.200,l3_interface,,,True
 spine,C000140-001R602A,Ethernet3/32/1.300,l3_interface,,,True
-spine,C000140-001R602A,Ethernet4/29/1,service_leaf,C000140-001S560A,Ethernet2/1/1,True
-spine,C000140-001R602A,Ethernet4/30/1,service_leaf,C000140-001S561A,Ethernet2/1/1,True
 spine,C000140-001R602A,Ethernet4/32/1,l3_interface,,,True
 spine,C000140-001R602A,Ethernet4/32/1.100,l3_interface,,,True
 spine,C000140-001R602A,Ethernet4/32/1.200,l3_interface,,,True
@@ -611,11 +611,11 @@ l3leaf,C000140-001S004A,Ethernet7/45,network_port,Endpoint access port (Dot1x en
 l3leaf,C000140-001S004A,Ethernet7/46,network_port,Endpoint access port (Dot1x enabled),,True
 l3leaf,C000140-001S004A,Ethernet7/47,network_port,Endpoint access port (Dot1x enabled),,True
 l3leaf,C000140-001S004A,Ethernet7/48,network_port,Endpoint access port (Dot1x enabled),,True
-service_leaf,C000140-001S560A,Ethernet1/1/1,spine,C000140-001R601A,Ethernet4/29/1,True
+service_leaf,C000140-001S560A,Ethernet1/1/1,spine,C000140-001R601A,Ethernet3/5/1,True
 service_leaf,C000140-001S560A,Ethernet1/1/2,mlag_peer,C000140-001S561A,Ethernet1/1/2,True
-service_leaf,C000140-001S560A,Ethernet2/1/1,spine,C000140-001R602A,Ethernet4/29/1,True
+service_leaf,C000140-001S560A,Ethernet2/1/1,spine,C000140-001R602A,Ethernet3/5/1,True
 service_leaf,C000140-001S560A,Ethernet2/1/2,mlag_peer,C000140-001S561A,Ethernet2/1/2,True
-service_leaf,C000140-001S561A,Ethernet1/1/1,spine,C000140-001R601A,Ethernet4/30/1,True
+service_leaf,C000140-001S561A,Ethernet1/1/1,spine,C000140-001R601A,Ethernet3/6/1,True
 service_leaf,C000140-001S561A,Ethernet1/1/2,mlag_peer,C000140-001S560A,Ethernet1/1/2,True
-service_leaf,C000140-001S561A,Ethernet2/1/1,spine,C000140-001R602A,Ethernet4/30/1,True
+service_leaf,C000140-001S561A,Ethernet2/1/1,spine,C000140-001R602A,Ethernet3/6/1,True
 service_leaf,C000140-001S561A,Ethernet2/1/2,mlag_peer,C000140-001S560A,Ethernet2/1/2,True

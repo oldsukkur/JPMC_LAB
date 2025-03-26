@@ -240,12 +240,12 @@ service_leaf:
         - name: C000140-001S560A
           filter:
             tags: [ C000140-001S560A, LAB_SERVICE_LEAFS ]
-          id: 60
+          id: 5
           mgmt_ip: 192.168.0.160/24
         - name: C000140-001S561A
           filter:
             tags: [ C000140-001S561A, LAB_SERVICE_LEAFS ]
-          id: 61
+          id: 6
           mgmt_ip: 192.168.0.161/24
     # TODO should service leaf become its own "type"?
 # update mtu for real deployment -> 9214
